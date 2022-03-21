@@ -3,9 +3,11 @@ module Main exposing (..)
 import Browser
 import Html exposing (Html, pre, text)
 import Http
-import Result.Extra
-import XmlParser as XP exposing (Node(..), Xml)
+import Imf.DateTime
+import Parser
+import Result.Extra exposing (andMap)
 import Time exposing (Posix)
+import XmlParser as XP exposing (Node(..), Xml)
 
 
 
@@ -141,14 +143,15 @@ status str =
             InProgress
 
 
-expositionMeta : String -> Int -> String -> String -> String -> ExpositionMeta
-expositionMeta title id link desc stat =
+expositionMeta : String -> Int -> String -> String -> String -> Posix -> ExpositionMeta
+expositionMeta title id link desc stat posix =
     ExpositionMeta
         { title = title
         , id = id
         , link = link
         , description = desc
         , status = status stat
+        , pubDate = posix
         }
 
 
@@ -159,6 +162,7 @@ type ExpositionMeta
         , link : String
         , description : String
         , status : Status
+        , pubDate : Posix
         }
 
 
@@ -182,6 +186,8 @@ type Problem
     | TooMany
     | Oops
     | NoText
+    | DateParserError (List Parser.DeadEnd)
+    | CouldNotRetrieveID String
 
 
 fromProblem : Problem -> String
@@ -198,6 +204,12 @@ fromProblem prob =
 
         NoText ->
             "Element has no text"
+
+        DateParserError deadEnd ->
+            "Couldn't parse date: " ++ Parser.deadEndsToString deadEnd
+
+        CouldNotRetrieveID str ->
+            "Could not find id in : " ++ str
 
 
 findNodeWithName : String -> List Node -> Result Problem Node
@@ -272,21 +284,48 @@ filterName match node =
         _ ->
             False
 
-publicationDate : String -> TIme.Posix
+
+publicationDate : String -> Result Problem Posix
+publicationDate str =
+    let
+        res =
+            Imf.DateTime.toPosix str
+    in
+    case res of
+        Ok psx ->
+            Ok psx
+
+        Err deadEnds ->
+            Err (DateParserError deadEnds)
+
+
+nth idx lst =
+    lst
+        |> List.drop idx
+        |> List.head
+
+
+getIdFromLink link =
+    let try = String.split "/" link |> nth 3 in
+    case try of 
+        Just str -> 
+            str |> String.toInt |> Result.fromMaybe (CouldNotRetrieveID link) 
+
+        Nothing -> Err <| CouldNotRetrieveID link
+
 
 fromItem : Node -> Result Problem ExpositionMeta
 fromItem node =
     node
         |> children
         |> (\nodes ->
-                Result.map5
-                    expositionMeta
-                    (findText "title" nodes)
-                    (Ok "123456" |> Result.map (String.toInt >> Maybe.withDefault 0))
-                    (findText "link" nodes)
-                    (findText "description" nodes)
-                    (findText "status" nodes)
-                    (findText "pubData" )
+                Ok expositionMeta
+                    |> andMap (findText "title" nodes)
+                    |> andMap (Ok "123456" |> Result.map (String.toInt >> Maybe.withDefault 0))
+                    |> andMap (findText "link" nodes)
+                    |> andMap (findText "description" nodes)
+                    |> andMap (findText "status" nodes)
+                    |> andMap (findText "pubDate" nodes |> Result.andThen publicationDate)
            )
 
 
