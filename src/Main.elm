@@ -4,10 +4,12 @@ import Browser
 import Html exposing (Html, pre, text)
 import Http
 import Imf.DateTime
+import Json.Encode as E
 import Parser
+import RCJson exposing (PublicationStatus, Research, decodeResearch)
 import Result.Extra exposing (andMap)
 import Time exposing (Posix)
-import XmlParser as XP exposing (Node(..), Xml)
+import XmlParser2 as XP exposing (Node(..), Xml)
 
 
 
@@ -32,6 +34,7 @@ type Model
     = Failure
     | Loading
     | Success String Xml
+    | Finished String
 
 
 init : () -> ( Model, Cmd Msg )
@@ -39,7 +42,7 @@ init _ =
     ( Loading
     , Http.get
         { expect = Http.expectString GotText
-        , url = "kcfeed2.xml"
+        , url = "rss.xml"
         }
     )
 
@@ -50,6 +53,7 @@ init _ =
 
 type Msg
     = GotText (Result Http.Error String)
+    | GotJson (Result Http.Error (List Research))
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -71,7 +75,12 @@ update msg model =
                                 _ =
                                     Debug.log "xml" x
                             in
-                            ( Success fullText x, Cmd.none )
+                            ( Success fullText x
+                            , Http.get
+                                { expect = Http.expectJson GotJson RCJson.decodeResearch
+                                , url = "internal_research.json"
+                                }
+                            )
 
                         Err err ->
                             let
@@ -82,6 +91,62 @@ update msg model =
 
                 Err _ ->
                     ( Failure, Cmd.none )
+
+        GotJson result ->
+            case result of
+                Err err ->
+                    let
+                        _ =
+                            Debug.log "error decoding json" err
+                    in
+                    ( Failure, Cmd.none )
+
+                Ok research ->
+                    case model of
+                        Success _ xml ->
+                            let
+                                attempt =
+                                    xml
+                                        |> fromXml
+                                        |> Result.map
+                                            (\metas ->
+                                                metas |> List.map (merge research)
+                                            )
+                            in
+                            case attempt of
+                                Ok mergedSuccess ->
+                                    let
+                                        onlyTheJust =
+                                            List.foldr
+                                                (\x acc ->
+                                                    case x of
+                                                        Just some ->
+                                                            some :: acc
+
+                                                        Nothing ->
+                                                            acc
+                                                )
+                                                []
+                                                mergedSuccess
+                                    in
+                                    onlyTheJust
+                                        |> encoder
+                                        |> E.encode 4
+                                        |> (\str -> ( Finished str, Cmd.none ))
+
+                                Err e ->
+                                    let
+                                        _ =
+                                            Debug.log "error" e
+                                    in
+                                    ( Failure, Cmd.none )
+
+                        wrongModel ->
+                            let
+                                _ =
+                                    Debug.log "there is a problem" wrongModel
+                            in
+                            ( Failure, Cmd.none )
 
 
 
@@ -124,6 +189,9 @@ view model =
             in
             pre [] [ text string ]
 
+        Finished mergedJson ->
+            pre [] [ text mergedJson ]
+
 
 type Status
     = Published
@@ -143,8 +211,8 @@ status str =
             InProgress
 
 
-expositionMeta : String -> Int -> String -> String -> String -> Posix -> ExpositionMeta
-expositionMeta title id link desc stat posix =
+expositionMeta : String -> Int -> String -> String -> String -> Posix -> Enclosure -> ExpositionMeta
+expositionMeta title id link desc stat posix encl =
     ExpositionMeta
         { title = title
         , id = id
@@ -152,6 +220,7 @@ expositionMeta title id link desc stat posix =
         , description = desc
         , status = status stat
         , pubDate = posix
+        , enclosure = encl
         }
 
 
@@ -163,6 +232,7 @@ type ExpositionMeta
         , description : String
         , status : Status
         , pubDate : Posix
+        , enclosure : Enclosure
         }
 
 
@@ -188,6 +258,7 @@ type Problem
     | NoText
     | DateParserError (List Parser.DeadEnd)
     | CouldNotRetrieveID String
+    | IncorrectEnclosure
 
 
 fromProblem : Problem -> String
@@ -211,6 +282,9 @@ fromProblem prob =
         CouldNotRetrieveID str ->
             "Could not find id in : " ++ str
 
+        IncorrectEnclosure ->
+            "IncorrectEnclosure"
+
 
 findNodeWithName : String -> List Node -> Result Problem Node
 findNodeWithName name nodes =
@@ -221,10 +295,6 @@ findNodeWithName name nodes =
                     elemName == name
 
                 _ ->
-                    let
-                        _ =
-                            Debug.log "test" node
-                    in
                     False
     in
     nodes
@@ -306,12 +376,55 @@ nth idx lst =
 
 
 getIdFromLink link =
-    let try = String.split "/" link |> nth 3 in
-    case try of 
-        Just str -> 
-            str |> String.toInt |> Result.fromMaybe (CouldNotRetrieveID link) 
+    let
+        try =
+            String.split "/" link |> nth 4
+    in
+    case try of
+        Just str ->
+            str |> String.toInt |> Result.fromMaybe (CouldNotRetrieveID link)
 
-        Nothing -> Err <| CouldNotRetrieveID link
+        Nothing ->
+            Err <| CouldNotRetrieveID link
+
+
+type alias Enclosure =
+    { url : String
+    , fileType : String
+    }
+
+
+attrWithName : String -> List XP.Attribute -> Maybe String
+attrWithName name attrs =
+    attrs |> List.filter (\a -> a.name == name) |> List.head |> Maybe.map (\a -> a.value)
+
+
+enclosure : Node -> Result Problem Enclosure
+enclosure node =
+    case node of
+        Element "enclosure" attrs _ ->
+            let
+                _ =
+                    Debug.log "attrs" attrs
+            in
+            Maybe.map2 Enclosure (attrWithName "url" attrs) (attrWithName "type" attrs) |> Result.fromMaybe IncorrectEnclosure
+
+        _ ->
+            Ok defaultThumb
+
+
+fallback : a -> Result Problem a -> Result Problem a
+fallback replacement result =
+    case result of
+        Ok r ->
+            Ok r
+
+        Err _ ->
+            Ok replacement
+
+
+defaultThumb =
+    Enclosure "null" "null"
 
 
 fromItem : Node -> Result Problem ExpositionMeta
@@ -321,11 +434,12 @@ fromItem node =
         |> (\nodes ->
                 Ok expositionMeta
                     |> andMap (findText "title" nodes)
-                    |> andMap (Ok "123456" |> Result.map (String.toInt >> Maybe.withDefault 0))
+                    |> andMap (findText "link" nodes |> Result.andThen getIdFromLink)
                     |> andMap (findText "link" nodes)
                     |> andMap (findText "description" nodes)
                     |> andMap (findText "status" nodes)
                     |> andMap (findText "pubDate" nodes |> Result.andThen publicationDate)
+                    |> andMap (findNodeWithName "enclosure" nodes |> Result.andThen enclosure |> fallback defaultThumb)
            )
 
 
@@ -340,4 +454,99 @@ fromXml xml =
         |> children
         |> findNodeWithName "channel"
         |> Result.map (children >> List.filter (filterName "item"))
-        |> Result.andThen (List.map fromItem >> Result.Extra.combine)
+        |> Result.map (List.map fromItem)
+        |> Result.map Result.Extra.partition
+        |> Result.map Tuple.first
+
+
+type alias MergedExposition =
+    { id : Int
+    , title : String
+    , keywords : List String
+    , description : String
+    , metaPage : String
+    , issue : String
+    , pubDate : Posix
+    , doi : String
+    , status : PublicationStatus
+    , author : String
+    , authorProfile : String
+    , authorId : Int
+    , copyright : String
+    , license : String
+    , thumb : String
+    }
+
+
+findResearchWithId : Int -> List Research -> Maybe Research
+findResearchWithId id lst =
+    let
+        test : Research -> Bool
+        test r =
+            r.id == id
+    in
+    lst |> List.filter test |> List.head
+
+
+metaPageFromId : Int -> String
+metaPageFromId id =
+    "https://www.researchcatalogue.net/profile/show-exposition?exposition=" ++ String.fromInt id
+
+
+authorProfile : Int -> String
+authorProfile id =
+    "https://www.researchcatalogue.net/profile/?person=" ++ String.fromInt id
+
+
+merge : List Research -> ExpositionMeta -> Maybe MergedExposition
+merge lst (ExpositionMeta meta) =
+    findResearchWithId meta.id lst
+        |> Maybe.map
+            (\research ->
+                { id = meta.id
+                , title = meta.title
+                , keywords = research.keywords
+                , description = meta.description
+                , metaPage = metaPageFromId meta.id
+                , issue = "null"
+                , pubDate = meta.pubDate
+                , doi = research.doi |> Maybe.withDefault "null"
+                , status = research.publicationStatus
+                , author = research.author
+                , authorProfile = research.authorId |> authorProfile
+                , authorId = research.authorId
+                , copyright = research.copyright
+                , license = research.license
+                , thumb = meta.enclosure.url
+                }
+            )
+
+
+encodeMerged : MergedExposition -> E.Value
+encodeMerged mexp =
+    E.object
+        [ ( "exposition"
+          , E.object
+                [ ( "id", E.int mexp.id )
+                , ( "title", E.string mexp.title )
+                , ( "keywords", E.list E.string mexp.keywords )
+                , ( "description", E.string mexp.description )
+                , ( "metaPage", E.string mexp.metaPage )
+                , ( "issue", E.string mexp.issue )
+                , ( "pubDatePosix", E.int (mexp.pubDate |> Time.posixToMillis |> (\millis -> millis // 1000)) )
+                , ( "doi", E.string mexp.doi )
+                , ( "status", E.string (mexp.status |> RCJson.statusToString) )
+                , ( "author", E.string mexp.author )
+                , ( "authorProfile", E.string mexp.authorProfile )
+                , ( "authorId", E.int mexp.authorId )
+                , ( "copyright", E.string mexp.copyright )
+                , ( "license", E.string mexp.license )
+                , ( "thumb", E.string mexp.thumb )
+                ]
+          )
+        ]
+
+
+encoder : List MergedExposition -> E.Value
+encoder lst =
+    E.list encodeMerged lst

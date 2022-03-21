@@ -6252,7 +6252,7 @@ var $author$project$Main$init = function (_v0) {
 		$elm$http$Http$get(
 			{
 				expect: $elm$http$Http$expectString($author$project$Main$GotText),
-				url: 'kcfeed2.xml'
+				url: 'https://www.researchcatalogue.net/feed?portal=6'
 			}));
 };
 var $elm$core$Platform$Sub$batch = _Platform_batch;
@@ -6261,57 +6261,538 @@ var $author$project$Main$subscriptions = function (model) {
 	return $elm$core$Platform$Sub$none;
 };
 var $author$project$Main$Failure = {$: 'Failure'};
+var $author$project$Main$Finished = function (a) {
+	return {$: 'Finished', a: a};
+};
+var $author$project$Main$GotJson = function (a) {
+	return {$: 'GotJson', a: a};
+};
 var $author$project$Main$Success = F2(
 	function (a, b) {
 		return {$: 'Success', a: a, b: b};
 	});
+var $author$project$RCJson$InProgress = {$: 'InProgress'};
+var $author$project$RCJson$Published = {$: 'Published'};
+var $author$project$RCJson$Research = function (id) {
+	return function (title) {
+		return function (keywords) {
+			return function (created) {
+				return function (author) {
+					return function (issueId) {
+						return function (publicationStatus) {
+							return function (publication) {
+								return function (doi) {
+									return function (authorId) {
+										return function (license) {
+											return function (copyright) {
+												return {author: author, authorId: authorId, copyright: copyright, created: created, doi: doi, id: id, issueId: issueId, keywords: keywords, license: license, publication: publication, publicationStatus: publicationStatus, title: title};
+											};
+										};
+									};
+								};
+							};
+						};
+					};
+				};
+			};
+		};
+	};
+};
+var $author$project$RCJson$Undecided = {$: 'Undecided'};
+var $elm_community$json_extra$Json$Decode$Extra$andMap = $elm$json$Json$Decode$map2($elm$core$Basics$apR);
+var $author$project$RCJson$calcStatus = function (research) {
+	var _v0 = research.publicationStatus;
+	if (_v0.$ === 'InProgress') {
+		return $author$project$RCJson$InProgress;
+	} else {
+		var _v1 = research.issueId;
+		if (_v1.$ === 'Just') {
+			return $author$project$RCJson$Published;
+		} else {
+			return $author$project$RCJson$Published;
+		}
+	}
+};
+var $elm$json$Json$Decode$field = _Json_decodeField;
+var $elm$json$Json$Decode$int = _Json_decodeInt;
+var $elm$json$Json$Decode$list = _Json_decodeList;
+var $elm$json$Json$Decode$oneOf = _Json_oneOf;
+var $elm$json$Json$Decode$maybe = function (decoder) {
+	return $elm$json$Json$Decode$oneOf(
+		_List_fromArray(
+			[
+				A2($elm$json$Json$Decode$map, $elm$core$Maybe$Just, decoder),
+				$elm$json$Json$Decode$succeed($elm$core$Maybe$Nothing)
+			]));
+};
+var $elm$json$Json$Decode$string = _Json_decodeString;
+var $author$project$RCJson$entry = function () {
+	var statusFromString = function (statusString) {
+		switch (statusString) {
+			case 'published':
+				return $author$project$RCJson$Published;
+			case 'in progress':
+				return $author$project$RCJson$InProgress;
+			default:
+				return $author$project$RCJson$Undecided;
+		}
+	};
+	var researchPublicationStatus = function (research) {
+		return _Utils_update(
+			research,
+			{
+				publicationStatus: $author$project$RCJson$calcStatus(research)
+			});
+	};
+	return A2(
+		$elm$json$Json$Decode$map,
+		researchPublicationStatus,
+		A2(
+			$elm_community$json_extra$Json$Decode$Extra$andMap,
+			A2(
+				$elm$json$Json$Decode$field,
+				'author',
+				A2($elm$json$Json$Decode$field, 'name', $elm$json$Json$Decode$string)),
+			A2(
+				$elm_community$json_extra$Json$Decode$Extra$andMap,
+				$elm$json$Json$Decode$succeed('All rights reserved'),
+				A2(
+					$elm_community$json_extra$Json$Decode$Extra$andMap,
+					A2(
+						$elm$json$Json$Decode$field,
+						'author',
+						A2($elm$json$Json$Decode$field, 'id', $elm$json$Json$Decode$int)),
+					A2(
+						$elm_community$json_extra$Json$Decode$Extra$andMap,
+						A2(
+							$elm$json$Json$Decode$field,
+							'doi',
+							$elm$json$Json$Decode$maybe(
+								A2($elm$json$Json$Decode$field, 'url', $elm$json$Json$Decode$string))),
+						A2(
+							$elm_community$json_extra$Json$Decode$Extra$andMap,
+							$elm$json$Json$Decode$maybe(
+								A2($elm$json$Json$Decode$field, 'published', $elm$json$Json$Decode$string)),
+							A2(
+								$elm_community$json_extra$Json$Decode$Extra$andMap,
+								A2(
+									$elm$json$Json$Decode$map,
+									statusFromString,
+									A2($elm$json$Json$Decode$field, 'status', $elm$json$Json$Decode$string)),
+								A2(
+									$elm_community$json_extra$Json$Decode$Extra$andMap,
+									$elm$json$Json$Decode$maybe(
+										A2(
+											$elm$json$Json$Decode$field,
+											'issue',
+											A2($elm$json$Json$Decode$field, 'id', $elm$json$Json$Decode$int))),
+									A2(
+										$elm_community$json_extra$Json$Decode$Extra$andMap,
+										A2(
+											$elm$json$Json$Decode$field,
+											'author',
+											A2($elm$json$Json$Decode$field, 'name', $elm$json$Json$Decode$string)),
+										A2(
+											$elm_community$json_extra$Json$Decode$Extra$andMap,
+											A2($elm$json$Json$Decode$field, 'created', $elm$json$Json$Decode$string),
+											A2(
+												$elm_community$json_extra$Json$Decode$Extra$andMap,
+												A2(
+													$elm$json$Json$Decode$field,
+													'keywords',
+													$elm$json$Json$Decode$list($elm$json$Json$Decode$string)),
+												A2(
+													$elm_community$json_extra$Json$Decode$Extra$andMap,
+													A2($elm$json$Json$Decode$field, 'title', $elm$json$Json$Decode$string),
+													A2(
+														$elm_community$json_extra$Json$Decode$Extra$andMap,
+														A2($elm$json$Json$Decode$field, 'id', $elm$json$Json$Decode$int),
+														$elm$json$Json$Decode$succeed($author$project$RCJson$Research))))))))))))));
+}();
+var $author$project$RCJson$decodeResearch = $elm$json$Json$Decode$list($author$project$RCJson$entry);
+var $elm$json$Json$Encode$int = _Json_wrap;
+var $elm$json$Json$Encode$list = F2(
+	function (func, entries) {
+		return _Json_wrap(
+			A3(
+				$elm$core$List$foldl,
+				_Json_addEntry(func),
+				_Json_emptyArray(_Utils_Tuple0),
+				entries));
+	});
+var $elm$json$Json$Encode$object = function (pairs) {
+	return _Json_wrap(
+		A3(
+			$elm$core$List$foldl,
+			F2(
+				function (_v0, obj) {
+					var k = _v0.a;
+					var v = _v0.b;
+					return A3(_Json_addField, k, v, obj);
+				}),
+			_Json_emptyObject(_Utils_Tuple0),
+			pairs));
+};
+var $elm$time$Time$posixToMillis = function (_v0) {
+	var millis = _v0.a;
+	return millis;
+};
+var $author$project$RCJson$statusToString = function (status) {
+	switch (status.$) {
+		case 'InProgress':
+			return 'in progress';
+		case 'Published':
+			return 'published';
+		case 'LocalPublication':
+			return 'local publication';
+		default:
+			return 'unkown';
+	}
+};
+var $elm$json$Json$Encode$string = _Json_wrap;
+var $author$project$Main$encodeMerged = function (mexp) {
+	return $elm$json$Json$Encode$object(
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'exposition',
+				$elm$json$Json$Encode$object(
+					_List_fromArray(
+						[
+							_Utils_Tuple2(
+							'id',
+							$elm$json$Json$Encode$int(mexp.id)),
+							_Utils_Tuple2(
+							'title',
+							$elm$json$Json$Encode$string(mexp.title)),
+							_Utils_Tuple2(
+							'keywords',
+							A2($elm$json$Json$Encode$list, $elm$json$Json$Encode$string, mexp.keywords)),
+							_Utils_Tuple2(
+							'description',
+							$elm$json$Json$Encode$string(mexp.description)),
+							_Utils_Tuple2(
+							'metaPage',
+							$elm$json$Json$Encode$string(mexp.metaPage)),
+							_Utils_Tuple2(
+							'issue',
+							$elm$json$Json$Encode$string(mexp.issue)),
+							_Utils_Tuple2(
+							'pubDatePosix',
+							$elm$json$Json$Encode$int(
+								function (millis) {
+									return (millis / 1000) | 0;
+								}(
+									$elm$time$Time$posixToMillis(mexp.pubDate)))),
+							_Utils_Tuple2(
+							'doi',
+							$elm$json$Json$Encode$string(mexp.doi)),
+							_Utils_Tuple2(
+							'status',
+							$elm$json$Json$Encode$string(
+								$author$project$RCJson$statusToString(mexp.status))),
+							_Utils_Tuple2(
+							'author',
+							$elm$json$Json$Encode$string(mexp.author)),
+							_Utils_Tuple2(
+							'authorProfile',
+							$elm$json$Json$Encode$string(mexp.authorProfile)),
+							_Utils_Tuple2(
+							'authorId',
+							$elm$json$Json$Encode$int(mexp.authorId)),
+							_Utils_Tuple2(
+							'copyright',
+							$elm$json$Json$Encode$string(mexp.copyright)),
+							_Utils_Tuple2(
+							'license',
+							$elm$json$Json$Encode$string(mexp.license)),
+							_Utils_Tuple2(
+							'thumb',
+							$elm$json$Json$Encode$string(mexp.thumb))
+						])))
+			]));
+};
+var $author$project$Main$encoder = function (lst) {
+	return A2($elm$json$Json$Encode$list, $author$project$Main$encodeMerged, lst);
+};
+var $elm$json$Json$Decode$decodeString = _Json_runOnString;
+var $elm$http$Http$expectJson = F2(
+	function (toMsg, decoder) {
+		return A2(
+			$elm$http$Http$expectStringResponse,
+			toMsg,
+			$elm$http$Http$resolve(
+				function (string) {
+					return A2(
+						$elm$core$Result$mapError,
+						$elm$json$Json$Decode$errorToString,
+						A2($elm$json$Json$Decode$decodeString, decoder, string));
+				}));
+	});
+var $author$project$Main$children = function (node) {
+	if (node.$ === 'Element') {
+		var nodes = node.c;
+		return nodes;
+	} else {
+		return _List_Nil;
+	}
+};
+var $elm$core$List$filter = F2(
+	function (isGood, list) {
+		return A3(
+			$elm$core$List$foldr,
+			F2(
+				function (x, xs) {
+					return isGood(x) ? A2($elm$core$List$cons, x, xs) : xs;
+				}),
+			_List_Nil,
+			list);
+	});
+var $author$project$Main$filterName = F2(
+	function (match, node) {
+		if (node.$ === 'Element') {
+			var name = node.a;
+			return _Utils_eq(name, match);
+		} else {
+			return false;
+		}
+	});
+var $author$project$Main$CannotFindTag = function (a) {
+	return {$: 'CannotFindTag', a: a};
+};
+var $elm$core$Result$fromMaybe = F2(
+	function (err, maybe) {
+		if (maybe.$ === 'Just') {
+			var v = maybe.a;
+			return $elm$core$Result$Ok(v);
+		} else {
+			return $elm$core$Result$Err(err);
+		}
+	});
+var $elm$core$List$head = function (list) {
+	if (list.b) {
+		var x = list.a;
+		var xs = list.b;
+		return $elm$core$Maybe$Just(x);
+	} else {
+		return $elm$core$Maybe$Nothing;
+	}
+};
+var $author$project$Main$findNodeWithName = F2(
+	function (name, nodes) {
+		var hasName = function (node) {
+			if (node.$ === 'Element') {
+				var elemName = node.a;
+				return _Utils_eq(elemName, name);
+			} else {
+				return false;
+			}
+		};
+		return A2(
+			$elm$core$Result$fromMaybe,
+			$author$project$Main$CannotFindTag(name),
+			$elm$core$List$head(
+				A2($elm$core$List$filter, hasName, nodes)));
+	});
+var $elm$core$Result$map = F2(
+	function (func, ra) {
+		if (ra.$ === 'Ok') {
+			var a = ra.a;
+			return $elm$core$Result$Ok(
+				func(a));
+		} else {
+			var e = ra.a;
+			return $elm$core$Result$Err(e);
+		}
+	});
+var $elm_community$result_extra$Result$Extra$andMap = F2(
+	function (ra, rb) {
+		var _v0 = _Utils_Tuple2(ra, rb);
+		if (_v0.b.$ === 'Err') {
+			var x = _v0.b.a;
+			return $elm$core$Result$Err(x);
+		} else {
+			var o = _v0.a;
+			var fn = _v0.b.a;
+			return A2($elm$core$Result$map, fn, o);
+		}
+	});
+var $elm$core$Result$andThen = F2(
+	function (callback, result) {
+		if (result.$ === 'Ok') {
+			var value = result.a;
+			return callback(value);
+		} else {
+			var msg = result.a;
+			return $elm$core$Result$Err(msg);
+		}
+	});
+var $author$project$Main$Enclosure = F2(
+	function (url, fileType) {
+		return {fileType: fileType, url: url};
+	});
+var $author$project$Main$defaultThumb = A2($author$project$Main$Enclosure, 'null', 'null');
+var $author$project$Main$IncorrectEnclosure = {$: 'IncorrectEnclosure'};
+var $elm$core$Maybe$map = F2(
+	function (f, maybe) {
+		if (maybe.$ === 'Just') {
+			var value = maybe.a;
+			return $elm$core$Maybe$Just(
+				f(value));
+		} else {
+			return $elm$core$Maybe$Nothing;
+		}
+	});
+var $author$project$Main$attrWithName = F2(
+	function (name, attrs) {
+		return A2(
+			$elm$core$Maybe$map,
+			function (a) {
+				return a.value;
+			},
+			$elm$core$List$head(
+				A2(
+					$elm$core$List$filter,
+					function (a) {
+						return _Utils_eq(a.name, name);
+					},
+					attrs)));
+	});
 var $elm$core$Debug$log = _Debug_log;
-var $elm$core$Platform$Cmd$batch = _Platform_batch;
-var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
-var $elm$parser$Parser$Advanced$bagToList = F2(
-	function (bag, list) {
-		bagToList:
-		while (true) {
-			switch (bag.$) {
-				case 'Empty':
-					return list;
-				case 'AddRight':
-					var bag1 = bag.a;
-					var x = bag.b;
-					var $temp$bag = bag1,
-						$temp$list = A2($elm$core$List$cons, x, list);
-					bag = $temp$bag;
-					list = $temp$list;
-					continue bagToList;
-				default:
-					var bag1 = bag.a;
-					var bag2 = bag.b;
-					var $temp$bag = bag1,
-						$temp$list = A2($elm$parser$Parser$Advanced$bagToList, bag2, list);
-					bag = $temp$bag;
-					list = $temp$list;
-					continue bagToList;
+var $elm$core$Maybe$map2 = F3(
+	function (func, ma, mb) {
+		if (ma.$ === 'Nothing') {
+			return $elm$core$Maybe$Nothing;
+		} else {
+			var a = ma.a;
+			if (mb.$ === 'Nothing') {
+				return $elm$core$Maybe$Nothing;
+			} else {
+				var b = mb.a;
+				return $elm$core$Maybe$Just(
+					A2(func, a, b));
 			}
 		}
 	});
-var $elm$parser$Parser$Advanced$run = F2(
-	function (_v0, src) {
-		var parse = _v0.a;
-		var _v1 = parse(
-			{col: 1, context: _List_Nil, indent: 1, offset: 0, row: 1, src: src});
-		if (_v1.$ === 'Good') {
-			var value = _v1.b;
-			return $elm$core$Result$Ok(value);
+var $author$project$Main$enclosure = function (node) {
+	if ((node.$ === 'Element') && (node.a === 'enclosure')) {
+		var attrs = node.b;
+		var _v1 = A2($elm$core$Debug$log, 'attrs', attrs);
+		return A2(
+			$elm$core$Result$fromMaybe,
+			$author$project$Main$IncorrectEnclosure,
+			A3(
+				$elm$core$Maybe$map2,
+				$author$project$Main$Enclosure,
+				A2($author$project$Main$attrWithName, 'url', attrs),
+				A2($author$project$Main$attrWithName, 'type', attrs)));
+	} else {
+		return $elm$core$Result$Ok($author$project$Main$defaultThumb);
+	}
+};
+var $author$project$Main$ExpositionMeta = function (a) {
+	return {$: 'ExpositionMeta', a: a};
+};
+var $author$project$Main$InProgress = {$: 'InProgress'};
+var $author$project$Main$Published = {$: 'Published'};
+var $author$project$Main$status = function (str) {
+	switch (str) {
+		case 'published':
+			return $author$project$Main$Published;
+		case 'in progress':
+			return $author$project$Main$InProgress;
+		default:
+			return $author$project$Main$InProgress;
+	}
+};
+var $author$project$Main$expositionMeta = F7(
+	function (title, id, link, desc, stat, posix, encl) {
+		return $author$project$Main$ExpositionMeta(
+			{
+				description: desc,
+				enclosure: encl,
+				id: id,
+				link: link,
+				pubDate: posix,
+				status: $author$project$Main$status(stat),
+				title: title
+			});
+	});
+var $author$project$Main$fallback = F2(
+	function (replacement, result) {
+		if (result.$ === 'Ok') {
+			var r = result.a;
+			return $elm$core$Result$Ok(r);
 		} else {
-			var bag = _v1.b;
-			return $elm$core$Result$Err(
-				A2($elm$parser$Parser$Advanced$bagToList, bag, _List_Nil));
+			return $elm$core$Result$Ok(replacement);
 		}
 	});
-var $jinjor$elm_xml_parser$XmlParser$Xml = F3(
-	function (processingInstructions, docType, root) {
-		return {docType: docType, processingInstructions: processingInstructions, root: root};
+var $author$project$Main$NoText = {$: 'NoText'};
+var $author$project$Main$getText = function (node) {
+	if ((((node.$ === 'Element') && node.c.b) && (node.c.a.$ === 'Text')) && (!node.c.b.b)) {
+		var _v1 = node.c;
+		var text = _v1.a.a;
+		return $elm$core$Result$Ok(text);
+	} else {
+		return $elm$core$Result$Err($author$project$Main$NoText);
+	}
+};
+var $author$project$Main$findText = F2(
+	function (str, nodes) {
+		return A2(
+			$elm$core$Result$andThen,
+			$author$project$Main$getText,
+			A2($author$project$Main$findNodeWithName, str, nodes));
 	});
+var $author$project$Main$CouldNotRetrieveID = function (a) {
+	return {$: 'CouldNotRetrieveID', a: a};
+};
+var $elm$core$List$drop = F2(
+	function (n, list) {
+		drop:
+		while (true) {
+			if (n <= 0) {
+				return list;
+			} else {
+				if (!list.b) {
+					return list;
+				} else {
+					var x = list.a;
+					var xs = list.b;
+					var $temp$n = n - 1,
+						$temp$list = xs;
+					n = $temp$n;
+					list = $temp$list;
+					continue drop;
+				}
+			}
+		}
+	});
+var $author$project$Main$nth = F2(
+	function (idx, lst) {
+		return $elm$core$List$head(
+			A2($elm$core$List$drop, idx, lst));
+	});
+var $author$project$Main$getIdFromLink = function (link) {
+	var _try = A2(
+		$author$project$Main$nth,
+		4,
+		A2($elm$core$String$split, '/', link));
+	if (_try.$ === 'Just') {
+		var str = _try.a;
+		return A2(
+			$elm$core$Result$fromMaybe,
+			$author$project$Main$CouldNotRetrieveID(link),
+			$elm$core$String$toInt(str));
+	} else {
+		return $elm$core$Result$Err(
+			$author$project$Main$CouldNotRetrieveID(link));
+	}
+};
+var $author$project$Main$DateParserError = function (a) {
+	return {$: 'DateParserError', a: a};
+};
+var $elm$parser$Parser$ExpectingEnd = {$: 'ExpectingEnd'};
 var $elm$parser$Parser$Advanced$Bad = F2(
 	function (a, b) {
 		return {$: 'Bad', a: a, b: b};
@@ -6323,7 +6804,6 @@ var $elm$parser$Parser$Advanced$Good = F3(
 var $elm$parser$Parser$Advanced$Parser = function (a) {
 	return {$: 'Parser', a: a};
 };
-var $elm$parser$Parser$Advanced$findSubString = _Parser_findSubString;
 var $elm$parser$Parser$Advanced$AddRight = F2(
 	function (a, b) {
 		return {$: 'AddRight', a: a, b: b};
@@ -6333,35 +6813,25 @@ var $elm$parser$Parser$Advanced$DeadEnd = F4(
 		return {col: col, contextStack: contextStack, problem: problem, row: row};
 	});
 var $elm$parser$Parser$Advanced$Empty = {$: 'Empty'};
-var $elm$parser$Parser$Advanced$fromInfo = F4(
-	function (row, col, x, context) {
+var $elm$parser$Parser$Advanced$fromState = F2(
+	function (s, x) {
 		return A2(
 			$elm$parser$Parser$Advanced$AddRight,
 			$elm$parser$Parser$Advanced$Empty,
-			A4($elm$parser$Parser$Advanced$DeadEnd, row, col, x, context));
+			A4($elm$parser$Parser$Advanced$DeadEnd, s.row, s.col, x, s.context));
 	});
-var $elm$core$Basics$negate = function (n) {
-	return -n;
-};
-var $elm$parser$Parser$Advanced$chompUntil = function (_v0) {
-	var str = _v0.a;
-	var expecting = _v0.b;
+var $elm$parser$Parser$Advanced$end = function (x) {
 	return $elm$parser$Parser$Advanced$Parser(
 		function (s) {
-			var _v1 = A5($elm$parser$Parser$Advanced$findSubString, str, s.offset, s.row, s.col, s.src);
-			var newOffset = _v1.a;
-			var newRow = _v1.b;
-			var newCol = _v1.c;
-			return _Utils_eq(newOffset, -1) ? A2(
+			return _Utils_eq(
+				$elm$core$String$length(s.src),
+				s.offset) ? A3($elm$parser$Parser$Advanced$Good, false, _Utils_Tuple0, s) : A2(
 				$elm$parser$Parser$Advanced$Bad,
 				false,
-				A4($elm$parser$Parser$Advanced$fromInfo, newRow, newCol, expecting, s.context)) : A3(
-				$elm$parser$Parser$Advanced$Good,
-				_Utils_cmp(s.offset, newOffset) < 0,
-				_Utils_Tuple0,
-				{col: newCol, context: s.context, indent: s.indent, offset: newOffset, row: newRow, src: s.src});
+				A2($elm$parser$Parser$Advanced$fromState, s, x));
 		});
 };
+var $elm$parser$Parser$end = $elm$parser$Parser$Advanced$end($elm$parser$Parser$ExpectingEnd);
 var $elm$core$Basics$always = F2(
 	function (a, _v0) {
 		return a;
@@ -6403,119 +6873,32 @@ var $elm$parser$Parser$Advanced$ignorer = F2(
 	function (keepParser, ignoreParser) {
 		return A3($elm$parser$Parser$Advanced$map2, $elm$core$Basics$always, keepParser, ignoreParser);
 	});
-var $elm$parser$Parser$Advanced$succeed = function (a) {
-	return $elm$parser$Parser$Advanced$Parser(
-		function (s) {
-			return A3($elm$parser$Parser$Advanced$Good, false, a, s);
-		});
-};
-var $elm$parser$Parser$Expecting = function (a) {
-	return {$: 'Expecting', a: a};
-};
-var $elm$parser$Parser$Advanced$Token = F2(
+var $elm$parser$Parser$ignorer = $elm$parser$Parser$Advanced$ignorer;
+var $elm$parser$Parser$Advanced$keeper = F2(
+	function (parseFunc, parseArg) {
+		return A3($elm$parser$Parser$Advanced$map2, $elm$core$Basics$apL, parseFunc, parseArg);
+	});
+var $elm$parser$Parser$keeper = $elm$parser$Parser$Advanced$keeper;
+var $dmy$elm_imf_date_time$Imf$DateTime$Date = F3(
+	function (day, month, year) {
+		return {day: day, month: month, year: year};
+	});
+var $elm$time$Time$Apr = {$: 'Apr'};
+var $elm$time$Time$Aug = {$: 'Aug'};
+var $elm$time$Time$Dec = {$: 'Dec'};
+var $elm$time$Time$Feb = {$: 'Feb'};
+var $elm$time$Time$Jan = {$: 'Jan'};
+var $elm$time$Time$Jul = {$: 'Jul'};
+var $elm$time$Time$Jun = {$: 'Jun'};
+var $elm$time$Time$Mar = {$: 'Mar'};
+var $elm$time$Time$May = {$: 'May'};
+var $elm$time$Time$Nov = {$: 'Nov'};
+var $elm$time$Time$Oct = {$: 'Oct'};
+var $elm$time$Time$Sep = {$: 'Sep'};
+var $lazamar$dict_parser$Trie$Node = F2(
 	function (a, b) {
-		return {$: 'Token', a: a, b: b};
+		return {$: 'Node', a: a, b: b};
 	});
-var $jinjor$elm_xml_parser$XmlParser$toToken = function (str) {
-	return A2(
-		$elm$parser$Parser$Advanced$Token,
-		str,
-		$elm$parser$Parser$Expecting(str));
-};
-var $elm$parser$Parser$Advanced$fromState = F2(
-	function (s, x) {
-		return A2(
-			$elm$parser$Parser$Advanced$AddRight,
-			$elm$parser$Parser$Advanced$Empty,
-			A4($elm$parser$Parser$Advanced$DeadEnd, s.row, s.col, x, s.context));
-	});
-var $elm$parser$Parser$Advanced$isSubString = _Parser_isSubString;
-var $elm$core$Basics$not = _Basics_not;
-var $elm$parser$Parser$Advanced$token = function (_v0) {
-	var str = _v0.a;
-	var expecting = _v0.b;
-	var progress = !$elm$core$String$isEmpty(str);
-	return $elm$parser$Parser$Advanced$Parser(
-		function (s) {
-			var _v1 = A5($elm$parser$Parser$Advanced$isSubString, str, s.offset, s.row, s.col, s.src);
-			var newOffset = _v1.a;
-			var newRow = _v1.b;
-			var newCol = _v1.c;
-			return _Utils_eq(newOffset, -1) ? A2(
-				$elm$parser$Parser$Advanced$Bad,
-				false,
-				A2($elm$parser$Parser$Advanced$fromState, s, expecting)) : A3(
-				$elm$parser$Parser$Advanced$Good,
-				progress,
-				_Utils_Tuple0,
-				{col: newCol, context: s.context, indent: s.indent, offset: newOffset, row: newRow, src: s.src});
-		});
-};
-var $jinjor$elm_xml_parser$XmlParser$comment = A2(
-	$elm$parser$Parser$Advanced$ignorer,
-	A2(
-		$elm$parser$Parser$Advanced$ignorer,
-		A2(
-			$elm$parser$Parser$Advanced$ignorer,
-			$elm$parser$Parser$Advanced$succeed(_Utils_Tuple0),
-			$elm$parser$Parser$Advanced$token(
-				$jinjor$elm_xml_parser$XmlParser$toToken('<!--'))),
-		$elm$parser$Parser$Advanced$chompUntil(
-			$jinjor$elm_xml_parser$XmlParser$toToken('-->'))),
-	$elm$parser$Parser$Advanced$token(
-		$jinjor$elm_xml_parser$XmlParser$toToken('-->')));
-var $jinjor$elm_xml_parser$XmlParser$DocType = F2(
-	function (rootElementName, definition) {
-		return {definition: definition, rootElementName: rootElementName};
-	});
-var $jinjor$elm_xml_parser$XmlParser$Custom = function (a) {
-	return {$: 'Custom', a: a};
-};
-var $jinjor$elm_xml_parser$XmlParser$Public = F3(
-	function (a, b, c) {
-		return {$: 'Public', a: a, b: b, c: c};
-	});
-var $jinjor$elm_xml_parser$XmlParser$System = F2(
-	function (a, b) {
-		return {$: 'System', a: a, b: b};
-	});
-var $elm$parser$Parser$Advanced$Located = F3(
-	function (row, col, context) {
-		return {col: col, context: context, row: row};
-	});
-var $elm$parser$Parser$Advanced$changeContext = F2(
-	function (newContext, s) {
-		return {col: s.col, context: newContext, indent: s.indent, offset: s.offset, row: s.row, src: s.src};
-	});
-var $elm$parser$Parser$Advanced$inContext = F2(
-	function (context, _v0) {
-		var parse = _v0.a;
-		return $elm$parser$Parser$Advanced$Parser(
-			function (s0) {
-				var _v1 = parse(
-					A2(
-						$elm$parser$Parser$Advanced$changeContext,
-						A2(
-							$elm$core$List$cons,
-							A3($elm$parser$Parser$Advanced$Located, s0.row, s0.col, context),
-							s0.context),
-						s0));
-				if (_v1.$ === 'Good') {
-					var p = _v1.a;
-					var a = _v1.b;
-					var s1 = _v1.c;
-					return A3(
-						$elm$parser$Parser$Advanced$Good,
-						p,
-						a,
-						A2($elm$parser$Parser$Advanced$changeContext, s0.context, s1));
-				} else {
-					var step = _v1;
-					return step;
-				}
-			});
-	});
-var $elm$parser$Parser$BadRepeat = {$: 'BadRepeat'};
 var $elm$parser$Parser$Advanced$andThen = F2(
 	function (callback, _v0) {
 		var parseA = _v0.a;
@@ -6546,7 +6929,427 @@ var $elm$parser$Parser$Advanced$andThen = F2(
 				}
 			});
 	});
+var $elm$parser$Parser$andThen = $elm$parser$Parser$Advanced$andThen;
+var $lazamar$dict_parser$Trie$Trie = function (a) {
+	return {$: 'Trie', a: a};
+};
+var $lazamar$dict_parser$Trie$emptyNode = A2($lazamar$dict_parser$Trie$Node, $elm$core$Maybe$Nothing, $elm$core$Dict$empty);
+var $lazamar$dict_parser$Trie$empty = $lazamar$dict_parser$Trie$Trie($lazamar$dict_parser$Trie$emptyNode);
+var $elm$core$Dict$foldl = F3(
+	function (func, acc, dict) {
+		foldl:
+		while (true) {
+			if (dict.$ === 'RBEmpty_elm_builtin') {
+				return acc;
+			} else {
+				var key = dict.b;
+				var value = dict.c;
+				var left = dict.d;
+				var right = dict.e;
+				var $temp$func = func,
+					$temp$acc = A3(
+					func,
+					key,
+					value,
+					A3($elm$core$Dict$foldl, func, acc, left)),
+					$temp$dict = right;
+				func = $temp$func;
+				acc = $temp$acc;
+				dict = $temp$dict;
+				continue foldl;
+			}
+		}
+	});
+var $lazamar$dict_parser$Trie$joinNodes = F2(
+	function (pres, leaf) {
+		return A3(
+			$elm$core$List$foldl,
+			F2(
+				function (_v0, node) {
+					var key = _v0.a;
+					var _v1 = _v0.b;
+					var mval = _v1.a;
+					var dict = _v1.b;
+					return A2(
+						$lazamar$dict_parser$Trie$Node,
+						mval,
+						A3($elm$core$Dict$insert, key, node, dict));
+				}),
+			leaf,
+			pres);
+	});
+var $lazamar$dict_parser$Trie$insertHelper = F4(
+	function (nodeCreators, chars, value, _v0) {
+		insertHelper:
+		while (true) {
+			var mval = _v0.a;
+			var dict = _v0.b;
+			if (!chars.b) {
+				return A2(
+					$lazamar$dict_parser$Trie$joinNodes,
+					nodeCreators,
+					A2(
+						$lazamar$dict_parser$Trie$Node,
+						$elm$core$Maybe$Just(value),
+						dict));
+			} else {
+				var head = chars.a;
+				var tail = chars.b;
+				var nextNode = function () {
+					var _v2 = A2($elm$core$Dict$get, head, dict);
+					if (_v2.$ === 'Nothing') {
+						return $lazamar$dict_parser$Trie$emptyNode;
+					} else {
+						var node = _v2.a;
+						return node;
+					}
+				}();
+				var $temp$nodeCreators = A2(
+					$elm$core$List$cons,
+					_Utils_Tuple2(
+						head,
+						A2($lazamar$dict_parser$Trie$Node, mval, dict)),
+					nodeCreators),
+					$temp$chars = tail,
+					$temp$value = value,
+					$temp$_v0 = nextNode;
+				nodeCreators = $temp$nodeCreators;
+				chars = $temp$chars;
+				value = $temp$value;
+				_v0 = $temp$_v0;
+				continue insertHelper;
+			}
+		}
+	});
+var $elm$core$String$foldr = _String_foldr;
+var $elm$core$String$toList = function (string) {
+	return A3($elm$core$String$foldr, $elm$core$List$cons, _List_Nil, string);
+};
+var $lazamar$dict_parser$Trie$insert = F3(
+	function (key, value, _v0) {
+		var node = _v0.a;
+		var chars = $elm$core$String$toList(key);
+		var newNode = A4($lazamar$dict_parser$Trie$insertHelper, _List_Nil, chars, value, node);
+		return $lazamar$dict_parser$Trie$Trie(newNode);
+	});
+var $lazamar$dict_parser$Trie$fromDict = function (dict) {
+	return A3($elm$core$Dict$foldl, $lazamar$dict_parser$Trie$insert, $lazamar$dict_parser$Trie$empty, dict);
+};
+var $elm$parser$Parser$Advanced$getOffset = $elm$parser$Parser$Advanced$Parser(
+	function (s) {
+		return A3($elm$parser$Parser$Advanced$Good, false, s.offset, s);
+	});
+var $elm$parser$Parser$getOffset = $elm$parser$Parser$Advanced$getOffset;
+var $elm$parser$Parser$Advanced$getSource = $elm$parser$Parser$Advanced$Parser(
+	function (s) {
+		return A3($elm$parser$Parser$Advanced$Good, false, s.src, s);
+	});
+var $elm$parser$Parser$getSource = $elm$parser$Parser$Advanced$getSource;
+var $elm$parser$Parser$Done = function (a) {
+	return {$: 'Done', a: a};
+};
+var $elm$parser$Parser$Loop = function (a) {
+	return {$: 'Loop', a: a};
+};
+var $elm$parser$Parser$UnexpectedChar = {$: 'UnexpectedChar'};
 var $elm$parser$Parser$Advanced$isSubChar = _Parser_isSubChar;
+var $elm$core$Basics$negate = function (n) {
+	return -n;
+};
+var $elm$parser$Parser$Advanced$chompIf = F2(
+	function (isGood, expecting) {
+		return $elm$parser$Parser$Advanced$Parser(
+			function (s) {
+				var newOffset = A3($elm$parser$Parser$Advanced$isSubChar, isGood, s.offset, s.src);
+				return _Utils_eq(newOffset, -1) ? A2(
+					$elm$parser$Parser$Advanced$Bad,
+					false,
+					A2($elm$parser$Parser$Advanced$fromState, s, expecting)) : (_Utils_eq(newOffset, -2) ? A3(
+					$elm$parser$Parser$Advanced$Good,
+					true,
+					_Utils_Tuple0,
+					{col: 1, context: s.context, indent: s.indent, offset: s.offset + 1, row: s.row + 1, src: s.src}) : A3(
+					$elm$parser$Parser$Advanced$Good,
+					true,
+					_Utils_Tuple0,
+					{col: s.col + 1, context: s.context, indent: s.indent, offset: newOffset, row: s.row, src: s.src}));
+			});
+	});
+var $elm$parser$Parser$chompIf = function (isGood) {
+	return A2($elm$parser$Parser$Advanced$chompIf, isGood, $elm$parser$Parser$UnexpectedChar);
+};
+var $lazamar$dict_parser$Parser$Dict$chompOne = $elm$parser$Parser$chompIf(
+	$elm$core$Basics$always(true));
+var $lazamar$dict_parser$Parser$Dict$flip = F3(
+	function (f, b, a) {
+		return A2(f, a, b);
+	});
+var $elm$core$List$repeatHelp = F3(
+	function (result, n, value) {
+		repeatHelp:
+		while (true) {
+			if (n <= 0) {
+				return result;
+			} else {
+				var $temp$result = A2($elm$core$List$cons, value, result),
+					$temp$n = n - 1,
+					$temp$value = value;
+				result = $temp$result;
+				n = $temp$n;
+				value = $temp$value;
+				continue repeatHelp;
+			}
+		}
+	});
+var $elm$core$List$repeat = F2(
+	function (n, value) {
+		return A3($elm$core$List$repeatHelp, _List_Nil, n, value);
+	});
+var $elm$parser$Parser$Advanced$succeed = function (a) {
+	return $elm$parser$Parser$Advanced$Parser(
+		function (s) {
+			return A3($elm$parser$Parser$Advanced$Good, false, a, s);
+		});
+};
+var $elm$parser$Parser$succeed = $elm$parser$Parser$Advanced$succeed;
+var $lazamar$dict_parser$Parser$Dict$chompDirectly = F2(
+	function (n, a) {
+		return A3(
+			$elm$core$List$foldl,
+			$lazamar$dict_parser$Parser$Dict$flip($elm$parser$Parser$ignorer),
+			$elm$parser$Parser$succeed(a),
+			A2($elm$core$List$repeat, n, $lazamar$dict_parser$Parser$Dict$chompOne));
+	});
+var $lazamar$dict_parser$Parser$Dict$chompHelp = function (n) {
+	return (n > 30) ? A2(
+		$lazamar$dict_parser$Parser$Dict$chompDirectly,
+		30,
+		$elm$parser$Parser$Loop(n - 30)) : A2(
+		$lazamar$dict_parser$Parser$Dict$chompDirectly,
+		n,
+		$elm$parser$Parser$Done(_Utils_Tuple0));
+};
+var $elm$parser$Parser$Advanced$loopHelp = F4(
+	function (p, state, callback, s0) {
+		loopHelp:
+		while (true) {
+			var _v0 = callback(state);
+			var parse = _v0.a;
+			var _v1 = parse(s0);
+			if (_v1.$ === 'Good') {
+				var p1 = _v1.a;
+				var step = _v1.b;
+				var s1 = _v1.c;
+				if (step.$ === 'Loop') {
+					var newState = step.a;
+					var $temp$p = p || p1,
+						$temp$state = newState,
+						$temp$callback = callback,
+						$temp$s0 = s1;
+					p = $temp$p;
+					state = $temp$state;
+					callback = $temp$callback;
+					s0 = $temp$s0;
+					continue loopHelp;
+				} else {
+					var result = step.a;
+					return A3($elm$parser$Parser$Advanced$Good, p || p1, result, s1);
+				}
+			} else {
+				var p1 = _v1.a;
+				var x = _v1.b;
+				return A2($elm$parser$Parser$Advanced$Bad, p || p1, x);
+			}
+		}
+	});
+var $elm$parser$Parser$Advanced$loop = F2(
+	function (state, callback) {
+		return $elm$parser$Parser$Advanced$Parser(
+			function (s) {
+				return A4($elm$parser$Parser$Advanced$loopHelp, false, state, callback, s);
+			});
+	});
+var $elm$parser$Parser$Advanced$map = F2(
+	function (func, _v0) {
+		var parse = _v0.a;
+		return $elm$parser$Parser$Advanced$Parser(
+			function (s0) {
+				var _v1 = parse(s0);
+				if (_v1.$ === 'Good') {
+					var p = _v1.a;
+					var a = _v1.b;
+					var s1 = _v1.c;
+					return A3(
+						$elm$parser$Parser$Advanced$Good,
+						p,
+						func(a),
+						s1);
+				} else {
+					var p = _v1.a;
+					var x = _v1.b;
+					return A2($elm$parser$Parser$Advanced$Bad, p, x);
+				}
+			});
+	});
+var $elm$parser$Parser$map = $elm$parser$Parser$Advanced$map;
+var $elm$parser$Parser$Advanced$Done = function (a) {
+	return {$: 'Done', a: a};
+};
+var $elm$parser$Parser$Advanced$Loop = function (a) {
+	return {$: 'Loop', a: a};
+};
+var $elm$parser$Parser$toAdvancedStep = function (step) {
+	if (step.$ === 'Loop') {
+		var s = step.a;
+		return $elm$parser$Parser$Advanced$Loop(s);
+	} else {
+		var a = step.a;
+		return $elm$parser$Parser$Advanced$Done(a);
+	}
+};
+var $elm$parser$Parser$loop = F2(
+	function (state, callback) {
+		return A2(
+			$elm$parser$Parser$Advanced$loop,
+			state,
+			function (s) {
+				return A2(
+					$elm$parser$Parser$map,
+					$elm$parser$Parser$toAdvancedStep,
+					callback(s));
+			});
+	});
+var $lazamar$dict_parser$Parser$Dict$chomp = function (n) {
+	return A2($elm$parser$Parser$loop, n, $lazamar$dict_parser$Parser$Dict$chompHelp);
+};
+var $elm$parser$Parser$Problem = function (a) {
+	return {$: 'Problem', a: a};
+};
+var $elm$parser$Parser$Advanced$problem = function (x) {
+	return $elm$parser$Parser$Advanced$Parser(
+		function (s) {
+			return A2(
+				$elm$parser$Parser$Advanced$Bad,
+				false,
+				A2($elm$parser$Parser$Advanced$fromState, s, x));
+		});
+};
+var $elm$parser$Parser$problem = function (msg) {
+	return $elm$parser$Parser$Advanced$problem(
+		$elm$parser$Parser$Problem(msg));
+};
+var $lazamar$dict_parser$Parser$Dict$handleMatched = function (mMatch) {
+	if (mMatch.$ === 'Nothing') {
+		return $elm$parser$Parser$problem('Unable to parse string');
+	} else {
+		var _v1 = mMatch.a;
+		var value = _v1.a;
+		var matchLength = _v1.b;
+		return A2(
+			$elm$parser$Parser$map,
+			$elm$core$Basics$always(value),
+			$lazamar$dict_parser$Parser$Dict$chomp(matchLength));
+	}
+};
+var $lazamar$dict_parser$Trie$internal = function (_v0) {
+	var node = _v0.a;
+	return node;
+};
+var $lazamar$dict_parser$Parser$Dict$Match = F2(
+	function (a, b) {
+		return {$: 'Match', a: a, b: b};
+	});
+var $lazamar$dict_parser$Parser$Dict$findLongestMatch = F4(
+	function (source, mLastMatch, offset, _v0) {
+		findLongestMatch:
+		while (true) {
+			var mMatch = _v0.a;
+			var dict = _v0.b;
+			var newMatch = function () {
+				if (mMatch.$ === 'Nothing') {
+					return mLastMatch;
+				} else {
+					var value = mMatch.a;
+					return $elm$core$Maybe$Just(
+						A2($lazamar$dict_parser$Parser$Dict$Match, value, offset));
+				}
+			}();
+			var _v1 = $elm$core$String$uncons(source);
+			if (_v1.$ === 'Nothing') {
+				return newMatch;
+			} else {
+				var _v2 = _v1.a;
+				var _char = _v2.a;
+				var rest = _v2.b;
+				var _v3 = A2($elm$core$Dict$get, _char, dict);
+				if (_v3.$ === 'Just') {
+					var node = _v3.a;
+					var $temp$source = rest,
+						$temp$mLastMatch = newMatch,
+						$temp$offset = offset + 1,
+						$temp$_v0 = node;
+					source = $temp$source;
+					mLastMatch = $temp$mLastMatch;
+					offset = $temp$offset;
+					_v0 = $temp$_v0;
+					continue findLongestMatch;
+				} else {
+					return newMatch;
+				}
+			}
+		}
+	});
+var $lazamar$dict_parser$Parser$Dict$startParsing = F3(
+	function (topNode, source, offset) {
+		var str = A2($elm$core$String$dropLeft, offset, source);
+		return A4($lazamar$dict_parser$Parser$Dict$findLongestMatch, str, $elm$core$Maybe$Nothing, 0, topNode);
+	});
+var $lazamar$dict_parser$Parser$Dict$fromDict = function (dict) {
+	var _v0 = $lazamar$dict_parser$Trie$internal(
+		$lazamar$dict_parser$Trie$fromDict(dict));
+	var nodeDict = _v0.b;
+	var topNode = A2($lazamar$dict_parser$Trie$Node, $elm$core$Maybe$Nothing, nodeDict);
+	return A2(
+		$elm$parser$Parser$andThen,
+		$lazamar$dict_parser$Parser$Dict$handleMatched,
+		A2(
+			$elm$parser$Parser$keeper,
+			A2(
+				$elm$parser$Parser$keeper,
+				$elm$parser$Parser$succeed(
+					$lazamar$dict_parser$Parser$Dict$startParsing(topNode)),
+				$elm$parser$Parser$getSource),
+			$elm$parser$Parser$getOffset));
+};
+var $elm$core$Dict$fromList = function (assocs) {
+	return A3(
+		$elm$core$List$foldl,
+		F2(
+			function (_v0, dict) {
+				var key = _v0.a;
+				var value = _v0.b;
+				return A3($elm$core$Dict$insert, key, value, dict);
+			}),
+		$elm$core$Dict$empty,
+		assocs);
+};
+var $dmy$elm_imf_date_time$Imf$DateTime$month = $lazamar$dict_parser$Parser$Dict$fromDict(
+	$elm$core$Dict$fromList(
+		_List_fromArray(
+			[
+				_Utils_Tuple2('Jan', $elm$time$Time$Jan),
+				_Utils_Tuple2('Feb', $elm$time$Time$Feb),
+				_Utils_Tuple2('Mar', $elm$time$Time$Mar),
+				_Utils_Tuple2('Apr', $elm$time$Time$Apr),
+				_Utils_Tuple2('May', $elm$time$Time$May),
+				_Utils_Tuple2('Jun', $elm$time$Time$Jun),
+				_Utils_Tuple2('Jul', $elm$time$Time$Jul),
+				_Utils_Tuple2('Aug', $elm$time$Time$Aug),
+				_Utils_Tuple2('Sep', $elm$time$Time$Sep),
+				_Utils_Tuple2('Oct', $elm$time$Time$Oct),
+				_Utils_Tuple2('Nov', $elm$time$Time$Nov),
+				_Utils_Tuple2('Dec', $elm$time$Time$Dec)
+			])));
 var $elm$parser$Parser$Advanced$chompWhileHelp = F5(
 	function (isGood, offset, row, col, s0) {
 		chompWhileHelp:
@@ -6593,6 +7396,41 @@ var $elm$parser$Parser$Advanced$chompWhile = function (isGood) {
 			return A5($elm$parser$Parser$Advanced$chompWhileHelp, isGood, s.offset, s.row, s.col, s);
 		});
 };
+var $elm$parser$Parser$Advanced$spaces = $elm$parser$Parser$Advanced$chompWhile(
+	function (c) {
+		return _Utils_eq(
+			c,
+			_Utils_chr(' ')) || (_Utils_eq(
+			c,
+			_Utils_chr('\n')) || _Utils_eq(
+			c,
+			_Utils_chr('\r')));
+	});
+var $elm$parser$Parser$spaces = $elm$parser$Parser$Advanced$spaces;
+var $dmy$elm_imf_date_time$Imf$DateTime$checkWeekday = function (str) {
+	var _v0 = _Utils_Tuple2(
+		$elm$core$String$length(str),
+		$elm$core$String$toInt(str));
+	_v0$2:
+	while (true) {
+		if (_v0.b.$ === 'Just') {
+			switch (_v0.a) {
+				case 1:
+					var n = _v0.b.a;
+					return $elm$parser$Parser$succeed(n);
+				case 2:
+					var n = _v0.b.a;
+					return $elm$parser$Parser$succeed(n);
+				default:
+					break _v0$2;
+			}
+		} else {
+			break _v0$2;
+		}
+	}
+	return $elm$parser$Parser$problem('Invalid week day');
+};
+var $elm$parser$Parser$chompWhile = $elm$parser$Parser$Advanced$chompWhile;
 var $elm$parser$Parser$Advanced$mapChompedString = F2(
 	function (func, _v0) {
 		var parse = _v0.a;
@@ -6621,150 +7459,639 @@ var $elm$parser$Parser$Advanced$mapChompedString = F2(
 var $elm$parser$Parser$Advanced$getChompedString = function (parser) {
 	return A2($elm$parser$Parser$Advanced$mapChompedString, $elm$core$Basics$always, parser);
 };
-var $elm$parser$Parser$Advanced$problem = function (x) {
-	return $elm$parser$Parser$Advanced$Parser(
-		function (s) {
-			return A2(
-				$elm$parser$Parser$Advanced$Bad,
-				false,
-				A2($elm$parser$Parser$Advanced$fromState, s, x));
-		});
+var $elm$parser$Parser$getChompedString = $elm$parser$Parser$Advanced$getChompedString;
+var $dmy$elm_imf_date_time$Imf$DateTime$weekday = A2(
+	$elm$parser$Parser$andThen,
+	$dmy$elm_imf_date_time$Imf$DateTime$checkWeekday,
+	$elm$parser$Parser$getChompedString(
+		$elm$parser$Parser$chompWhile($elm$core$Char$isDigit)));
+var $elm$core$Basics$ge = _Utils_ge;
+var $dmy$elm_imf_date_time$Imf$DateTime$checkYear = function (str) {
+	var _v0 = _Utils_Tuple2(
+		$elm$core$String$length(str),
+		$elm$core$String$toInt(str));
+	_v0$3:
+	while (true) {
+		if (_v0.b.$ === 'Just') {
+			switch (_v0.a) {
+				case 2:
+					var n = _v0.b.a;
+					return (n >= 50) ? $elm$parser$Parser$succeed(1900 + n) : $elm$parser$Parser$succeed(2000 + n);
+				case 3:
+					var n = _v0.b.a;
+					return $elm$parser$Parser$succeed(1900 + n);
+				case 4:
+					var n = _v0.b.a;
+					return $elm$parser$Parser$succeed(n);
+				default:
+					break _v0$3;
+			}
+		} else {
+			break _v0$3;
+		}
+	}
+	return $elm$parser$Parser$problem('Invalid year');
 };
-var $jinjor$elm_xml_parser$XmlParser$keep = F2(
-	function (count, predicate) {
-		var n = count.a;
-		return A2(
-			$elm$parser$Parser$Advanced$andThen,
-			function (str) {
-				return (_Utils_cmp(
-					n,
-					$elm$core$String$length(str)) < 1) ? $elm$parser$Parser$Advanced$succeed(str) : $elm$parser$Parser$Advanced$problem($elm$parser$Parser$BadRepeat);
-			},
-			$elm$parser$Parser$Advanced$getChompedString(
-				A2(
-					$elm$parser$Parser$Advanced$ignorer,
-					$elm$parser$Parser$Advanced$succeed(_Utils_Tuple0),
-					$elm$parser$Parser$Advanced$chompWhile(predicate))));
-	});
-var $elm$parser$Parser$Advanced$keeper = F2(
-	function (parseFunc, parseArg) {
-		return A3($elm$parser$Parser$Advanced$map2, $elm$core$Basics$apL, parseFunc, parseArg);
-	});
+var $dmy$elm_imf_date_time$Imf$DateTime$year = A2(
+	$elm$parser$Parser$andThen,
+	$dmy$elm_imf_date_time$Imf$DateTime$checkYear,
+	$elm$parser$Parser$getChompedString(
+		$elm$parser$Parser$chompWhile($elm$core$Char$isDigit)));
+var $dmy$elm_imf_date_time$Imf$DateTime$date = A2(
+	$elm$parser$Parser$keeper,
+	A2(
+		$elm$parser$Parser$keeper,
+		A2(
+			$elm$parser$Parser$keeper,
+			$elm$parser$Parser$succeed($dmy$elm_imf_date_time$Imf$DateTime$Date),
+			A2($elm$parser$Parser$ignorer, $dmy$elm_imf_date_time$Imf$DateTime$weekday, $elm$parser$Parser$spaces)),
+		A2($elm$parser$Parser$ignorer, $dmy$elm_imf_date_time$Imf$DateTime$month, $elm$parser$Parser$spaces)),
+	$dmy$elm_imf_date_time$Imf$DateTime$year);
+var $elm$time$Time$Fri = {$: 'Fri'};
+var $elm$time$Time$Mon = {$: 'Mon'};
+var $elm$time$Time$Sat = {$: 'Sat'};
+var $elm$time$Time$Sun = {$: 'Sun'};
+var $elm$time$Time$Thu = {$: 'Thu'};
+var $elm$time$Time$Tue = {$: 'Tue'};
+var $elm$time$Time$Wed = {$: 'Wed'};
+var $dmy$elm_imf_date_time$Imf$DateTime$day = $lazamar$dict_parser$Parser$Dict$fromDict(
+	$elm$core$Dict$fromList(
+		_List_fromArray(
+			[
+				_Utils_Tuple2('Mon', $elm$time$Time$Mon),
+				_Utils_Tuple2('Tue', $elm$time$Time$Tue),
+				_Utils_Tuple2('Wed', $elm$time$Time$Wed),
+				_Utils_Tuple2('Thu', $elm$time$Time$Thu),
+				_Utils_Tuple2('Fri', $elm$time$Time$Fri),
+				_Utils_Tuple2('Sat', $elm$time$Time$Sat),
+				_Utils_Tuple2('Sun', $elm$time$Time$Sun)
+			])));
+var $justinmimbs$time_extra$Time$Extra$Minute = {$: 'Minute'};
+var $justinmimbs$time_extra$Time$Extra$Day = {$: 'Day'};
+var $justinmimbs$date$Date$Days = {$: 'Days'};
+var $justinmimbs$time_extra$Time$Extra$Millisecond = {$: 'Millisecond'};
+var $justinmimbs$time_extra$Time$Extra$Month = {$: 'Month'};
+var $justinmimbs$date$Date$Months = {$: 'Months'};
+var $justinmimbs$date$Date$RD = function (a) {
+	return {$: 'RD', a: a};
+};
+var $elm$core$Basics$modBy = _Basics_modBy;
 var $elm$core$Basics$neq = _Utils_notEqual;
-var $elm$parser$Parser$ExpectingSymbol = function (a) {
-	return {$: 'ExpectingSymbol', a: a};
+var $justinmimbs$date$Date$isLeapYear = function (y) {
+	return ((!A2($elm$core$Basics$modBy, 4, y)) && (!(!A2($elm$core$Basics$modBy, 100, y)))) || (!A2($elm$core$Basics$modBy, 400, y));
 };
-var $elm$parser$Parser$Advanced$symbol = $elm$parser$Parser$Advanced$token;
-var $jinjor$elm_xml_parser$XmlParser$symbol = function (str) {
-	return $elm$parser$Parser$Advanced$symbol(
-		A2(
-			$elm$parser$Parser$Advanced$Token,
-			str,
-			$elm$parser$Parser$ExpectingSymbol(str)));
+var $justinmimbs$date$Date$daysBeforeMonth = F2(
+	function (y, m) {
+		var leapDays = $justinmimbs$date$Date$isLeapYear(y) ? 1 : 0;
+		switch (m.$) {
+			case 'Jan':
+				return 0;
+			case 'Feb':
+				return 31;
+			case 'Mar':
+				return 59 + leapDays;
+			case 'Apr':
+				return 90 + leapDays;
+			case 'May':
+				return 120 + leapDays;
+			case 'Jun':
+				return 151 + leapDays;
+			case 'Jul':
+				return 181 + leapDays;
+			case 'Aug':
+				return 212 + leapDays;
+			case 'Sep':
+				return 243 + leapDays;
+			case 'Oct':
+				return 273 + leapDays;
+			case 'Nov':
+				return 304 + leapDays;
+			default:
+				return 334 + leapDays;
+		}
+	});
+var $justinmimbs$date$Date$floorDiv = F2(
+	function (a, b) {
+		return $elm$core$Basics$floor(a / b);
+	});
+var $justinmimbs$date$Date$daysBeforeYear = function (y1) {
+	var y = y1 - 1;
+	var leapYears = (A2($justinmimbs$date$Date$floorDiv, y, 4) - A2($justinmimbs$date$Date$floorDiv, y, 100)) + A2($justinmimbs$date$Date$floorDiv, y, 400);
+	return (365 * y) + leapYears;
 };
-var $jinjor$elm_xml_parser$XmlParser$AtLeast = function (a) {
-	return {$: 'AtLeast', a: a};
+var $justinmimbs$date$Date$daysInMonth = F2(
+	function (y, m) {
+		switch (m.$) {
+			case 'Jan':
+				return 31;
+			case 'Feb':
+				return $justinmimbs$date$Date$isLeapYear(y) ? 29 : 28;
+			case 'Mar':
+				return 31;
+			case 'Apr':
+				return 30;
+			case 'May':
+				return 31;
+			case 'Jun':
+				return 30;
+			case 'Jul':
+				return 31;
+			case 'Aug':
+				return 31;
+			case 'Sep':
+				return 30;
+			case 'Oct':
+				return 31;
+			case 'Nov':
+				return 30;
+			default:
+				return 31;
+		}
+	});
+var $elm$core$Basics$min = F2(
+	function (x, y) {
+		return (_Utils_cmp(x, y) < 0) ? x : y;
+	});
+var $justinmimbs$date$Date$monthToNumber = function (m) {
+	switch (m.$) {
+		case 'Jan':
+			return 1;
+		case 'Feb':
+			return 2;
+		case 'Mar':
+			return 3;
+		case 'Apr':
+			return 4;
+		case 'May':
+			return 5;
+		case 'Jun':
+			return 6;
+		case 'Jul':
+			return 7;
+		case 'Aug':
+			return 8;
+		case 'Sep':
+			return 9;
+		case 'Oct':
+			return 10;
+		case 'Nov':
+			return 11;
+		default:
+			return 12;
+	}
 };
-var $jinjor$elm_xml_parser$XmlParser$zeroOrMore = $jinjor$elm_xml_parser$XmlParser$AtLeast(0);
-var $jinjor$elm_xml_parser$XmlParser$docTypeExternalSubset = A2(
-	$elm$parser$Parser$Advanced$inContext,
-	'docTypeExternalSubset',
-	A2(
-		$elm$parser$Parser$Advanced$keeper,
-		A2(
-			$elm$parser$Parser$Advanced$ignorer,
-			$elm$parser$Parser$Advanced$succeed($elm$core$Basics$identity),
-			$jinjor$elm_xml_parser$XmlParser$symbol('\"')),
-		A2(
-			$elm$parser$Parser$Advanced$ignorer,
-			A2(
-				$jinjor$elm_xml_parser$XmlParser$keep,
-				$jinjor$elm_xml_parser$XmlParser$zeroOrMore,
-				function (c) {
-					return !_Utils_eq(
-						c,
-						_Utils_chr('\"'));
-				}),
-			$jinjor$elm_xml_parser$XmlParser$symbol('\"'))));
-var $jinjor$elm_xml_parser$XmlParser$docTypeInternalSubset = A2(
-	$elm$parser$Parser$Advanced$inContext,
-	'docTypeInternalSubset',
-	A2(
-		$elm$parser$Parser$Advanced$keeper,
-		A2(
-			$elm$parser$Parser$Advanced$ignorer,
-			$elm$parser$Parser$Advanced$succeed($elm$core$Basics$identity),
-			$jinjor$elm_xml_parser$XmlParser$symbol('[')),
-		A2(
-			$elm$parser$Parser$Advanced$ignorer,
-			A2(
-				$jinjor$elm_xml_parser$XmlParser$keep,
-				$jinjor$elm_xml_parser$XmlParser$zeroOrMore,
-				function (c) {
-					return !_Utils_eq(
-						c,
-						_Utils_chr(']'));
-				}),
-			$jinjor$elm_xml_parser$XmlParser$symbol(']'))));
-var $elm$parser$Parser$ExpectingKeyword = function (a) {
-	return {$: 'ExpectingKeyword', a: a};
+var $justinmimbs$date$Date$numberToMonth = function (mn) {
+	var _v0 = A2($elm$core$Basics$max, 1, mn);
+	switch (_v0) {
+		case 1:
+			return $elm$time$Time$Jan;
+		case 2:
+			return $elm$time$Time$Feb;
+		case 3:
+			return $elm$time$Time$Mar;
+		case 4:
+			return $elm$time$Time$Apr;
+		case 5:
+			return $elm$time$Time$May;
+		case 6:
+			return $elm$time$Time$Jun;
+		case 7:
+			return $elm$time$Time$Jul;
+		case 8:
+			return $elm$time$Time$Aug;
+		case 9:
+			return $elm$time$Time$Sep;
+		case 10:
+			return $elm$time$Time$Oct;
+		case 11:
+			return $elm$time$Time$Nov;
+		default:
+			return $elm$time$Time$Dec;
+	}
 };
-var $elm$parser$Parser$Advanced$keyword = function (_v0) {
-	var kwd = _v0.a;
-	var expecting = _v0.b;
-	var progress = !$elm$core$String$isEmpty(kwd);
-	return $elm$parser$Parser$Advanced$Parser(
-		function (s) {
-			var _v1 = A5($elm$parser$Parser$Advanced$isSubString, kwd, s.offset, s.row, s.col, s.src);
-			var newOffset = _v1.a;
-			var newRow = _v1.b;
-			var newCol = _v1.c;
-			return (_Utils_eq(newOffset, -1) || (0 <= A3(
-				$elm$parser$Parser$Advanced$isSubChar,
-				function (c) {
-					return $elm$core$Char$isAlphaNum(c) || _Utils_eq(
-						c,
-						_Utils_chr('_'));
-				},
-				newOffset,
-				s.src))) ? A2(
-				$elm$parser$Parser$Advanced$Bad,
-				false,
-				A2($elm$parser$Parser$Advanced$fromState, s, expecting)) : A3(
-				$elm$parser$Parser$Advanced$Good,
-				progress,
-				_Utils_Tuple0,
-				{col: newCol, context: s.context, indent: s.indent, offset: newOffset, row: newRow, src: s.src});
-		});
+var $justinmimbs$date$Date$toCalendarDateHelp = F3(
+	function (y, m, d) {
+		toCalendarDateHelp:
+		while (true) {
+			var monthDays = A2($justinmimbs$date$Date$daysInMonth, y, m);
+			var mn = $justinmimbs$date$Date$monthToNumber(m);
+			if ((mn < 12) && (_Utils_cmp(d, monthDays) > 0)) {
+				var $temp$y = y,
+					$temp$m = $justinmimbs$date$Date$numberToMonth(mn + 1),
+					$temp$d = d - monthDays;
+				y = $temp$y;
+				m = $temp$m;
+				d = $temp$d;
+				continue toCalendarDateHelp;
+			} else {
+				return {day: d, month: m, year: y};
+			}
+		}
+	});
+var $justinmimbs$date$Date$divWithRemainder = F2(
+	function (a, b) {
+		return _Utils_Tuple2(
+			A2($justinmimbs$date$Date$floorDiv, a, b),
+			A2($elm$core$Basics$modBy, b, a));
+	});
+var $justinmimbs$date$Date$year = function (_v0) {
+	var rd = _v0.a;
+	var _v1 = A2($justinmimbs$date$Date$divWithRemainder, rd, 146097);
+	var n400 = _v1.a;
+	var r400 = _v1.b;
+	var _v2 = A2($justinmimbs$date$Date$divWithRemainder, r400, 36524);
+	var n100 = _v2.a;
+	var r100 = _v2.b;
+	var _v3 = A2($justinmimbs$date$Date$divWithRemainder, r100, 1461);
+	var n4 = _v3.a;
+	var r4 = _v3.b;
+	var _v4 = A2($justinmimbs$date$Date$divWithRemainder, r4, 365);
+	var n1 = _v4.a;
+	var r1 = _v4.b;
+	var n = (!r1) ? 0 : 1;
+	return ((((n400 * 400) + (n100 * 100)) + (n4 * 4)) + n1) + n;
 };
-var $jinjor$elm_xml_parser$XmlParser$keyword = function (kwd) {
-	return $elm$parser$Parser$Advanced$keyword(
-		A2(
-			$elm$parser$Parser$Advanced$Token,
-			kwd,
-			$elm$parser$Parser$ExpectingKeyword(kwd)));
+var $justinmimbs$date$Date$toOrdinalDate = function (_v0) {
+	var rd = _v0.a;
+	var y = $justinmimbs$date$Date$year(
+		$justinmimbs$date$Date$RD(rd));
+	return {
+		ordinalDay: rd - $justinmimbs$date$Date$daysBeforeYear(y),
+		year: y
+	};
 };
-var $elm$parser$Parser$Advanced$map = F2(
-	function (func, _v0) {
-		var parse = _v0.a;
-		return $elm$parser$Parser$Advanced$Parser(
-			function (s0) {
-				var _v1 = parse(s0);
-				if (_v1.$ === 'Good') {
-					var p = _v1.a;
-					var a = _v1.b;
-					var s1 = _v1.c;
-					return A3(
-						$elm$parser$Parser$Advanced$Good,
-						p,
-						func(a),
-						s1);
+var $justinmimbs$date$Date$toCalendarDate = function (_v0) {
+	var rd = _v0.a;
+	var date = $justinmimbs$date$Date$toOrdinalDate(
+		$justinmimbs$date$Date$RD(rd));
+	return A3($justinmimbs$date$Date$toCalendarDateHelp, date.year, $elm$time$Time$Jan, date.ordinalDay);
+};
+var $justinmimbs$date$Date$add = F3(
+	function (unit, n, _v0) {
+		var rd = _v0.a;
+		switch (unit.$) {
+			case 'Years':
+				return A3(
+					$justinmimbs$date$Date$add,
+					$justinmimbs$date$Date$Months,
+					12 * n,
+					$justinmimbs$date$Date$RD(rd));
+			case 'Months':
+				var date = $justinmimbs$date$Date$toCalendarDate(
+					$justinmimbs$date$Date$RD(rd));
+				var wholeMonths = ((12 * (date.year - 1)) + ($justinmimbs$date$Date$monthToNumber(date.month) - 1)) + n;
+				var m = $justinmimbs$date$Date$numberToMonth(
+					A2($elm$core$Basics$modBy, 12, wholeMonths) + 1);
+				var y = A2($justinmimbs$date$Date$floorDiv, wholeMonths, 12) + 1;
+				return $justinmimbs$date$Date$RD(
+					($justinmimbs$date$Date$daysBeforeYear(y) + A2($justinmimbs$date$Date$daysBeforeMonth, y, m)) + A2(
+						$elm$core$Basics$min,
+						date.day,
+						A2($justinmimbs$date$Date$daysInMonth, y, m)));
+			case 'Weeks':
+				return $justinmimbs$date$Date$RD(rd + (7 * n));
+			default:
+				return $justinmimbs$date$Date$RD(rd + n);
+		}
+	});
+var $elm$core$Basics$clamp = F3(
+	function (low, high, number) {
+		return (_Utils_cmp(number, low) < 0) ? low : ((_Utils_cmp(number, high) > 0) ? high : number);
+	});
+var $justinmimbs$date$Date$fromCalendarDate = F3(
+	function (y, m, d) {
+		return $justinmimbs$date$Date$RD(
+			($justinmimbs$date$Date$daysBeforeYear(y) + A2($justinmimbs$date$Date$daysBeforeMonth, y, m)) + A3(
+				$elm$core$Basics$clamp,
+				1,
+				A2($justinmimbs$date$Date$daysInMonth, y, m),
+				d));
+	});
+var $elm$time$Time$flooredDiv = F2(
+	function (numerator, denominator) {
+		return $elm$core$Basics$floor(numerator / denominator);
+	});
+var $elm$time$Time$toAdjustedMinutesHelp = F3(
+	function (defaultOffset, posixMinutes, eras) {
+		toAdjustedMinutesHelp:
+		while (true) {
+			if (!eras.b) {
+				return posixMinutes + defaultOffset;
+			} else {
+				var era = eras.a;
+				var olderEras = eras.b;
+				if (_Utils_cmp(era.start, posixMinutes) < 0) {
+					return posixMinutes + era.offset;
 				} else {
-					var p = _v1.a;
-					var x = _v1.b;
-					return A2($elm$parser$Parser$Advanced$Bad, p, x);
+					var $temp$defaultOffset = defaultOffset,
+						$temp$posixMinutes = posixMinutes,
+						$temp$eras = olderEras;
+					defaultOffset = $temp$defaultOffset;
+					posixMinutes = $temp$posixMinutes;
+					eras = $temp$eras;
+					continue toAdjustedMinutesHelp;
 				}
-			});
+			}
+		}
+	});
+var $elm$time$Time$toAdjustedMinutes = F2(
+	function (_v0, time) {
+		var defaultOffset = _v0.a;
+		var eras = _v0.b;
+		return A3(
+			$elm$time$Time$toAdjustedMinutesHelp,
+			defaultOffset,
+			A2(
+				$elm$time$Time$flooredDiv,
+				$elm$time$Time$posixToMillis(time),
+				60000),
+			eras);
+	});
+var $elm$time$Time$toCivil = function (minutes) {
+	var rawDay = A2($elm$time$Time$flooredDiv, minutes, 60 * 24) + 719468;
+	var era = (((rawDay >= 0) ? rawDay : (rawDay - 146096)) / 146097) | 0;
+	var dayOfEra = rawDay - (era * 146097);
+	var yearOfEra = ((((dayOfEra - ((dayOfEra / 1460) | 0)) + ((dayOfEra / 36524) | 0)) - ((dayOfEra / 146096) | 0)) / 365) | 0;
+	var dayOfYear = dayOfEra - (((365 * yearOfEra) + ((yearOfEra / 4) | 0)) - ((yearOfEra / 100) | 0));
+	var mp = (((5 * dayOfYear) + 2) / 153) | 0;
+	var month = mp + ((mp < 10) ? 3 : (-9));
+	var year = yearOfEra + (era * 400);
+	return {
+		day: (dayOfYear - ((((153 * mp) + 2) / 5) | 0)) + 1,
+		month: month,
+		year: year + ((month <= 2) ? 1 : 0)
+	};
+};
+var $elm$time$Time$toDay = F2(
+	function (zone, time) {
+		return $elm$time$Time$toCivil(
+			A2($elm$time$Time$toAdjustedMinutes, zone, time)).day;
+	});
+var $elm$time$Time$toMonth = F2(
+	function (zone, time) {
+		var _v0 = $elm$time$Time$toCivil(
+			A2($elm$time$Time$toAdjustedMinutes, zone, time)).month;
+		switch (_v0) {
+			case 1:
+				return $elm$time$Time$Jan;
+			case 2:
+				return $elm$time$Time$Feb;
+			case 3:
+				return $elm$time$Time$Mar;
+			case 4:
+				return $elm$time$Time$Apr;
+			case 5:
+				return $elm$time$Time$May;
+			case 6:
+				return $elm$time$Time$Jun;
+			case 7:
+				return $elm$time$Time$Jul;
+			case 8:
+				return $elm$time$Time$Aug;
+			case 9:
+				return $elm$time$Time$Sep;
+			case 10:
+				return $elm$time$Time$Oct;
+			case 11:
+				return $elm$time$Time$Nov;
+			default:
+				return $elm$time$Time$Dec;
+		}
+	});
+var $elm$time$Time$toYear = F2(
+	function (zone, time) {
+		return $elm$time$Time$toCivil(
+			A2($elm$time$Time$toAdjustedMinutes, zone, time)).year;
+	});
+var $justinmimbs$date$Date$fromPosix = F2(
+	function (zone, posix) {
+		return A3(
+			$justinmimbs$date$Date$fromCalendarDate,
+			A2($elm$time$Time$toYear, zone, posix),
+			A2($elm$time$Time$toMonth, zone, posix),
+			A2($elm$time$Time$toDay, zone, posix));
+	});
+var $elm$time$Time$Posix = function (a) {
+	return {$: 'Posix', a: a};
+};
+var $elm$time$Time$millisToPosix = $elm$time$Time$Posix;
+var $justinmimbs$date$Date$toRataDie = function (_v0) {
+	var rd = _v0.a;
+	return rd;
+};
+var $justinmimbs$time_extra$Time$Extra$dateToMillis = function (date) {
+	var daysSinceEpoch = $justinmimbs$date$Date$toRataDie(date) - 719163;
+	return daysSinceEpoch * 86400000;
+};
+var $justinmimbs$time_extra$Time$Extra$timeFromClock = F4(
+	function (hour, minute, second, millisecond) {
+		return (((hour * 3600000) + (minute * 60000)) + (second * 1000)) + millisecond;
+	});
+var $elm$time$Time$toHour = F2(
+	function (zone, time) {
+		return A2(
+			$elm$core$Basics$modBy,
+			24,
+			A2(
+				$elm$time$Time$flooredDiv,
+				A2($elm$time$Time$toAdjustedMinutes, zone, time),
+				60));
+	});
+var $elm$time$Time$toMillis = F2(
+	function (_v0, time) {
+		return A2(
+			$elm$core$Basics$modBy,
+			1000,
+			$elm$time$Time$posixToMillis(time));
+	});
+var $elm$time$Time$toMinute = F2(
+	function (zone, time) {
+		return A2(
+			$elm$core$Basics$modBy,
+			60,
+			A2($elm$time$Time$toAdjustedMinutes, zone, time));
+	});
+var $elm$time$Time$toSecond = F2(
+	function (_v0, time) {
+		return A2(
+			$elm$core$Basics$modBy,
+			60,
+			A2(
+				$elm$time$Time$flooredDiv,
+				$elm$time$Time$posixToMillis(time),
+				1000));
+	});
+var $justinmimbs$time_extra$Time$Extra$timeFromPosix = F2(
+	function (zone, posix) {
+		return A4(
+			$justinmimbs$time_extra$Time$Extra$timeFromClock,
+			A2($elm$time$Time$toHour, zone, posix),
+			A2($elm$time$Time$toMinute, zone, posix),
+			A2($elm$time$Time$toSecond, zone, posix),
+			A2($elm$time$Time$toMillis, zone, posix));
+	});
+var $justinmimbs$time_extra$Time$Extra$toOffset = F2(
+	function (zone, posix) {
+		var millis = $elm$time$Time$posixToMillis(posix);
+		var localMillis = $justinmimbs$time_extra$Time$Extra$dateToMillis(
+			A2($justinmimbs$date$Date$fromPosix, zone, posix)) + A2($justinmimbs$time_extra$Time$Extra$timeFromPosix, zone, posix);
+		return ((localMillis - millis) / 60000) | 0;
+	});
+var $justinmimbs$time_extra$Time$Extra$posixFromDateTime = F3(
+	function (zone, date, time) {
+		var millis = $justinmimbs$time_extra$Time$Extra$dateToMillis(date) + time;
+		var offset0 = A2(
+			$justinmimbs$time_extra$Time$Extra$toOffset,
+			zone,
+			$elm$time$Time$millisToPosix(millis));
+		var posix1 = $elm$time$Time$millisToPosix(millis - (offset0 * 60000));
+		var offset1 = A2($justinmimbs$time_extra$Time$Extra$toOffset, zone, posix1);
+		if (_Utils_eq(offset0, offset1)) {
+			return posix1;
+		} else {
+			var posix2 = $elm$time$Time$millisToPosix(millis - (offset1 * 60000));
+			var offset2 = A2($justinmimbs$time_extra$Time$Extra$toOffset, zone, posix2);
+			return _Utils_eq(offset1, offset2) ? posix2 : posix1;
+		}
+	});
+var $justinmimbs$time_extra$Time$Extra$add = F4(
+	function (interval, n, zone, posix) {
+		add:
+		while (true) {
+			switch (interval.$) {
+				case 'Millisecond':
+					return $elm$time$Time$millisToPosix(
+						$elm$time$Time$posixToMillis(posix) + n);
+				case 'Second':
+					var $temp$interval = $justinmimbs$time_extra$Time$Extra$Millisecond,
+						$temp$n = n * 1000,
+						$temp$zone = zone,
+						$temp$posix = posix;
+					interval = $temp$interval;
+					n = $temp$n;
+					zone = $temp$zone;
+					posix = $temp$posix;
+					continue add;
+				case 'Minute':
+					var $temp$interval = $justinmimbs$time_extra$Time$Extra$Millisecond,
+						$temp$n = n * 60000,
+						$temp$zone = zone,
+						$temp$posix = posix;
+					interval = $temp$interval;
+					n = $temp$n;
+					zone = $temp$zone;
+					posix = $temp$posix;
+					continue add;
+				case 'Hour':
+					var $temp$interval = $justinmimbs$time_extra$Time$Extra$Millisecond,
+						$temp$n = n * 3600000,
+						$temp$zone = zone,
+						$temp$posix = posix;
+					interval = $temp$interval;
+					n = $temp$n;
+					zone = $temp$zone;
+					posix = $temp$posix;
+					continue add;
+				case 'Day':
+					return A3(
+						$justinmimbs$time_extra$Time$Extra$posixFromDateTime,
+						zone,
+						A3(
+							$justinmimbs$date$Date$add,
+							$justinmimbs$date$Date$Days,
+							n,
+							A2($justinmimbs$date$Date$fromPosix, zone, posix)),
+						A2($justinmimbs$time_extra$Time$Extra$timeFromPosix, zone, posix));
+				case 'Month':
+					return A3(
+						$justinmimbs$time_extra$Time$Extra$posixFromDateTime,
+						zone,
+						A3(
+							$justinmimbs$date$Date$add,
+							$justinmimbs$date$Date$Months,
+							n,
+							A2($justinmimbs$date$Date$fromPosix, zone, posix)),
+						A2($justinmimbs$time_extra$Time$Extra$timeFromPosix, zone, posix));
+				case 'Year':
+					var $temp$interval = $justinmimbs$time_extra$Time$Extra$Month,
+						$temp$n = n * 12,
+						$temp$zone = zone,
+						$temp$posix = posix;
+					interval = $temp$interval;
+					n = $temp$n;
+					zone = $temp$zone;
+					posix = $temp$posix;
+					continue add;
+				case 'Quarter':
+					var $temp$interval = $justinmimbs$time_extra$Time$Extra$Month,
+						$temp$n = n * 3,
+						$temp$zone = zone,
+						$temp$posix = posix;
+					interval = $temp$interval;
+					n = $temp$n;
+					zone = $temp$zone;
+					posix = $temp$posix;
+					continue add;
+				case 'Week':
+					var $temp$interval = $justinmimbs$time_extra$Time$Extra$Day,
+						$temp$n = n * 7,
+						$temp$zone = zone,
+						$temp$posix = posix;
+					interval = $temp$interval;
+					n = $temp$n;
+					zone = $temp$zone;
+					posix = $temp$posix;
+					continue add;
+				default:
+					var weekday = interval;
+					var $temp$interval = $justinmimbs$time_extra$Time$Extra$Day,
+						$temp$n = n * 7,
+						$temp$zone = zone,
+						$temp$posix = posix;
+					interval = $temp$interval;
+					n = $temp$n;
+					zone = $temp$zone;
+					posix = $temp$posix;
+					continue add;
+			}
+		}
+	});
+var $justinmimbs$time_extra$Time$Extra$partsToPosix = F2(
+	function (zone, _v0) {
+		var year = _v0.year;
+		var month = _v0.month;
+		var day = _v0.day;
+		var hour = _v0.hour;
+		var minute = _v0.minute;
+		var second = _v0.second;
+		var millisecond = _v0.millisecond;
+		return A3(
+			$justinmimbs$time_extra$Time$Extra$posixFromDateTime,
+			zone,
+			A3($justinmimbs$date$Date$fromCalendarDate, year, month, day),
+			A4(
+				$justinmimbs$time_extra$Time$Extra$timeFromClock,
+				A3($elm$core$Basics$clamp, 0, 23, hour),
+				A3($elm$core$Basics$clamp, 0, 59, minute),
+				A3($elm$core$Basics$clamp, 0, 59, second),
+				A3($elm$core$Basics$clamp, 0, 999, millisecond)));
+	});
+var $elm$time$Time$Zone = F2(
+	function (a, b) {
+		return {$: 'Zone', a: a, b: b};
+	});
+var $elm$time$Time$utc = A2($elm$time$Time$Zone, 0, _List_Nil);
+var $dmy$elm_imf_date_time$Imf$DateTime$finalize = F3(
+	function (d, t, minuteOffset) {
+		return A4(
+			$justinmimbs$time_extra$Time$Extra$add,
+			$justinmimbs$time_extra$Time$Extra$Minute,
+			-minuteOffset,
+			$elm$time$Time$utc,
+			A2(
+				$justinmimbs$time_extra$Time$Extra$partsToPosix,
+				$elm$time$Time$utc,
+				{day: d.day, hour: t.hour, millisecond: 0, minute: t.minute, month: d.month, second: t.second, year: d.year}));
 	});
 var $elm$parser$Parser$Advanced$Append = F2(
 	function (a, b) {
@@ -6808,7 +8135,603 @@ var $elm$parser$Parser$Advanced$oneOf = function (parsers) {
 			return A3($elm$parser$Parser$Advanced$oneOfHelp, s, $elm$parser$Parser$Advanced$Empty, parsers);
 		});
 };
-var $jinjor$elm_xml_parser$XmlParser$maybe = function (parser) {
+var $elm$parser$Parser$oneOf = $elm$parser$Parser$Advanced$oneOf;
+var $elm$parser$Parser$ExpectingSymbol = function (a) {
+	return {$: 'ExpectingSymbol', a: a};
+};
+var $elm$parser$Parser$Advanced$Token = F2(
+	function (a, b) {
+		return {$: 'Token', a: a, b: b};
+	});
+var $elm$parser$Parser$Advanced$isSubString = _Parser_isSubString;
+var $elm$core$Basics$not = _Basics_not;
+var $elm$parser$Parser$Advanced$token = function (_v0) {
+	var str = _v0.a;
+	var expecting = _v0.b;
+	var progress = !$elm$core$String$isEmpty(str);
+	return $elm$parser$Parser$Advanced$Parser(
+		function (s) {
+			var _v1 = A5($elm$parser$Parser$Advanced$isSubString, str, s.offset, s.row, s.col, s.src);
+			var newOffset = _v1.a;
+			var newRow = _v1.b;
+			var newCol = _v1.c;
+			return _Utils_eq(newOffset, -1) ? A2(
+				$elm$parser$Parser$Advanced$Bad,
+				false,
+				A2($elm$parser$Parser$Advanced$fromState, s, expecting)) : A3(
+				$elm$parser$Parser$Advanced$Good,
+				progress,
+				_Utils_Tuple0,
+				{col: newCol, context: s.context, indent: s.indent, offset: newOffset, row: newRow, src: s.src});
+		});
+};
+var $elm$parser$Parser$Advanced$symbol = $elm$parser$Parser$Advanced$token;
+var $elm$parser$Parser$symbol = function (str) {
+	return $elm$parser$Parser$Advanced$symbol(
+		A2(
+			$elm$parser$Parser$Advanced$Token,
+			str,
+			$elm$parser$Parser$ExpectingSymbol(str)));
+};
+var $dmy$elm_imf_date_time$Imf$DateTime$Time = F3(
+	function (hour, minute, second) {
+		return {hour: hour, minute: minute, second: second};
+	});
+var $dmy$elm_imf_date_time$Imf$DateTime$digit2 = function (desc) {
+	return A2(
+		$elm$parser$Parser$andThen,
+		function (str) {
+			var _v0 = $elm$core$String$toInt(str);
+			if (_v0.$ === 'Just') {
+				var n = _v0.a;
+				return $elm$parser$Parser$succeed(n);
+			} else {
+				return $elm$parser$Parser$problem('Invalid two digit ' + desc);
+			}
+		},
+		$elm$parser$Parser$getChompedString(
+			A2(
+				$elm$parser$Parser$ignorer,
+				A2(
+					$elm$parser$Parser$ignorer,
+					$elm$parser$Parser$succeed(_Utils_Tuple0),
+					$elm$parser$Parser$chompIf($elm$core$Char$isDigit)),
+				$elm$parser$Parser$chompIf($elm$core$Char$isDigit))));
+};
+var $dmy$elm_imf_date_time$Imf$DateTime$time = A2(
+	$elm$parser$Parser$keeper,
+	A2(
+		$elm$parser$Parser$keeper,
+		A2(
+			$elm$parser$Parser$keeper,
+			$elm$parser$Parser$succeed($dmy$elm_imf_date_time$Imf$DateTime$Time),
+			A2(
+				$elm$parser$Parser$ignorer,
+				$dmy$elm_imf_date_time$Imf$DateTime$digit2('hour'),
+				$elm$parser$Parser$symbol(':'))),
+		$dmy$elm_imf_date_time$Imf$DateTime$digit2('minutes')),
+	$elm$parser$Parser$oneOf(
+		_List_fromArray(
+			[
+				A2(
+				$elm$parser$Parser$keeper,
+				A2(
+					$elm$parser$Parser$ignorer,
+					$elm$parser$Parser$succeed($elm$core$Basics$identity),
+					$elm$parser$Parser$symbol(':')),
+				$dmy$elm_imf_date_time$Imf$DateTime$digit2('seconds')),
+				$elm$parser$Parser$succeed(0)
+			])));
+var $dmy$elm_imf_date_time$Imf$DateTime$toOffset = F3(
+	function (sign, hourOffset, minuteOffset) {
+		return sign * ((hourOffset * 60) + minuteOffset);
+	});
+var $dmy$elm_imf_date_time$Imf$DateTime$offset = A2(
+	$elm$parser$Parser$keeper,
+	A2(
+		$elm$parser$Parser$keeper,
+		A2(
+			$elm$parser$Parser$keeper,
+			$elm$parser$Parser$succeed($dmy$elm_imf_date_time$Imf$DateTime$toOffset),
+			$elm$parser$Parser$oneOf(
+				_List_fromArray(
+					[
+						A2(
+						$elm$parser$Parser$map,
+						$elm$core$Basics$always(1),
+						$elm$parser$Parser$symbol('+')),
+						A2(
+						$elm$parser$Parser$map,
+						$elm$core$Basics$always(-1),
+						$elm$parser$Parser$symbol('-'))
+					]))),
+		$dmy$elm_imf_date_time$Imf$DateTime$digit2('zone local hours differential')),
+	$dmy$elm_imf_date_time$Imf$DateTime$digit2('zone local minutes differential'));
+var $dmy$elm_imf_date_time$Imf$DateTime$checkZone = function (str) {
+	switch (str) {
+		case 'EST':
+			return $elm$parser$Parser$succeed((-5) * 60);
+		case 'EDT':
+			return $elm$parser$Parser$succeed((-4) * 60);
+		case 'CST':
+			return $elm$parser$Parser$succeed((-6) * 60);
+		case 'CDT':
+			return $elm$parser$Parser$succeed((-5) * 60);
+		case 'MST':
+			return $elm$parser$Parser$succeed((-7) * 60);
+		case 'MDT':
+			return $elm$parser$Parser$succeed((-6) * 60);
+		case 'PST':
+			return $elm$parser$Parser$succeed((-8) * 60);
+		case 'PDT':
+			return $elm$parser$Parser$succeed((-7) * 60);
+		default:
+			var len = $elm$core$String$length(str);
+			return ((len > 0) && (len <= 5)) ? $elm$parser$Parser$succeed(0) : $elm$parser$Parser$problem('Invalid time zone');
+	}
+};
+var $dmy$elm_imf_date_time$Imf$DateTime$timezone = A2(
+	$elm$parser$Parser$andThen,
+	$dmy$elm_imf_date_time$Imf$DateTime$checkZone,
+	$elm$parser$Parser$getChompedString(
+		$elm$parser$Parser$chompWhile($elm$core$Char$isUpper)));
+var $dmy$elm_imf_date_time$Imf$DateTime$zone = $elm$parser$Parser$oneOf(
+	_List_fromArray(
+		[$dmy$elm_imf_date_time$Imf$DateTime$offset, $dmy$elm_imf_date_time$Imf$DateTime$timezone]));
+var $dmy$elm_imf_date_time$Imf$DateTime$parser = A2(
+	$elm$parser$Parser$keeper,
+	A2(
+		$elm$parser$Parser$keeper,
+		A2(
+			$elm$parser$Parser$keeper,
+			A2(
+				$elm$parser$Parser$ignorer,
+				A2(
+					$elm$parser$Parser$ignorer,
+					$elm$parser$Parser$succeed($dmy$elm_imf_date_time$Imf$DateTime$finalize),
+					$elm$parser$Parser$oneOf(
+						_List_fromArray(
+							[
+								A2(
+								$elm$parser$Parser$ignorer,
+								A2(
+									$elm$parser$Parser$ignorer,
+									A2(
+										$elm$parser$Parser$ignorer,
+										$elm$parser$Parser$succeed(_Utils_Tuple0),
+										$dmy$elm_imf_date_time$Imf$DateTime$day),
+									$elm$parser$Parser$spaces),
+								$elm$parser$Parser$symbol(',')),
+								$elm$parser$Parser$succeed(_Utils_Tuple0)
+							]))),
+				$elm$parser$Parser$spaces),
+			A2($elm$parser$Parser$ignorer, $dmy$elm_imf_date_time$Imf$DateTime$date, $elm$parser$Parser$spaces)),
+		A2($elm$parser$Parser$ignorer, $dmy$elm_imf_date_time$Imf$DateTime$time, $elm$parser$Parser$spaces)),
+	$dmy$elm_imf_date_time$Imf$DateTime$zone);
+var $elm$parser$Parser$DeadEnd = F3(
+	function (row, col, problem) {
+		return {col: col, problem: problem, row: row};
+	});
+var $elm$parser$Parser$problemToDeadEnd = function (p) {
+	return A3($elm$parser$Parser$DeadEnd, p.row, p.col, p.problem);
+};
+var $elm$parser$Parser$Advanced$bagToList = F2(
+	function (bag, list) {
+		bagToList:
+		while (true) {
+			switch (bag.$) {
+				case 'Empty':
+					return list;
+				case 'AddRight':
+					var bag1 = bag.a;
+					var x = bag.b;
+					var $temp$bag = bag1,
+						$temp$list = A2($elm$core$List$cons, x, list);
+					bag = $temp$bag;
+					list = $temp$list;
+					continue bagToList;
+				default:
+					var bag1 = bag.a;
+					var bag2 = bag.b;
+					var $temp$bag = bag1,
+						$temp$list = A2($elm$parser$Parser$Advanced$bagToList, bag2, list);
+					bag = $temp$bag;
+					list = $temp$list;
+					continue bagToList;
+			}
+		}
+	});
+var $elm$parser$Parser$Advanced$run = F2(
+	function (_v0, src) {
+		var parse = _v0.a;
+		var _v1 = parse(
+			{col: 1, context: _List_Nil, indent: 1, offset: 0, row: 1, src: src});
+		if (_v1.$ === 'Good') {
+			var value = _v1.b;
+			return $elm$core$Result$Ok(value);
+		} else {
+			var bag = _v1.b;
+			return $elm$core$Result$Err(
+				A2($elm$parser$Parser$Advanced$bagToList, bag, _List_Nil));
+		}
+	});
+var $elm$parser$Parser$run = F2(
+	function (parser, source) {
+		var _v0 = A2($elm$parser$Parser$Advanced$run, parser, source);
+		if (_v0.$ === 'Ok') {
+			var a = _v0.a;
+			return $elm$core$Result$Ok(a);
+		} else {
+			var problems = _v0.a;
+			return $elm$core$Result$Err(
+				A2($elm$core$List$map, $elm$parser$Parser$problemToDeadEnd, problems));
+		}
+	});
+var $dmy$elm_imf_date_time$Imf$DateTime$toPosix = function (str) {
+	return A2(
+		$elm$parser$Parser$run,
+		A2(
+			$elm$parser$Parser$keeper,
+			$elm$parser$Parser$succeed($elm$core$Basics$identity),
+			A2($elm$parser$Parser$ignorer, $dmy$elm_imf_date_time$Imf$DateTime$parser, $elm$parser$Parser$end)),
+		str);
+};
+var $author$project$Main$publicationDate = function (str) {
+	var res = $dmy$elm_imf_date_time$Imf$DateTime$toPosix(str);
+	if (res.$ === 'Ok') {
+		var psx = res.a;
+		return $elm$core$Result$Ok(psx);
+	} else {
+		var deadEnds = res.a;
+		return $elm$core$Result$Err(
+			$author$project$Main$DateParserError(deadEnds));
+	}
+};
+var $author$project$Main$fromItem = function (node) {
+	return function (nodes) {
+		return A2(
+			$elm_community$result_extra$Result$Extra$andMap,
+			A2(
+				$author$project$Main$fallback,
+				$author$project$Main$defaultThumb,
+				A2(
+					$elm$core$Result$andThen,
+					$author$project$Main$enclosure,
+					A2($author$project$Main$findNodeWithName, 'enclosure', nodes))),
+			A2(
+				$elm_community$result_extra$Result$Extra$andMap,
+				A2(
+					$elm$core$Result$andThen,
+					$author$project$Main$publicationDate,
+					A2($author$project$Main$findText, 'pubDate', nodes)),
+				A2(
+					$elm_community$result_extra$Result$Extra$andMap,
+					A2($author$project$Main$findText, 'status', nodes),
+					A2(
+						$elm_community$result_extra$Result$Extra$andMap,
+						A2($author$project$Main$findText, 'description', nodes),
+						A2(
+							$elm_community$result_extra$Result$Extra$andMap,
+							A2($author$project$Main$findText, 'link', nodes),
+							A2(
+								$elm_community$result_extra$Result$Extra$andMap,
+								A2(
+									$elm$core$Result$andThen,
+									$author$project$Main$getIdFromLink,
+									A2($author$project$Main$findText, 'link', nodes)),
+								A2(
+									$elm_community$result_extra$Result$Extra$andMap,
+									A2($author$project$Main$findText, 'title', nodes),
+									$elm$core$Result$Ok($author$project$Main$expositionMeta))))))));
+	}(
+		$author$project$Main$children(node));
+};
+var $elm_community$result_extra$Result$Extra$partition = function (rs) {
+	return A3(
+		$elm$core$List$foldr,
+		F2(
+			function (r, _v0) {
+				var succ = _v0.a;
+				var err = _v0.b;
+				if (r.$ === 'Ok') {
+					var v = r.a;
+					return _Utils_Tuple2(
+						A2($elm$core$List$cons, v, succ),
+						err);
+				} else {
+					var v = r.a;
+					return _Utils_Tuple2(
+						succ,
+						A2($elm$core$List$cons, v, err));
+				}
+			}),
+		_Utils_Tuple2(_List_Nil, _List_Nil),
+		rs);
+};
+var $author$project$Main$fromXml = function (xml) {
+	return A2(
+		$elm$core$Result$map,
+		$elm$core$Tuple$first,
+		A2(
+			$elm$core$Result$map,
+			$elm_community$result_extra$Result$Extra$partition,
+			A2(
+				$elm$core$Result$map,
+				$elm$core$List$map($author$project$Main$fromItem),
+				A2(
+					$elm$core$Result$map,
+					A2(
+						$elm$core$Basics$composeR,
+						$author$project$Main$children,
+						$elm$core$List$filter(
+							$author$project$Main$filterName('item'))),
+					A2(
+						$author$project$Main$findNodeWithName,
+						'channel',
+						$author$project$Main$children(xml.root))))));
+};
+var $author$project$Main$authorProfile = function (id) {
+	return 'https://www.researchcatalogue.net/profile/?person=' + $elm$core$String$fromInt(id);
+};
+var $author$project$Main$findResearchWithId = F2(
+	function (id, lst) {
+		var test = function (r) {
+			return _Utils_eq(r.id, id);
+		};
+		return $elm$core$List$head(
+			A2($elm$core$List$filter, test, lst));
+	});
+var $author$project$Main$metaPageFromId = function (id) {
+	return 'https://www.researchcatalogue.net/profile/show-exposition?exposition=' + $elm$core$String$fromInt(id);
+};
+var $elm$core$Maybe$withDefault = F2(
+	function (_default, maybe) {
+		if (maybe.$ === 'Just') {
+			var value = maybe.a;
+			return value;
+		} else {
+			return _default;
+		}
+	});
+var $author$project$Main$merge = F2(
+	function (lst, _v0) {
+		var meta = _v0.a;
+		return A2(
+			$elm$core$Maybe$map,
+			function (research) {
+				return {
+					author: research.author,
+					authorId: research.authorId,
+					authorProfile: $author$project$Main$authorProfile(research.authorId),
+					copyright: research.copyright,
+					description: meta.description,
+					doi: A2($elm$core$Maybe$withDefault, 'null', research.doi),
+					id: meta.id,
+					issue: 'null',
+					keywords: research.keywords,
+					license: research.license,
+					metaPage: $author$project$Main$metaPageFromId(meta.id),
+					pubDate: meta.pubDate,
+					status: research.publicationStatus,
+					thumb: meta.enclosure.url,
+					title: meta.title
+				};
+			},
+			A2($author$project$Main$findResearchWithId, meta.id, lst));
+	});
+var $elm$core$Platform$Cmd$batch = _Platform_batch;
+var $elm$core$Platform$Cmd$none = $elm$core$Platform$Cmd$batch(_List_Nil);
+var $author$project$XmlParser2$Xml = F3(
+	function (processingInstructions, docType, root) {
+		return {docType: docType, processingInstructions: processingInstructions, root: root};
+	});
+var $elm$parser$Parser$Advanced$findSubString = _Parser_findSubString;
+var $elm$parser$Parser$Advanced$fromInfo = F4(
+	function (row, col, x, context) {
+		return A2(
+			$elm$parser$Parser$Advanced$AddRight,
+			$elm$parser$Parser$Advanced$Empty,
+			A4($elm$parser$Parser$Advanced$DeadEnd, row, col, x, context));
+	});
+var $elm$parser$Parser$Advanced$chompUntil = function (_v0) {
+	var str = _v0.a;
+	var expecting = _v0.b;
+	return $elm$parser$Parser$Advanced$Parser(
+		function (s) {
+			var _v1 = A5($elm$parser$Parser$Advanced$findSubString, str, s.offset, s.row, s.col, s.src);
+			var newOffset = _v1.a;
+			var newRow = _v1.b;
+			var newCol = _v1.c;
+			return _Utils_eq(newOffset, -1) ? A2(
+				$elm$parser$Parser$Advanced$Bad,
+				false,
+				A4($elm$parser$Parser$Advanced$fromInfo, newRow, newCol, expecting, s.context)) : A3(
+				$elm$parser$Parser$Advanced$Good,
+				_Utils_cmp(s.offset, newOffset) < 0,
+				_Utils_Tuple0,
+				{col: newCol, context: s.context, indent: s.indent, offset: newOffset, row: newRow, src: s.src});
+		});
+};
+var $elm$parser$Parser$Expecting = function (a) {
+	return {$: 'Expecting', a: a};
+};
+var $author$project$XmlParser2$toToken = function (str) {
+	return A2(
+		$elm$parser$Parser$Advanced$Token,
+		str,
+		$elm$parser$Parser$Expecting(str));
+};
+var $author$project$XmlParser2$comment = A2(
+	$elm$parser$Parser$Advanced$ignorer,
+	A2(
+		$elm$parser$Parser$Advanced$ignorer,
+		A2(
+			$elm$parser$Parser$Advanced$ignorer,
+			$elm$parser$Parser$Advanced$succeed(_Utils_Tuple0),
+			$elm$parser$Parser$Advanced$token(
+				$author$project$XmlParser2$toToken('<!--'))),
+		$elm$parser$Parser$Advanced$chompUntil(
+			$author$project$XmlParser2$toToken('-->'))),
+	$elm$parser$Parser$Advanced$token(
+		$author$project$XmlParser2$toToken('-->')));
+var $author$project$XmlParser2$DocType = F2(
+	function (rootElementName, definition) {
+		return {definition: definition, rootElementName: rootElementName};
+	});
+var $author$project$XmlParser2$Custom = function (a) {
+	return {$: 'Custom', a: a};
+};
+var $author$project$XmlParser2$Public = F3(
+	function (a, b, c) {
+		return {$: 'Public', a: a, b: b, c: c};
+	});
+var $author$project$XmlParser2$System = F2(
+	function (a, b) {
+		return {$: 'System', a: a, b: b};
+	});
+var $elm$parser$Parser$Advanced$Located = F3(
+	function (row, col, context) {
+		return {col: col, context: context, row: row};
+	});
+var $elm$parser$Parser$Advanced$changeContext = F2(
+	function (newContext, s) {
+		return {col: s.col, context: newContext, indent: s.indent, offset: s.offset, row: s.row, src: s.src};
+	});
+var $elm$parser$Parser$Advanced$inContext = F2(
+	function (context, _v0) {
+		var parse = _v0.a;
+		return $elm$parser$Parser$Advanced$Parser(
+			function (s0) {
+				var _v1 = parse(
+					A2(
+						$elm$parser$Parser$Advanced$changeContext,
+						A2(
+							$elm$core$List$cons,
+							A3($elm$parser$Parser$Advanced$Located, s0.row, s0.col, context),
+							s0.context),
+						s0));
+				if (_v1.$ === 'Good') {
+					var p = _v1.a;
+					var a = _v1.b;
+					var s1 = _v1.c;
+					return A3(
+						$elm$parser$Parser$Advanced$Good,
+						p,
+						a,
+						A2($elm$parser$Parser$Advanced$changeContext, s0.context, s1));
+				} else {
+					var step = _v1;
+					return step;
+				}
+			});
+	});
+var $elm$parser$Parser$BadRepeat = {$: 'BadRepeat'};
+var $author$project$XmlParser2$keep = F2(
+	function (count, predicate) {
+		var n = count.a;
+		return A2(
+			$elm$parser$Parser$Advanced$andThen,
+			function (str) {
+				return (_Utils_cmp(
+					n,
+					$elm$core$String$length(str)) < 1) ? $elm$parser$Parser$Advanced$succeed(str) : $elm$parser$Parser$Advanced$problem($elm$parser$Parser$BadRepeat);
+			},
+			$elm$parser$Parser$Advanced$getChompedString(
+				A2(
+					$elm$parser$Parser$Advanced$ignorer,
+					$elm$parser$Parser$Advanced$succeed(_Utils_Tuple0),
+					$elm$parser$Parser$Advanced$chompWhile(predicate))));
+	});
+var $author$project$XmlParser2$symbol = function (str) {
+	return $elm$parser$Parser$Advanced$symbol(
+		A2(
+			$elm$parser$Parser$Advanced$Token,
+			str,
+			$elm$parser$Parser$ExpectingSymbol(str)));
+};
+var $author$project$XmlParser2$AtLeast = function (a) {
+	return {$: 'AtLeast', a: a};
+};
+var $author$project$XmlParser2$zeroOrMore = $author$project$XmlParser2$AtLeast(0);
+var $author$project$XmlParser2$docTypeExternalSubset = A2(
+	$elm$parser$Parser$Advanced$inContext,
+	'docTypeExternalSubset',
+	A2(
+		$elm$parser$Parser$Advanced$keeper,
+		A2(
+			$elm$parser$Parser$Advanced$ignorer,
+			$elm$parser$Parser$Advanced$succeed($elm$core$Basics$identity),
+			$author$project$XmlParser2$symbol('\"')),
+		A2(
+			$elm$parser$Parser$Advanced$ignorer,
+			A2(
+				$author$project$XmlParser2$keep,
+				$author$project$XmlParser2$zeroOrMore,
+				function (c) {
+					return !_Utils_eq(
+						c,
+						_Utils_chr('\"'));
+				}),
+			$author$project$XmlParser2$symbol('\"'))));
+var $author$project$XmlParser2$docTypeInternalSubset = A2(
+	$elm$parser$Parser$Advanced$inContext,
+	'docTypeInternalSubset',
+	A2(
+		$elm$parser$Parser$Advanced$keeper,
+		A2(
+			$elm$parser$Parser$Advanced$ignorer,
+			$elm$parser$Parser$Advanced$succeed($elm$core$Basics$identity),
+			$author$project$XmlParser2$symbol('[')),
+		A2(
+			$elm$parser$Parser$Advanced$ignorer,
+			A2(
+				$author$project$XmlParser2$keep,
+				$author$project$XmlParser2$zeroOrMore,
+				function (c) {
+					return !_Utils_eq(
+						c,
+						_Utils_chr(']'));
+				}),
+			$author$project$XmlParser2$symbol(']'))));
+var $elm$parser$Parser$ExpectingKeyword = function (a) {
+	return {$: 'ExpectingKeyword', a: a};
+};
+var $elm$parser$Parser$Advanced$keyword = function (_v0) {
+	var kwd = _v0.a;
+	var expecting = _v0.b;
+	var progress = !$elm$core$String$isEmpty(kwd);
+	return $elm$parser$Parser$Advanced$Parser(
+		function (s) {
+			var _v1 = A5($elm$parser$Parser$Advanced$isSubString, kwd, s.offset, s.row, s.col, s.src);
+			var newOffset = _v1.a;
+			var newRow = _v1.b;
+			var newCol = _v1.c;
+			return (_Utils_eq(newOffset, -1) || (0 <= A3(
+				$elm$parser$Parser$Advanced$isSubChar,
+				function (c) {
+					return $elm$core$Char$isAlphaNum(c) || _Utils_eq(
+						c,
+						_Utils_chr('_'));
+				},
+				newOffset,
+				s.src))) ? A2(
+				$elm$parser$Parser$Advanced$Bad,
+				false,
+				A2($elm$parser$Parser$Advanced$fromState, s, expecting)) : A3(
+				$elm$parser$Parser$Advanced$Good,
+				progress,
+				_Utils_Tuple0,
+				{col: newCol, context: s.context, indent: s.indent, offset: newOffset, row: newRow, src: s.src});
+		});
+};
+var $author$project$XmlParser2$keyword = function (kwd) {
+	return $elm$parser$Parser$Advanced$keyword(
+		A2(
+			$elm$parser$Parser$Advanced$Token,
+			kwd,
+			$elm$parser$Parser$ExpectingKeyword(kwd)));
+};
+var $author$project$XmlParser2$maybe = function (parser) {
 	return $elm$parser$Parser$Advanced$oneOf(
 		_List_fromArray(
 			[
@@ -6816,7 +8739,7 @@ var $jinjor$elm_xml_parser$XmlParser$maybe = function (parser) {
 				$elm$parser$Parser$Advanced$succeed($elm$core$Maybe$Nothing)
 			]));
 };
-var $jinjor$elm_xml_parser$XmlParser$publicIdentifier = A2(
+var $author$project$XmlParser2$publicIdentifier = A2(
 	$elm$parser$Parser$Advanced$inContext,
 	'publicIdentifier',
 	A2(
@@ -6824,28 +8747,28 @@ var $jinjor$elm_xml_parser$XmlParser$publicIdentifier = A2(
 		A2(
 			$elm$parser$Parser$Advanced$ignorer,
 			$elm$parser$Parser$Advanced$succeed($elm$core$Basics$identity),
-			$jinjor$elm_xml_parser$XmlParser$symbol('\"')),
+			$author$project$XmlParser2$symbol('\"')),
 		A2(
 			$elm$parser$Parser$Advanced$ignorer,
 			A2(
-				$jinjor$elm_xml_parser$XmlParser$keep,
-				$jinjor$elm_xml_parser$XmlParser$zeroOrMore,
+				$author$project$XmlParser2$keep,
+				$author$project$XmlParser2$zeroOrMore,
 				function (c) {
 					return !_Utils_eq(
 						c,
 						_Utils_chr('\"'));
 				}),
-			$jinjor$elm_xml_parser$XmlParser$symbol('\"'))));
-var $jinjor$elm_xml_parser$XmlParser$ignore = F2(
+			$author$project$XmlParser2$symbol('\"'))));
+var $author$project$XmlParser2$ignore = F2(
 	function (count, predicate) {
 		return A2(
 			$elm$parser$Parser$Advanced$map,
 			function (_v0) {
 				return _Utils_Tuple0;
 			},
-			A2($jinjor$elm_xml_parser$XmlParser$keep, count, predicate));
+			A2($author$project$XmlParser2$keep, count, predicate));
 	});
-var $jinjor$elm_xml_parser$XmlParser$isWhitespace = function (c) {
+var $author$project$XmlParser2$isWhitespace = function (c) {
 	return _Utils_eq(
 		c,
 		_Utils_chr(' ')) || (_Utils_eq(
@@ -6856,8 +8779,8 @@ var $jinjor$elm_xml_parser$XmlParser$isWhitespace = function (c) {
 		c,
 		_Utils_chr('\t'))));
 };
-var $jinjor$elm_xml_parser$XmlParser$whiteSpace = A2($jinjor$elm_xml_parser$XmlParser$ignore, $jinjor$elm_xml_parser$XmlParser$zeroOrMore, $jinjor$elm_xml_parser$XmlParser$isWhitespace);
-var $jinjor$elm_xml_parser$XmlParser$docTypeDefinition = A2(
+var $author$project$XmlParser2$whiteSpace = A2($author$project$XmlParser2$ignore, $author$project$XmlParser2$zeroOrMore, $author$project$XmlParser2$isWhitespace);
+var $author$project$XmlParser2$docTypeDefinition = A2(
 	$elm$parser$Parser$Advanced$inContext,
 	'docTypeDefinition',
 	$elm$parser$Parser$Advanced$oneOf(
@@ -6873,12 +8796,12 @@ var $jinjor$elm_xml_parser$XmlParser$docTypeDefinition = A2(
 							$elm$parser$Parser$Advanced$ignorer,
 							A2(
 								$elm$parser$Parser$Advanced$ignorer,
-								$elm$parser$Parser$Advanced$succeed($jinjor$elm_xml_parser$XmlParser$Public),
-								$jinjor$elm_xml_parser$XmlParser$keyword('PUBLIC')),
-							$jinjor$elm_xml_parser$XmlParser$whiteSpace),
-						A2($elm$parser$Parser$Advanced$ignorer, $jinjor$elm_xml_parser$XmlParser$publicIdentifier, $jinjor$elm_xml_parser$XmlParser$whiteSpace)),
-					A2($elm$parser$Parser$Advanced$ignorer, $jinjor$elm_xml_parser$XmlParser$docTypeExternalSubset, $jinjor$elm_xml_parser$XmlParser$whiteSpace)),
-				$jinjor$elm_xml_parser$XmlParser$maybe($jinjor$elm_xml_parser$XmlParser$docTypeInternalSubset)),
+								$elm$parser$Parser$Advanced$succeed($author$project$XmlParser2$Public),
+								$author$project$XmlParser2$keyword('PUBLIC')),
+							$author$project$XmlParser2$whiteSpace),
+						A2($elm$parser$Parser$Advanced$ignorer, $author$project$XmlParser2$publicIdentifier, $author$project$XmlParser2$whiteSpace)),
+					A2($elm$parser$Parser$Advanced$ignorer, $author$project$XmlParser2$docTypeExternalSubset, $author$project$XmlParser2$whiteSpace)),
+				$author$project$XmlParser2$maybe($author$project$XmlParser2$docTypeInternalSubset)),
 				A2(
 				$elm$parser$Parser$Advanced$keeper,
 				A2(
@@ -6887,25 +8810,25 @@ var $jinjor$elm_xml_parser$XmlParser$docTypeDefinition = A2(
 						$elm$parser$Parser$Advanced$ignorer,
 						A2(
 							$elm$parser$Parser$Advanced$ignorer,
-							$elm$parser$Parser$Advanced$succeed($jinjor$elm_xml_parser$XmlParser$System),
-							$jinjor$elm_xml_parser$XmlParser$keyword('SYSTEM')),
-						$jinjor$elm_xml_parser$XmlParser$whiteSpace),
-					A2($elm$parser$Parser$Advanced$ignorer, $jinjor$elm_xml_parser$XmlParser$docTypeExternalSubset, $jinjor$elm_xml_parser$XmlParser$whiteSpace)),
-				$jinjor$elm_xml_parser$XmlParser$maybe($jinjor$elm_xml_parser$XmlParser$docTypeInternalSubset)),
+							$elm$parser$Parser$Advanced$succeed($author$project$XmlParser2$System),
+							$author$project$XmlParser2$keyword('SYSTEM')),
+						$author$project$XmlParser2$whiteSpace),
+					A2($elm$parser$Parser$Advanced$ignorer, $author$project$XmlParser2$docTypeExternalSubset, $author$project$XmlParser2$whiteSpace)),
+				$author$project$XmlParser2$maybe($author$project$XmlParser2$docTypeInternalSubset)),
 				A2(
 				$elm$parser$Parser$Advanced$keeper,
-				$elm$parser$Parser$Advanced$succeed($jinjor$elm_xml_parser$XmlParser$Custom),
-				$jinjor$elm_xml_parser$XmlParser$docTypeInternalSubset)
+				$elm$parser$Parser$Advanced$succeed($author$project$XmlParser2$Custom),
+				$author$project$XmlParser2$docTypeInternalSubset)
 			])));
-var $jinjor$elm_xml_parser$XmlParser$oneOrMore = $jinjor$elm_xml_parser$XmlParser$AtLeast(1);
-var $jinjor$elm_xml_parser$XmlParser$tagName = A2(
+var $author$project$XmlParser2$oneOrMore = $author$project$XmlParser2$AtLeast(1);
+var $author$project$XmlParser2$tagName = A2(
 	$elm$parser$Parser$Advanced$inContext,
 	'tagName',
 	A2(
-		$jinjor$elm_xml_parser$XmlParser$keep,
-		$jinjor$elm_xml_parser$XmlParser$oneOrMore,
+		$author$project$XmlParser2$keep,
+		$author$project$XmlParser2$oneOrMore,
 		function (c) {
-			return (!$jinjor$elm_xml_parser$XmlParser$isWhitespace(c)) && ((!_Utils_eq(
+			return (!$author$project$XmlParser2$isWhitespace(c)) && ((!_Utils_eq(
 				c,
 				_Utils_chr('/'))) && ((!_Utils_eq(
 				c,
@@ -6919,7 +8842,7 @@ var $jinjor$elm_xml_parser$XmlParser$tagName = A2(
 				c,
 				_Utils_chr('='))))))));
 		}));
-var $jinjor$elm_xml_parser$XmlParser$docType = A2(
+var $author$project$XmlParser2$docType = A2(
 	$elm$parser$Parser$Advanced$inContext,
 	'docType',
 	A2(
@@ -6930,33 +8853,33 @@ var $jinjor$elm_xml_parser$XmlParser$docType = A2(
 				$elm$parser$Parser$Advanced$ignorer,
 				A2(
 					$elm$parser$Parser$Advanced$ignorer,
-					$elm$parser$Parser$Advanced$succeed($jinjor$elm_xml_parser$XmlParser$DocType),
-					$jinjor$elm_xml_parser$XmlParser$symbol('<!DOCTYPE')),
-				$jinjor$elm_xml_parser$XmlParser$whiteSpace),
-			A2($elm$parser$Parser$Advanced$ignorer, $jinjor$elm_xml_parser$XmlParser$tagName, $jinjor$elm_xml_parser$XmlParser$whiteSpace)),
+					$elm$parser$Parser$Advanced$succeed($author$project$XmlParser2$DocType),
+					$author$project$XmlParser2$symbol('<!DOCTYPE')),
+				$author$project$XmlParser2$whiteSpace),
+			A2($elm$parser$Parser$Advanced$ignorer, $author$project$XmlParser2$tagName, $author$project$XmlParser2$whiteSpace)),
 		A2(
 			$elm$parser$Parser$Advanced$ignorer,
-			A2($elm$parser$Parser$Advanced$ignorer, $jinjor$elm_xml_parser$XmlParser$docTypeDefinition, $jinjor$elm_xml_parser$XmlParser$whiteSpace),
-			$jinjor$elm_xml_parser$XmlParser$symbol('>'))));
-var $jinjor$elm_xml_parser$XmlParser$Element = F3(
+			A2($elm$parser$Parser$Advanced$ignorer, $author$project$XmlParser2$docTypeDefinition, $author$project$XmlParser2$whiteSpace),
+			$author$project$XmlParser2$symbol('>'))));
+var $author$project$XmlParser2$Element = F3(
 	function (a, b, c) {
 		return {$: 'Element', a: a, b: b, c: c};
 	});
-var $jinjor$elm_xml_parser$XmlParser$Text = function (a) {
+var $author$project$XmlParser2$Text = function (a) {
 	return {$: 'Text', a: a};
 };
-var $jinjor$elm_xml_parser$XmlParser$Attribute = F2(
+var $author$project$XmlParser2$Attribute = F2(
 	function (name, value) {
 		return {name: name, value: value};
 	});
-var $jinjor$elm_xml_parser$XmlParser$attributeName = A2(
+var $author$project$XmlParser2$attributeName = A2(
 	$elm$parser$Parser$Advanced$inContext,
 	'attributeName',
 	A2(
-		$jinjor$elm_xml_parser$XmlParser$keep,
-		$jinjor$elm_xml_parser$XmlParser$oneOrMore,
+		$author$project$XmlParser2$keep,
+		$author$project$XmlParser2$oneOrMore,
 		function (c) {
-			return (!$jinjor$elm_xml_parser$XmlParser$isWhitespace(c)) && ((!_Utils_eq(
+			return (!$author$project$XmlParser2$isWhitespace(c)) && ((!_Utils_eq(
 				c,
 				_Utils_chr('/'))) && ((!_Utils_eq(
 				c,
@@ -6971,22 +8894,7 @@ var $jinjor$elm_xml_parser$XmlParser$attributeName = A2(
 				_Utils_chr('='))))))));
 		}));
 var $elm$core$String$cons = _String_cons;
-var $elm$parser$Parser$Problem = function (a) {
-	return {$: 'Problem', a: a};
-};
-var $elm$core$Dict$fromList = function (assocs) {
-	return A3(
-		$elm$core$List$foldl,
-		F2(
-			function (_v0, dict) {
-				var key = _v0.a;
-				var value = _v0.b;
-				return A3($elm$core$Dict$insert, key, value, dict);
-			}),
-		$elm$core$Dict$empty,
-		assocs);
-};
-var $jinjor$elm_xml_parser$XmlParser$entities = $elm$core$Dict$fromList(
+var $author$project$XmlParser2$entities = $elm$core$Dict$fromList(
 	_List_fromArray(
 		[
 			_Utils_Tuple2(
@@ -7006,15 +8914,6 @@ var $jinjor$elm_xml_parser$XmlParser$entities = $elm$core$Dict$fromList(
 			_Utils_chr('\"'))
 		]));
 var $elm$core$Char$fromCode = _Char_fromCode;
-var $elm$core$Result$fromMaybe = F2(
-	function (err, maybe) {
-		if (maybe.$ === 'Just') {
-			var v = maybe.a;
-			return $elm$core$Result$Ok(v);
-		} else {
-			return $elm$core$Result$Err(err);
-		}
-	});
 var $elm$core$String$fromChar = function (_char) {
 	return A2($elm$core$String$cons, _char, '');
 };
@@ -7165,17 +9064,6 @@ var $rtfeldman$elm_hex$Hex$fromStringHelp = F3(
 			}
 		}
 	});
-var $elm$core$Result$map = F2(
-	function (func, ra) {
-		if (ra.$ === 'Ok') {
-			var a = ra.a;
-			return $elm$core$Result$Ok(
-				func(a));
-		} else {
-			var e = ra.a;
-			return $elm$core$Result$Err(e);
-		}
-	});
 var $elm$core$List$tail = function (list) {
 	if (list.b) {
 		var x = list.a;
@@ -7185,19 +9073,6 @@ var $elm$core$List$tail = function (list) {
 		return $elm$core$Maybe$Nothing;
 	}
 };
-var $elm$core$String$foldr = _String_foldr;
-var $elm$core$String$toList = function (string) {
-	return A3($elm$core$String$foldr, $elm$core$List$cons, _List_Nil, string);
-};
-var $elm$core$Maybe$withDefault = F2(
-	function (_default, maybe) {
-		if (maybe.$ === 'Just') {
-			var value = maybe.a;
-			return value;
-		} else {
-			return _default;
-		}
-	});
 var $rtfeldman$elm_hex$Hex$fromString = function (str) {
 	if ($elm$core$String$isEmpty(str)) {
 		return $elm$core$Result$Err('Empty strings are not valid hexadecimal strings.');
@@ -7235,17 +9110,7 @@ var $rtfeldman$elm_hex$Hex$fromString = function (str) {
 		return A2($elm$core$Result$mapError, formatError, result);
 	}
 };
-var $elm$core$Maybe$map = F2(
-	function (f, maybe) {
-		if (maybe.$ === 'Just') {
-			var value = maybe.a;
-			return $elm$core$Maybe$Just(
-				f(value));
-		} else {
-			return $elm$core$Maybe$Nothing;
-		}
-	});
-var $jinjor$elm_xml_parser$XmlParser$decodeEscape = function (s) {
+var $author$project$XmlParser2$decodeEscape = function (s) {
 	return A2($elm$core$String$startsWith, '#x', s) ? A2(
 		$elm$core$Result$mapError,
 		$elm$parser$Parser$Problem,
@@ -7263,13 +9128,13 @@ var $jinjor$elm_xml_parser$XmlParser$decodeEscape = function (s) {
 				A2($elm$core$String$dropLeft, 1, s)))) : A2(
 		$elm$core$Result$fromMaybe,
 		$elm$parser$Parser$Problem('No entity named \"&' + (s + ';\" found.')),
-		A2($elm$core$Dict$get, s, $jinjor$elm_xml_parser$XmlParser$entities)));
+		A2($elm$core$Dict$get, s, $author$project$XmlParser2$entities)));
 };
-var $jinjor$elm_xml_parser$XmlParser$fail = function (str) {
+var $author$project$XmlParser2$fail = function (str) {
 	return $elm$parser$Parser$Advanced$problem(
 		$elm$parser$Parser$Problem(str));
 };
-var $jinjor$elm_xml_parser$XmlParser$escapedChar = function (end_) {
+var $author$project$XmlParser2$escapedChar = function (end_) {
 	return A2(
 		$elm$parser$Parser$Advanced$inContext,
 		'escapedChar',
@@ -7282,7 +9147,7 @@ var $jinjor$elm_xml_parser$XmlParser$escapedChar = function (end_) {
 							A2(
 							$elm$parser$Parser$Advanced$andThen,
 							function (_v0) {
-								var _v1 = $jinjor$elm_xml_parser$XmlParser$decodeEscape(s);
+								var _v1 = $author$project$XmlParser2$decodeEscape(s);
 								if (_v1.$ === 'Ok') {
 									var c = _v1.a;
 									return $elm$parser$Parser$Advanced$succeed(c);
@@ -7291,8 +9156,8 @@ var $jinjor$elm_xml_parser$XmlParser$escapedChar = function (end_) {
 									return $elm$parser$Parser$Advanced$problem(e);
 								}
 							},
-							$jinjor$elm_xml_parser$XmlParser$symbol(';')),
-							$jinjor$elm_xml_parser$XmlParser$fail('Entities must end_ with \";\": &' + s)
+							$author$project$XmlParser2$symbol(';')),
+							$author$project$XmlParser2$fail('Entities must end_ with \";\": &' + s)
 						]));
 			},
 			A2(
@@ -7300,10 +9165,10 @@ var $jinjor$elm_xml_parser$XmlParser$escapedChar = function (end_) {
 				A2(
 					$elm$parser$Parser$Advanced$ignorer,
 					$elm$parser$Parser$Advanced$succeed($elm$core$Basics$identity),
-					$jinjor$elm_xml_parser$XmlParser$symbol('&')),
+					$author$project$XmlParser2$symbol('&')),
 				A2(
-					$jinjor$elm_xml_parser$XmlParser$keep,
-					$jinjor$elm_xml_parser$XmlParser$oneOrMore,
+					$author$project$XmlParser2$keep,
+					$author$project$XmlParser2$oneOrMore,
 					function (c) {
 						return (!_Utils_eq(c, end_)) && (!_Utils_eq(
 							c,
@@ -7318,7 +9183,7 @@ var $elm$parser$Parser$Advanced$lazy = function (thunk) {
 			return parse(s);
 		});
 };
-var $jinjor$elm_xml_parser$XmlParser$textString = function (end_) {
+var $author$project$XmlParser2$textString = function (end_) {
 	return A2(
 		$elm$parser$Parser$Advanced$inContext,
 		'textString',
@@ -7332,25 +9197,31 @@ var $jinjor$elm_xml_parser$XmlParser$textString = function (end_) {
 							$elm$parser$Parser$Advanced$keeper,
 							A2(
 								$elm$parser$Parser$Advanced$keeper,
-								$elm$parser$Parser$Advanced$succeed($elm$core$String$cons),
-								$jinjor$elm_xml_parser$XmlParser$escapedChar(end_)),
+								$elm$parser$Parser$Advanced$succeed(
+									F2(
+										function (c, cs) {
+											return _Utils_ap(
+												s,
+												A2($elm$core$String$cons, c, cs));
+										})),
+								$author$project$XmlParser2$escapedChar(end_)),
 							$elm$parser$Parser$Advanced$lazy(
 								function (_v0) {
-									return $jinjor$elm_xml_parser$XmlParser$textString(end_);
+									return $author$project$XmlParser2$textString(end_);
 								})),
 							$elm$parser$Parser$Advanced$succeed(s)
 						]));
 			},
 			A2(
-				$jinjor$elm_xml_parser$XmlParser$keep,
-				$jinjor$elm_xml_parser$XmlParser$zeroOrMore,
+				$author$project$XmlParser2$keep,
+				$author$project$XmlParser2$zeroOrMore,
 				function (c) {
 					return (!_Utils_eq(c, end_)) && (!_Utils_eq(
 						c,
 						_Utils_chr('&')));
 				})));
 };
-var $jinjor$elm_xml_parser$XmlParser$attributeValue = A2(
+var $author$project$XmlParser2$attributeValue = A2(
 	$elm$parser$Parser$Advanced$inContext,
 	'attributeValue',
 	$elm$parser$Parser$Advanced$oneOf(
@@ -7361,40 +9232,40 @@ var $jinjor$elm_xml_parser$XmlParser$attributeValue = A2(
 				A2(
 					$elm$parser$Parser$Advanced$ignorer,
 					$elm$parser$Parser$Advanced$succeed($elm$core$Basics$identity),
-					$jinjor$elm_xml_parser$XmlParser$symbol('\"')),
+					$author$project$XmlParser2$symbol('\"')),
 				A2(
 					$elm$parser$Parser$Advanced$ignorer,
-					$jinjor$elm_xml_parser$XmlParser$textString(
+					$author$project$XmlParser2$textString(
 						_Utils_chr('\"')),
-					$jinjor$elm_xml_parser$XmlParser$symbol('\"'))),
+					$author$project$XmlParser2$symbol('\"'))),
 				A2(
 				$elm$parser$Parser$Advanced$keeper,
 				A2(
 					$elm$parser$Parser$Advanced$ignorer,
 					$elm$parser$Parser$Advanced$succeed($elm$core$Basics$identity),
-					$jinjor$elm_xml_parser$XmlParser$symbol('\'')),
+					$author$project$XmlParser2$symbol('\'')),
 				A2(
 					$elm$parser$Parser$Advanced$ignorer,
-					$jinjor$elm_xml_parser$XmlParser$textString(
+					$author$project$XmlParser2$textString(
 						_Utils_chr('\'')),
-					$jinjor$elm_xml_parser$XmlParser$symbol('\'')))
+					$author$project$XmlParser2$symbol('\'')))
 			])));
-var $jinjor$elm_xml_parser$XmlParser$attribute = A2(
+var $author$project$XmlParser2$attribute = A2(
 	$elm$parser$Parser$Advanced$inContext,
 	'attribute',
 	A2(
 		$elm$parser$Parser$Advanced$keeper,
 		A2(
 			$elm$parser$Parser$Advanced$keeper,
-			$elm$parser$Parser$Advanced$succeed($jinjor$elm_xml_parser$XmlParser$Attribute),
+			$elm$parser$Parser$Advanced$succeed($author$project$XmlParser2$Attribute),
 			A2(
 				$elm$parser$Parser$Advanced$ignorer,
 				A2(
 					$elm$parser$Parser$Advanced$ignorer,
-					A2($elm$parser$Parser$Advanced$ignorer, $jinjor$elm_xml_parser$XmlParser$attributeName, $jinjor$elm_xml_parser$XmlParser$whiteSpace),
-					$jinjor$elm_xml_parser$XmlParser$symbol('=')),
-				$jinjor$elm_xml_parser$XmlParser$whiteSpace)),
-		$jinjor$elm_xml_parser$XmlParser$attributeValue));
+					A2($elm$parser$Parser$Advanced$ignorer, $author$project$XmlParser2$attributeName, $author$project$XmlParser2$whiteSpace),
+					$author$project$XmlParser2$symbol('=')),
+				$author$project$XmlParser2$whiteSpace)),
+		$author$project$XmlParser2$attributeValue));
 var $elm$core$Set$Set_elm_builtin = function (a) {
 	return {$: 'Set_elm_builtin', a: a};
 };
@@ -7418,7 +9289,7 @@ var $elm$core$Set$member = F2(
 		var dict = _v0.a;
 		return A2($elm$core$Dict$member, key, dict);
 	});
-var $jinjor$elm_xml_parser$XmlParser$attributes = function (keys) {
+var $author$project$XmlParser2$attributes = function (keys) {
 	return A2(
 		$elm$parser$Parser$Advanced$inContext,
 		'attributes',
@@ -7428,21 +9299,21 @@ var $jinjor$elm_xml_parser$XmlParser$attributes = function (keys) {
 					A2(
 					$elm$parser$Parser$Advanced$andThen,
 					function (attr) {
-						return A2($elm$core$Set$member, attr.name, keys) ? $jinjor$elm_xml_parser$XmlParser$fail('attribute ' + (attr.name + ' is duplicated')) : A2(
+						return A2($elm$core$Set$member, attr.name, keys) ? $author$project$XmlParser2$fail('attribute ' + (attr.name + ' is duplicated')) : A2(
 							$elm$parser$Parser$Advanced$keeper,
 							A2(
 								$elm$parser$Parser$Advanced$ignorer,
 								$elm$parser$Parser$Advanced$succeed(
 									$elm$core$List$cons(attr)),
-								$jinjor$elm_xml_parser$XmlParser$whiteSpace),
-							$jinjor$elm_xml_parser$XmlParser$attributes(
+								$author$project$XmlParser2$whiteSpace),
+							$author$project$XmlParser2$attributes(
 								A2($elm$core$Set$insert, attr.name, keys)));
 					},
-					$jinjor$elm_xml_parser$XmlParser$attribute),
+					$author$project$XmlParser2$attribute),
 					$elm$parser$Parser$Advanced$succeed(_List_Nil)
 				])));
 };
-var $jinjor$elm_xml_parser$XmlParser$closingTag = function (startTagName) {
+var $author$project$XmlParser2$closingTag = function (startTagName) {
 	return A2(
 		$elm$parser$Parser$Advanced$inContext,
 		'closingTag',
@@ -7457,19 +9328,19 @@ var $jinjor$elm_xml_parser$XmlParser$closingTag = function (startTagName) {
 						A2(
 							$elm$parser$Parser$Advanced$ignorer,
 							$elm$parser$Parser$Advanced$succeed(_Utils_Tuple0),
-							$jinjor$elm_xml_parser$XmlParser$symbol('</')),
-						$jinjor$elm_xml_parser$XmlParser$whiteSpace),
+							$author$project$XmlParser2$symbol('</')),
+						$author$project$XmlParser2$whiteSpace),
 					A2(
 						$elm$parser$Parser$Advanced$andThen,
 						function (endTagName) {
-							return _Utils_eq(startTagName, endTagName) ? $elm$parser$Parser$Advanced$succeed(_Utils_Tuple0) : $jinjor$elm_xml_parser$XmlParser$fail('tag name mismatch: ' + (startTagName + (' and ' + endTagName)));
+							return _Utils_eq(startTagName, endTagName) ? $elm$parser$Parser$Advanced$succeed(_Utils_Tuple0) : $author$project$XmlParser2$fail('tag name mismatch: ' + (startTagName + (' and ' + endTagName)));
 						},
-						$jinjor$elm_xml_parser$XmlParser$tagName)),
-				$jinjor$elm_xml_parser$XmlParser$whiteSpace),
-			$jinjor$elm_xml_parser$XmlParser$symbol('>')));
+						$author$project$XmlParser2$tagName)),
+				$author$project$XmlParser2$whiteSpace),
+			$author$project$XmlParser2$symbol('>')));
 };
 var $elm$core$Set$empty = $elm$core$Set$Set_elm_builtin($elm$core$Dict$empty);
-function $jinjor$elm_xml_parser$XmlParser$cyclic$cdataContent() {
+function $author$project$XmlParser2$cyclic$cdataContent() {
 	return A2(
 		$elm$parser$Parser$Advanced$inContext,
 		'cdataContent',
@@ -7479,7 +9350,7 @@ function $jinjor$elm_xml_parser$XmlParser$cyclic$cdataContent() {
 					A2(
 					$elm$parser$Parser$Advanced$ignorer,
 					$elm$parser$Parser$Advanced$succeed(''),
-					$jinjor$elm_xml_parser$XmlParser$symbol(']]>')),
+					$author$project$XmlParser2$symbol(']]>')),
 					A2(
 					$elm$parser$Parser$Advanced$andThen,
 					function (_v0) {
@@ -7488,9 +9359,9 @@ function $jinjor$elm_xml_parser$XmlParser$cyclic$cdataContent() {
 							function (tail) {
 								return ']]' + tail;
 							},
-							$jinjor$elm_xml_parser$XmlParser$cyclic$cdataContent());
+							$author$project$XmlParser2$cyclic$cdataContent());
 					},
-					$jinjor$elm_xml_parser$XmlParser$symbol(']]')),
+					$author$project$XmlParser2$symbol(']]')),
 					A2(
 					$elm$parser$Parser$Advanced$andThen,
 					function (_v1) {
@@ -7499,17 +9370,17 @@ function $jinjor$elm_xml_parser$XmlParser$cyclic$cdataContent() {
 							function (tail) {
 								return ']' + tail;
 							},
-							$jinjor$elm_xml_parser$XmlParser$cyclic$cdataContent());
+							$author$project$XmlParser2$cyclic$cdataContent());
 					},
-					$jinjor$elm_xml_parser$XmlParser$symbol(']')),
+					$author$project$XmlParser2$symbol(']')),
 					A2(
 					$elm$parser$Parser$Advanced$keeper,
 					A2(
 						$elm$parser$Parser$Advanced$keeper,
 						$elm$parser$Parser$Advanced$succeed($elm$core$Basics$append),
 						A2(
-							$jinjor$elm_xml_parser$XmlParser$keep,
-							$jinjor$elm_xml_parser$XmlParser$zeroOrMore,
+							$author$project$XmlParser2$keep,
+							$author$project$XmlParser2$zeroOrMore,
 							function (c) {
 								return !_Utils_eq(
 									c,
@@ -7517,18 +9388,18 @@ function $jinjor$elm_xml_parser$XmlParser$cyclic$cdataContent() {
 							})),
 					$elm$parser$Parser$Advanced$lazy(
 						function (_v2) {
-							return $jinjor$elm_xml_parser$XmlParser$cyclic$cdataContent();
+							return $author$project$XmlParser2$cyclic$cdataContent();
 						}))
 				])));
 }
 try {
-	var $jinjor$elm_xml_parser$XmlParser$cdataContent = $jinjor$elm_xml_parser$XmlParser$cyclic$cdataContent();
-	$jinjor$elm_xml_parser$XmlParser$cyclic$cdataContent = function () {
-		return $jinjor$elm_xml_parser$XmlParser$cdataContent;
+	var $author$project$XmlParser2$cdataContent = $author$project$XmlParser2$cyclic$cdataContent();
+	$author$project$XmlParser2$cyclic$cdataContent = function () {
+		return $author$project$XmlParser2$cdataContent;
 	};
 } catch ($) {
-	throw 'Some top-level definitions from `XmlParser` are causing infinite recursion:\n\n  ┌─────┐\n  │    cdataContent\n  └─────┘\n\nThese errors are very tricky, so read https://elm-lang.org/0.19.1/bad-recursion to learn how to fix it!';}
-var $jinjor$elm_xml_parser$XmlParser$cdata = A2(
+	throw 'Some top-level definitions from `XmlParser2` are causing infinite recursion:\n\n  ┌─────┐\n  │    cdataContent\n  └─────┘\n\nThese errors are very tricky, so read https://elm-lang.org/0.19.1/bad-recursion to learn how to fix it!';}
+var $author$project$XmlParser2$cdata = A2(
 	$elm$parser$Parser$Advanced$inContext,
 	'cdata',
 	A2(
@@ -7536,9 +9407,9 @@ var $jinjor$elm_xml_parser$XmlParser$cdata = A2(
 		A2(
 			$elm$parser$Parser$Advanced$ignorer,
 			$elm$parser$Parser$Advanced$succeed($elm$core$Basics$identity),
-			$jinjor$elm_xml_parser$XmlParser$symbol('<![CDATA[')),
-		$jinjor$elm_xml_parser$XmlParser$cdataContent));
-function $jinjor$elm_xml_parser$XmlParser$cyclic$textNodeString() {
+			$author$project$XmlParser2$symbol('<![CDATA[')),
+		$author$project$XmlParser2$cdataContent));
+function $author$project$XmlParser2$cyclic$textNodeString() {
 	return A2(
 		$elm$parser$Parser$Advanced$inContext,
 		'textNodeString',
@@ -7558,8 +9429,8 @@ function $jinjor$elm_xml_parser$XmlParser$cyclic$textNodeString() {
 											A2($elm$core$Maybe$withDefault, '', maybeString)));
 								})),
 						A2(
-							$jinjor$elm_xml_parser$XmlParser$keep,
-							$jinjor$elm_xml_parser$XmlParser$oneOrMore,
+							$author$project$XmlParser2$keep,
+							$author$project$XmlParser2$oneOrMore,
 							function (c) {
 								return (!_Utils_eq(
 									c,
@@ -7569,7 +9440,7 @@ function $jinjor$elm_xml_parser$XmlParser$cyclic$textNodeString() {
 							})),
 					$elm$parser$Parser$Advanced$lazy(
 						function (_v0) {
-							return $jinjor$elm_xml_parser$XmlParser$cyclic$textNodeString();
+							return $author$project$XmlParser2$cyclic$textNodeString();
 						})),
 					A2(
 					$elm$parser$Parser$Advanced$keeper,
@@ -7584,11 +9455,11 @@ function $jinjor$elm_xml_parser$XmlParser$cyclic$textNodeString() {
 											c,
 											A2($elm$core$Maybe$withDefault, '', maybeString)));
 								})),
-						$jinjor$elm_xml_parser$XmlParser$escapedChar(
+						$author$project$XmlParser2$escapedChar(
 							_Utils_chr('<'))),
 					$elm$parser$Parser$Advanced$lazy(
 						function (_v1) {
-							return $jinjor$elm_xml_parser$XmlParser$cyclic$textNodeString();
+							return $author$project$XmlParser2$cyclic$textNodeString();
 						})),
 					A2(
 					$elm$parser$Parser$Advanced$keeper,
@@ -7602,10 +9473,10 @@ function $jinjor$elm_xml_parser$XmlParser$cyclic$textNodeString() {
 										A2($elm$core$Maybe$withDefault, '', maybeString));
 									return (str !== '') ? $elm$core$Maybe$Just(str) : $elm$core$Maybe$Nothing;
 								})),
-						$jinjor$elm_xml_parser$XmlParser$cdata),
+						$author$project$XmlParser2$cdata),
 					$elm$parser$Parser$Advanced$lazy(
 						function (_v2) {
-							return $jinjor$elm_xml_parser$XmlParser$cyclic$textNodeString();
+							return $author$project$XmlParser2$cyclic$textNodeString();
 						})),
 					A2(
 					$elm$parser$Parser$Advanced$keeper,
@@ -7616,22 +9487,22 @@ function $jinjor$elm_xml_parser$XmlParser$cyclic$textNodeString() {
 								var str = A2($elm$core$Maybe$withDefault, '', maybeString);
 								return (str !== '') ? $elm$core$Maybe$Just(str) : $elm$core$Maybe$Nothing;
 							}),
-						$jinjor$elm_xml_parser$XmlParser$comment),
+						$author$project$XmlParser2$comment),
 					$elm$parser$Parser$Advanced$lazy(
 						function (_v3) {
-							return $jinjor$elm_xml_parser$XmlParser$cyclic$textNodeString();
+							return $author$project$XmlParser2$cyclic$textNodeString();
 						})),
 					$elm$parser$Parser$Advanced$succeed($elm$core$Maybe$Nothing)
 				])));
 }
 try {
-	var $jinjor$elm_xml_parser$XmlParser$textNodeString = $jinjor$elm_xml_parser$XmlParser$cyclic$textNodeString();
-	$jinjor$elm_xml_parser$XmlParser$cyclic$textNodeString = function () {
-		return $jinjor$elm_xml_parser$XmlParser$textNodeString;
+	var $author$project$XmlParser2$textNodeString = $author$project$XmlParser2$cyclic$textNodeString();
+	$author$project$XmlParser2$cyclic$textNodeString = function () {
+		return $author$project$XmlParser2$textNodeString;
 	};
 } catch ($) {
-	throw 'Some top-level definitions from `XmlParser` are causing infinite recursion:\n\n  ┌─────┐\n  │    textNodeString\n  └─────┘\n\nThese errors are very tricky, so read https://elm-lang.org/0.19.1/bad-recursion to learn how to fix it!';}
-var $jinjor$elm_xml_parser$XmlParser$children = function (startTagName) {
+	throw 'Some top-level definitions from `XmlParser2` are causing infinite recursion:\n\n  ┌─────┐\n  │    textNodeString\n  └─────┘\n\nThese errors are very tricky, so read https://elm-lang.org/0.19.1/bad-recursion to learn how to fix it!';}
+var $author$project$XmlParser2$children = function (startTagName) {
 	return A2(
 		$elm$parser$Parser$Advanced$inContext,
 		'children',
@@ -7641,7 +9512,7 @@ var $jinjor$elm_xml_parser$XmlParser$children = function (startTagName) {
 					A2(
 					$elm$parser$Parser$Advanced$ignorer,
 					$elm$parser$Parser$Advanced$succeed(_List_Nil),
-					$jinjor$elm_xml_parser$XmlParser$closingTag(startTagName)),
+					$author$project$XmlParser2$closingTag(startTagName)),
 					A2(
 					$elm$parser$Parser$Advanced$andThen,
 					function (maybeString) {
@@ -7653,18 +9524,18 @@ var $jinjor$elm_xml_parser$XmlParser$children = function (startTagName) {
 									function (rest) {
 										return A2(
 											$elm$core$List$cons,
-											$jinjor$elm_xml_parser$XmlParser$Text(s),
+											$author$project$XmlParser2$Text(s),
 											rest);
 									}),
-								$jinjor$elm_xml_parser$XmlParser$children(startTagName));
+								$author$project$XmlParser2$children(startTagName));
 						} else {
 							return A2(
 								$elm$parser$Parser$Advanced$ignorer,
 								$elm$parser$Parser$Advanced$succeed(_List_Nil),
-								$jinjor$elm_xml_parser$XmlParser$closingTag(startTagName));
+								$author$project$XmlParser2$closingTag(startTagName));
 						}
 					},
-					$jinjor$elm_xml_parser$XmlParser$textNodeString),
+					$author$project$XmlParser2$textNodeString),
 					$elm$parser$Parser$Advanced$lazy(
 					function (_v2) {
 						return A2(
@@ -7672,12 +9543,12 @@ var $jinjor$elm_xml_parser$XmlParser$children = function (startTagName) {
 							A2(
 								$elm$parser$Parser$Advanced$keeper,
 								$elm$parser$Parser$Advanced$succeed($elm$core$List$cons),
-								$jinjor$elm_xml_parser$XmlParser$cyclic$element()),
-							$jinjor$elm_xml_parser$XmlParser$children(startTagName));
+								$author$project$XmlParser2$cyclic$element()),
+							$author$project$XmlParser2$children(startTagName));
 					})
 				])));
 };
-function $jinjor$elm_xml_parser$XmlParser$cyclic$element() {
+function $author$project$XmlParser2$cyclic$element() {
 	return A2(
 		$elm$parser$Parser$Advanced$inContext,
 		'element',
@@ -7686,7 +9557,7 @@ function $jinjor$elm_xml_parser$XmlParser$cyclic$element() {
 			A2(
 				$elm$parser$Parser$Advanced$ignorer,
 				$elm$parser$Parser$Advanced$succeed($elm$core$Basics$identity),
-				$jinjor$elm_xml_parser$XmlParser$symbol('<')),
+				$author$project$XmlParser2$symbol('<')),
 			A2(
 				$elm$parser$Parser$Advanced$andThen,
 				function (startTagName) {
@@ -7697,69 +9568,57 @@ function $jinjor$elm_xml_parser$XmlParser$cyclic$element() {
 							A2(
 								$elm$parser$Parser$Advanced$ignorer,
 								$elm$parser$Parser$Advanced$succeed(
-									$jinjor$elm_xml_parser$XmlParser$Element(startTagName)),
-								$jinjor$elm_xml_parser$XmlParser$whiteSpace),
+									$author$project$XmlParser2$Element(startTagName)),
+								$author$project$XmlParser2$whiteSpace),
 							A2(
 								$elm$parser$Parser$Advanced$ignorer,
-								$jinjor$elm_xml_parser$XmlParser$attributes($elm$core$Set$empty),
-								$jinjor$elm_xml_parser$XmlParser$whiteSpace)),
+								$author$project$XmlParser2$attributes($elm$core$Set$empty),
+								$author$project$XmlParser2$whiteSpace)),
 						$elm$parser$Parser$Advanced$oneOf(
 							_List_fromArray(
 								[
 									A2(
 									$elm$parser$Parser$Advanced$ignorer,
 									$elm$parser$Parser$Advanced$succeed(_List_Nil),
-									$jinjor$elm_xml_parser$XmlParser$symbol('/>')),
+									$author$project$XmlParser2$symbol('/>')),
 									A2(
 									$elm$parser$Parser$Advanced$keeper,
 									A2(
 										$elm$parser$Parser$Advanced$ignorer,
 										$elm$parser$Parser$Advanced$succeed($elm$core$Basics$identity),
-										$jinjor$elm_xml_parser$XmlParser$symbol('>')),
+										$author$project$XmlParser2$symbol('>')),
 									$elm$parser$Parser$Advanced$lazy(
 										function (_v0) {
-											return $jinjor$elm_xml_parser$XmlParser$children(startTagName);
+											return $author$project$XmlParser2$children(startTagName);
 										}))
 								])));
 				},
-				$jinjor$elm_xml_parser$XmlParser$tagName)));
+				$author$project$XmlParser2$tagName)));
 }
 try {
-	var $jinjor$elm_xml_parser$XmlParser$element = $jinjor$elm_xml_parser$XmlParser$cyclic$element();
-	$jinjor$elm_xml_parser$XmlParser$cyclic$element = function () {
-		return $jinjor$elm_xml_parser$XmlParser$element;
+	var $author$project$XmlParser2$element = $author$project$XmlParser2$cyclic$element();
+	$author$project$XmlParser2$cyclic$element = function () {
+		return $author$project$XmlParser2$element;
 	};
 } catch ($) {
-	throw 'Some top-level definitions from `XmlParser` are causing infinite recursion:\n\n  ┌─────┐\n  │    children\n  │     ↓\n  │    element\n  └─────┘\n\nThese errors are very tricky, so read https://elm-lang.org/0.19.1/bad-recursion to learn how to fix it!';}
-var $elm$parser$Parser$ExpectingEnd = {$: 'ExpectingEnd'};
-var $elm$parser$Parser$Advanced$end = function (x) {
-	return $elm$parser$Parser$Advanced$Parser(
-		function (s) {
-			return _Utils_eq(
-				$elm$core$String$length(s.src),
-				s.offset) ? A3($elm$parser$Parser$Advanced$Good, false, _Utils_Tuple0, s) : A2(
-				$elm$parser$Parser$Advanced$Bad,
-				false,
-				A2($elm$parser$Parser$Advanced$fromState, s, x));
-		});
-};
-var $jinjor$elm_xml_parser$XmlParser$end = $elm$parser$Parser$Advanced$end($elm$parser$Parser$ExpectingEnd);
-var $jinjor$elm_xml_parser$XmlParser$ProcessingInstruction = F2(
+	throw 'Some top-level definitions from `XmlParser2` are causing infinite recursion:\n\n  ┌─────┐\n  │    children\n  │     ↓\n  │    element\n  └─────┘\n\nThese errors are very tricky, so read https://elm-lang.org/0.19.1/bad-recursion to learn how to fix it!';}
+var $author$project$XmlParser2$end = $elm$parser$Parser$Advanced$end($elm$parser$Parser$ExpectingEnd);
+var $author$project$XmlParser2$ProcessingInstruction = F2(
 	function (name, value) {
 		return {name: name, value: value};
 	});
-var $jinjor$elm_xml_parser$XmlParser$processingInstructionName = A2(
+var $author$project$XmlParser2$processingInstructionName = A2(
 	$elm$parser$Parser$Advanced$inContext,
 	'processingInstructionName',
 	A2(
-		$jinjor$elm_xml_parser$XmlParser$keep,
-		$jinjor$elm_xml_parser$XmlParser$oneOrMore,
+		$author$project$XmlParser2$keep,
+		$author$project$XmlParser2$oneOrMore,
 		function (c) {
 			return !_Utils_eq(
 				c,
 				_Utils_chr(' '));
 		}));
-function $jinjor$elm_xml_parser$XmlParser$cyclic$processingInstructionValue() {
+function $author$project$XmlParser2$cyclic$processingInstructionValue() {
 	return A2(
 		$elm$parser$Parser$Advanced$inContext,
 		'processingInstructionValue',
@@ -7769,7 +9628,7 @@ function $jinjor$elm_xml_parser$XmlParser$cyclic$processingInstructionValue() {
 					A2(
 					$elm$parser$Parser$Advanced$ignorer,
 					$elm$parser$Parser$Advanced$succeed(''),
-					$jinjor$elm_xml_parser$XmlParser$symbol('?>')),
+					$author$project$XmlParser2$symbol('?>')),
 					A2(
 					$elm$parser$Parser$Advanced$andThen,
 					function (_v0) {
@@ -7778,17 +9637,17 @@ function $jinjor$elm_xml_parser$XmlParser$cyclic$processingInstructionValue() {
 							function (tail) {
 								return '?' + tail;
 							},
-							$jinjor$elm_xml_parser$XmlParser$cyclic$processingInstructionValue());
+							$author$project$XmlParser2$cyclic$processingInstructionValue());
 					},
-					$jinjor$elm_xml_parser$XmlParser$symbol('?')),
+					$author$project$XmlParser2$symbol('?')),
 					A2(
 					$elm$parser$Parser$Advanced$keeper,
 					A2(
 						$elm$parser$Parser$Advanced$keeper,
 						$elm$parser$Parser$Advanced$succeed($elm$core$Basics$append),
 						A2(
-							$jinjor$elm_xml_parser$XmlParser$keep,
-							$jinjor$elm_xml_parser$XmlParser$zeroOrMore,
+							$author$project$XmlParser2$keep,
+							$author$project$XmlParser2$zeroOrMore,
 							function (c) {
 								return !_Utils_eq(
 									c,
@@ -7796,18 +9655,18 @@ function $jinjor$elm_xml_parser$XmlParser$cyclic$processingInstructionValue() {
 							})),
 					$elm$parser$Parser$Advanced$lazy(
 						function (_v1) {
-							return $jinjor$elm_xml_parser$XmlParser$cyclic$processingInstructionValue();
+							return $author$project$XmlParser2$cyclic$processingInstructionValue();
 						}))
 				])));
 }
 try {
-	var $jinjor$elm_xml_parser$XmlParser$processingInstructionValue = $jinjor$elm_xml_parser$XmlParser$cyclic$processingInstructionValue();
-	$jinjor$elm_xml_parser$XmlParser$cyclic$processingInstructionValue = function () {
-		return $jinjor$elm_xml_parser$XmlParser$processingInstructionValue;
+	var $author$project$XmlParser2$processingInstructionValue = $author$project$XmlParser2$cyclic$processingInstructionValue();
+	$author$project$XmlParser2$cyclic$processingInstructionValue = function () {
+		return $author$project$XmlParser2$processingInstructionValue;
 	};
 } catch ($) {
-	throw 'Some top-level definitions from `XmlParser` are causing infinite recursion:\n\n  ┌─────┐\n  │    processingInstructionValue\n  └─────┘\n\nThese errors are very tricky, so read https://elm-lang.org/0.19.1/bad-recursion to learn how to fix it!';}
-var $jinjor$elm_xml_parser$XmlParser$processingInstruction = A2(
+	throw 'Some top-level definitions from `XmlParser2` are causing infinite recursion:\n\n  ┌─────┐\n  │    processingInstructionValue\n  └─────┘\n\nThese errors are very tricky, so read https://elm-lang.org/0.19.1/bad-recursion to learn how to fix it!';}
+var $author$project$XmlParser2$processingInstruction = A2(
 	$elm$parser$Parser$Advanced$inContext,
 	'processingInstruction',
 	A2(
@@ -7816,19 +9675,13 @@ var $jinjor$elm_xml_parser$XmlParser$processingInstruction = A2(
 			$elm$parser$Parser$Advanced$keeper,
 			A2(
 				$elm$parser$Parser$Advanced$ignorer,
-				$elm$parser$Parser$Advanced$succeed($jinjor$elm_xml_parser$XmlParser$ProcessingInstruction),
-				$jinjor$elm_xml_parser$XmlParser$symbol('<?')),
+				$elm$parser$Parser$Advanced$succeed($author$project$XmlParser2$ProcessingInstruction),
+				$author$project$XmlParser2$symbol('<?')),
 			A2(
 				$elm$parser$Parser$Advanced$ignorer,
-				$jinjor$elm_xml_parser$XmlParser$processingInstructionName,
-				$jinjor$elm_xml_parser$XmlParser$symbol(' '))),
-		$jinjor$elm_xml_parser$XmlParser$processingInstructionValue));
-var $elm$parser$Parser$Advanced$Done = function (a) {
-	return {$: 'Done', a: a};
-};
-var $elm$parser$Parser$Advanced$Loop = function (a) {
-	return {$: 'Loop', a: a};
-};
+				$author$project$XmlParser2$processingInstructionName,
+				$author$project$XmlParser2$symbol(' '))),
+		$author$project$XmlParser2$processingInstructionValue));
 var $elm$core$List$append = F2(
 	function (xs, ys) {
 		if (!ys.b) {
@@ -7837,47 +9690,7 @@ var $elm$core$List$append = F2(
 			return A3($elm$core$List$foldr, $elm$core$List$cons, ys, xs);
 		}
 	});
-var $elm$parser$Parser$Advanced$loopHelp = F4(
-	function (p, state, callback, s0) {
-		loopHelp:
-		while (true) {
-			var _v0 = callback(state);
-			var parse = _v0.a;
-			var _v1 = parse(s0);
-			if (_v1.$ === 'Good') {
-				var p1 = _v1.a;
-				var step = _v1.b;
-				var s1 = _v1.c;
-				if (step.$ === 'Loop') {
-					var newState = step.a;
-					var $temp$p = p || p1,
-						$temp$state = newState,
-						$temp$callback = callback,
-						$temp$s0 = s1;
-					p = $temp$p;
-					state = $temp$state;
-					callback = $temp$callback;
-					s0 = $temp$s0;
-					continue loopHelp;
-				} else {
-					var result = step.a;
-					return A3($elm$parser$Parser$Advanced$Good, p || p1, result, s1);
-				}
-			} else {
-				var p1 = _v1.a;
-				var x = _v1.b;
-				return A2($elm$parser$Parser$Advanced$Bad, p || p1, x);
-			}
-		}
-	});
-var $elm$parser$Parser$Advanced$loop = F2(
-	function (state, callback) {
-		return $elm$parser$Parser$Advanced$Parser(
-			function (s) {
-				return A4($elm$parser$Parser$Advanced$loopHelp, false, state, callback, s);
-			});
-	});
-var $jinjor$elm_xml_parser$XmlParser$repeat = F2(
+var $author$project$XmlParser2$repeat = F2(
 	function (count, parser) {
 		var n = count.a;
 		return A2(
@@ -7913,8 +9726,8 @@ var $jinjor$elm_xml_parser$XmlParser$repeat = F2(
 							]));
 				}));
 	});
-var $jinjor$elm_xml_parser$XmlParser$whiteSpace1 = A2($jinjor$elm_xml_parser$XmlParser$ignore, $jinjor$elm_xml_parser$XmlParser$oneOrMore, $jinjor$elm_xml_parser$XmlParser$isWhitespace);
-var $jinjor$elm_xml_parser$XmlParser$xml = A2(
+var $author$project$XmlParser2$whiteSpace1 = A2($author$project$XmlParser2$ignore, $author$project$XmlParser2$oneOrMore, $author$project$XmlParser2$isWhitespace);
+var $author$project$XmlParser2$xml = A2(
 	$elm$parser$Parser$Advanced$inContext,
 	'xml',
 	A2(
@@ -7925,277 +9738,152 @@ var $jinjor$elm_xml_parser$XmlParser$xml = A2(
 				$elm$parser$Parser$Advanced$keeper,
 				A2(
 					$elm$parser$Parser$Advanced$ignorer,
-					$elm$parser$Parser$Advanced$succeed($jinjor$elm_xml_parser$XmlParser$Xml),
-					$jinjor$elm_xml_parser$XmlParser$whiteSpace),
+					$elm$parser$Parser$Advanced$succeed($author$project$XmlParser2$Xml),
+					$author$project$XmlParser2$whiteSpace),
 				A2(
 					$elm$parser$Parser$Advanced$ignorer,
 					A2(
-						$jinjor$elm_xml_parser$XmlParser$repeat,
-						$jinjor$elm_xml_parser$XmlParser$zeroOrMore,
+						$author$project$XmlParser2$repeat,
+						$author$project$XmlParser2$zeroOrMore,
 						A2(
 							$elm$parser$Parser$Advanced$keeper,
 							$elm$parser$Parser$Advanced$succeed($elm$core$Basics$identity),
-							A2($elm$parser$Parser$Advanced$ignorer, $jinjor$elm_xml_parser$XmlParser$processingInstruction, $jinjor$elm_xml_parser$XmlParser$whiteSpace))),
+							A2($elm$parser$Parser$Advanced$ignorer, $author$project$XmlParser2$processingInstruction, $author$project$XmlParser2$whiteSpace))),
 					A2(
-						$jinjor$elm_xml_parser$XmlParser$repeat,
-						$jinjor$elm_xml_parser$XmlParser$zeroOrMore,
+						$author$project$XmlParser2$repeat,
+						$author$project$XmlParser2$zeroOrMore,
 						$elm$parser$Parser$Advanced$oneOf(
 							_List_fromArray(
-								[$jinjor$elm_xml_parser$XmlParser$whiteSpace1, $jinjor$elm_xml_parser$XmlParser$comment]))))),
+								[$author$project$XmlParser2$whiteSpace1, $author$project$XmlParser2$comment]))))),
 			A2(
 				$elm$parser$Parser$Advanced$ignorer,
-				$jinjor$elm_xml_parser$XmlParser$maybe($jinjor$elm_xml_parser$XmlParser$docType),
+				$author$project$XmlParser2$maybe($author$project$XmlParser2$docType),
 				A2(
-					$jinjor$elm_xml_parser$XmlParser$repeat,
-					$jinjor$elm_xml_parser$XmlParser$zeroOrMore,
+					$author$project$XmlParser2$repeat,
+					$author$project$XmlParser2$zeroOrMore,
 					$elm$parser$Parser$Advanced$oneOf(
 						_List_fromArray(
-							[$jinjor$elm_xml_parser$XmlParser$whiteSpace1, $jinjor$elm_xml_parser$XmlParser$comment]))))),
+							[$author$project$XmlParser2$whiteSpace1, $author$project$XmlParser2$comment]))))),
 		A2(
 			$elm$parser$Parser$Advanced$ignorer,
 			A2(
 				$elm$parser$Parser$Advanced$ignorer,
-				$jinjor$elm_xml_parser$XmlParser$element,
+				$author$project$XmlParser2$element,
 				A2(
-					$jinjor$elm_xml_parser$XmlParser$repeat,
-					$jinjor$elm_xml_parser$XmlParser$zeroOrMore,
+					$author$project$XmlParser2$repeat,
+					$author$project$XmlParser2$zeroOrMore,
 					$elm$parser$Parser$Advanced$oneOf(
 						_List_fromArray(
-							[$jinjor$elm_xml_parser$XmlParser$whiteSpace1, $jinjor$elm_xml_parser$XmlParser$comment])))),
-			$jinjor$elm_xml_parser$XmlParser$end)));
-var $jinjor$elm_xml_parser$XmlParser$parse = function (source) {
-	return A2($elm$parser$Parser$Advanced$run, $jinjor$elm_xml_parser$XmlParser$xml, source);
+							[$author$project$XmlParser2$whiteSpace1, $author$project$XmlParser2$comment])))),
+			$author$project$XmlParser2$end)));
+var $author$project$XmlParser2$parse = function (source) {
+	return A2($elm$parser$Parser$Advanced$run, $author$project$XmlParser2$xml, source);
 };
 var $author$project$Main$update = F2(
 	function (msg, model) {
-		var res = msg.a;
-		if (res.$ === 'Ok') {
-			var fullText = res.a;
-			var parsed = $jinjor$elm_xml_parser$XmlParser$parse(fullText);
-			var _v2 = A2($elm$core$Debug$log, 'fulltext', fullText);
-			if (parsed.$ === 'Ok') {
-				var x = parsed.a;
-				var _v4 = A2($elm$core$Debug$log, 'xml', x);
-				return _Utils_Tuple2(
-					A2($author$project$Main$Success, fullText, x),
-					$elm$core$Platform$Cmd$none);
+		if (msg.$ === 'GotText') {
+			var res = msg.a;
+			if (res.$ === 'Ok') {
+				var fullText = res.a;
+				var parsed = $author$project$XmlParser2$parse(fullText);
+				var _v2 = A2($elm$core$Debug$log, 'fulltext', fullText);
+				if (parsed.$ === 'Ok') {
+					var x = parsed.a;
+					var _v4 = A2($elm$core$Debug$log, 'xml', x);
+					return _Utils_Tuple2(
+						A2($author$project$Main$Success, fullText, x),
+						$elm$http$Http$get(
+							{
+								expect: A2($elm$http$Http$expectJson, $author$project$Main$GotJson, $author$project$RCJson$decodeResearch),
+								url: 'internal_research.json'
+							}));
+				} else {
+					var err = parsed.a;
+					var _v5 = A2($elm$core$Debug$log, 'err', err);
+					return _Utils_Tuple2($author$project$Main$Failure, $elm$core$Platform$Cmd$none);
+				}
 			} else {
-				var err = parsed.a;
-				var _v5 = A2($elm$core$Debug$log, 'err', err);
 				return _Utils_Tuple2($author$project$Main$Failure, $elm$core$Platform$Cmd$none);
 			}
 		} else {
-			return _Utils_Tuple2($author$project$Main$Failure, $elm$core$Platform$Cmd$none);
-		}
-	});
-var $elm$core$Result$andThen = F2(
-	function (callback, result) {
-		if (result.$ === 'Ok') {
-			var value = result.a;
-			return callback(value);
-		} else {
-			var msg = result.a;
-			return $elm$core$Result$Err(msg);
-		}
-	});
-var $author$project$Main$children = function (node) {
-	if (node.$ === 'Element') {
-		var nodes = node.c;
-		return nodes;
-	} else {
-		return _List_Nil;
-	}
-};
-var $elm$core$Result$map2 = F3(
-	function (func, ra, rb) {
-		if (ra.$ === 'Err') {
-			var x = ra.a;
-			return $elm$core$Result$Err(x);
-		} else {
-			var a = ra.a;
-			if (rb.$ === 'Err') {
-				var x = rb.a;
-				return $elm$core$Result$Err(x);
+			var result = msg.a;
+			if (result.$ === 'Err') {
+				var err = result.a;
+				var _v7 = A2($elm$core$Debug$log, 'error decoding json', err);
+				return _Utils_Tuple2($author$project$Main$Failure, $elm$core$Platform$Cmd$none);
 			} else {
-				var b = rb.a;
-				return $elm$core$Result$Ok(
-					A2(func, a, b));
-			}
-		}
-	});
-var $elm_community$result_extra$Result$Extra$combine = A2(
-	$elm$core$List$foldr,
-	$elm$core$Result$map2($elm$core$List$cons),
-	$elm$core$Result$Ok(_List_Nil));
-var $elm$core$List$filter = F2(
-	function (isGood, list) {
-		return A3(
-			$elm$core$List$foldr,
-			F2(
-				function (x, xs) {
-					return isGood(x) ? A2($elm$core$List$cons, x, xs) : xs;
-				}),
-			_List_Nil,
-			list);
-	});
-var $author$project$Main$filterName = F2(
-	function (match, node) {
-		if (node.$ === 'Element') {
-			var name = node.a;
-			return _Utils_eq(name, match);
-		} else {
-			return false;
-		}
-	});
-var $author$project$Main$CannotFindTag = function (a) {
-	return {$: 'CannotFindTag', a: a};
-};
-var $elm$core$List$head = function (list) {
-	if (list.b) {
-		var x = list.a;
-		var xs = list.b;
-		return $elm$core$Maybe$Just(x);
-	} else {
-		return $elm$core$Maybe$Nothing;
-	}
-};
-var $author$project$Main$findNodeWithName = F2(
-	function (name, nodes) {
-		var hasName = function (node) {
-			if (node.$ === 'Element') {
-				var elemName = node.a;
-				return _Utils_eq(elemName, name);
-			} else {
-				return false;
-			}
-		};
-		return A2(
-			$elm$core$Result$fromMaybe,
-			$author$project$Main$CannotFindTag(name),
-			$elm$core$List$head(
-				A2($elm$core$List$filter, hasName, nodes)));
-	});
-var $author$project$Main$ExpositionMeta = function (a) {
-	return {$: 'ExpositionMeta', a: a};
-};
-var $author$project$Main$InProgress = {$: 'InProgress'};
-var $author$project$Main$Published = {$: 'Published'};
-var $author$project$Main$status = function (str) {
-	switch (str) {
-		case 'published':
-			return $author$project$Main$Published;
-		case 'in progress':
-			return $author$project$Main$InProgress;
-		default:
-			return $author$project$Main$InProgress;
-	}
-};
-var $author$project$Main$expositionMeta = F5(
-	function (title, id, link, desc, stat) {
-		return $author$project$Main$ExpositionMeta(
-			{
-				description: desc,
-				id: id,
-				link: link,
-				status: $author$project$Main$status(stat),
-				title: title
-			});
-	});
-var $author$project$Main$NoText = {$: 'NoText'};
-var $author$project$Main$getText = function (node) {
-	if ((((node.$ === 'Element') && node.c.b) && (node.c.a.$ === 'Text')) && (!node.c.b.b)) {
-		var _v1 = node.c;
-		var text = _v1.a.a;
-		return $elm$core$Result$Ok(text);
-	} else {
-		return $elm$core$Result$Err($author$project$Main$NoText);
-	}
-};
-var $author$project$Main$findText = F2(
-	function (str, nodes) {
-		return A2(
-			$elm$core$Result$andThen,
-			$author$project$Main$getText,
-			A2($author$project$Main$findNodeWithName, str, nodes));
-	});
-var $elm$core$Result$map5 = F6(
-	function (func, ra, rb, rc, rd, re) {
-		if (ra.$ === 'Err') {
-			var x = ra.a;
-			return $elm$core$Result$Err(x);
-		} else {
-			var a = ra.a;
-			if (rb.$ === 'Err') {
-				var x = rb.a;
-				return $elm$core$Result$Err(x);
-			} else {
-				var b = rb.a;
-				if (rc.$ === 'Err') {
-					var x = rc.a;
-					return $elm$core$Result$Err(x);
-				} else {
-					var c = rc.a;
-					if (rd.$ === 'Err') {
-						var x = rd.a;
-						return $elm$core$Result$Err(x);
+				var research = result.a;
+				if (model.$ === 'Success') {
+					var xml = model.b;
+					var attempt = A2(
+						$elm$core$Result$map,
+						function (metas) {
+							return A2(
+								$elm$core$List$map,
+								$author$project$Main$merge(research),
+								metas);
+						},
+						$author$project$Main$fromXml(xml));
+					if (attempt.$ === 'Ok') {
+						var mergedSuccess = attempt.a;
+						var onlyTheJust = A3(
+							$elm$core$List$foldr,
+							F2(
+								function (x, acc) {
+									if (x.$ === 'Just') {
+										var some = x.a;
+										return A2($elm$core$List$cons, some, acc);
+									} else {
+										return acc;
+									}
+								}),
+							_List_Nil,
+							mergedSuccess);
+						return function (str) {
+							return _Utils_Tuple2(
+								$author$project$Main$Finished(str),
+								$elm$core$Platform$Cmd$none);
+						}(
+							A2(
+								$elm$json$Json$Encode$encode,
+								4,
+								$author$project$Main$encoder(onlyTheJust)));
 					} else {
-						var d = rd.a;
-						if (re.$ === 'Err') {
-							var x = re.a;
-							return $elm$core$Result$Err(x);
-						} else {
-							var e = re.a;
-							return $elm$core$Result$Ok(
-								A5(func, a, b, c, d, e));
-						}
+						var e = attempt.a;
+						var _v11 = A2($elm$core$Debug$log, 'error', e);
+						return _Utils_Tuple2($author$project$Main$Failure, $elm$core$Platform$Cmd$none);
 					}
+				} else {
+					var wrongModel = model;
+					var _v12 = A2($elm$core$Debug$log, 'there is a problem', wrongModel);
+					return _Utils_Tuple2($author$project$Main$Failure, $elm$core$Platform$Cmd$none);
 				}
 			}
 		}
 	});
-var $author$project$Main$fromItem = function (node) {
-	return function (nodes) {
-		return A6(
-			$elm$core$Result$map5,
-			$author$project$Main$expositionMeta,
-			A2($author$project$Main$findText, 'title', nodes),
-			A2(
-				$elm$core$Result$map,
-				A2(
-					$elm$core$Basics$composeR,
-					$elm$core$String$toInt,
-					$elm$core$Maybe$withDefault(0)),
-				A2($author$project$Main$findText, 'id', nodes)),
-			A2($author$project$Main$findText, 'link', nodes),
-			A2($author$project$Main$findText, 'desc', nodes),
-			A2($author$project$Main$findText, 'status', nodes));
-	}(
-		$author$project$Main$children(node));
+var $elm$parser$Parser$deadEndsToString = function (deadEnds) {
+	return 'TODO deadEndsToString';
 };
-var $author$project$Main$fromXml = function (xml) {
-	return A2(
-		$elm$core$Result$andThen,
-		A2(
-			$elm$core$Basics$composeR,
-			$elm$core$List$map($author$project$Main$fromItem),
-			$elm_community$result_extra$Result$Extra$combine),
-		A2(
-			$elm$core$Result$map,
-			A2(
-				$elm$core$Basics$composeR,
-				$author$project$Main$children,
-				$elm$core$List$filter(
-					$author$project$Main$filterName('item'))),
-			A2(
-				$elm$core$Result$andThen,
-				$author$project$Main$findNodeWithName('channel'),
-				A2(
-					$elm$core$Result$map,
-					$author$project$Main$children,
-					A2(
-						$author$project$Main$findNodeWithName,
-						'rss',
-						$author$project$Main$children(xml.root))))));
+var $author$project$Main$fromProblem = function (prob) {
+	switch (prob.$) {
+		case 'CannotFindTag':
+			var str = prob.a;
+			return 'Cannot find tag :' + str;
+		case 'TooMany':
+			return 'Too many children';
+		case 'Oops':
+			return 'Oops ';
+		case 'NoText':
+			return 'Element has no text';
+		case 'DateParserError':
+			var deadEnd = prob.a;
+			return 'Couldn\'t parse date: ' + $elm$parser$Parser$deadEndsToString(deadEnd);
+		case 'CouldNotRetrieveID':
+			var str = prob.a;
+			return 'Could not find id in : ' + str;
+		default:
+			return 'IncorrectEnclosure';
+	}
 };
 var $elm$html$Html$pre = _VirtualDom_node('pre');
 var $elm$virtual_dom$VirtualDom$text = _VirtualDom_text;
@@ -8227,7 +9915,7 @@ var $author$project$Main$view = function (model) {
 			return $elm$html$Html$text('I was unable to load your book.');
 		case 'Loading':
 			return $elm$html$Html$text('Loading...');
-		default:
+		case 'Success':
 			var fullText = model.a;
 			var xml = model.b;
 			var expos = A2(
@@ -8245,15 +9933,25 @@ var $author$project$Main$view = function (model) {
 					return str;
 				} else {
 					var prob = expos.a;
-					return 'ok error';
+					return 'error\n' + $author$project$Main$fromProblem(prob);
 				}
 			}();
+			var _v1 = A2($elm$core$Debug$log, 'xml', xml);
 			return A2(
 				$elm$html$Html$pre,
 				_List_Nil,
 				_List_fromArray(
 					[
 						$elm$html$Html$text(string)
+					]));
+		default:
+			var mergedJson = model.a;
+			return A2(
+				$elm$html$Html$pre,
+				_List_Nil,
+				_List_fromArray(
+					[
+						$elm$html$Html$text(mergedJson)
 					]));
 	}
 };
