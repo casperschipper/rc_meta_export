@@ -8,7 +8,7 @@ import Http
 import Imf.DateTime
 import Json.Encode as E
 import Parser
-import RCJson exposing (PublicationStatus, Research, decodeResearch)
+import RCJson exposing (PublicationStatus, Research, decodeResearch, Author)
 import Result.Extra exposing (andMap)
 import Time exposing (Posix)
 import XmlParser2 as XP exposing (Node(..), Xml)
@@ -472,10 +472,6 @@ fromXml xml =
         |> Result.map Result.Extra.partition
         |> Result.map Tuple.first
 
-type alias Author =
-    { name : String
-    , id : Int }
-
 type alias MergedExposition =
     { id : Int
     , title : String
@@ -487,12 +483,12 @@ type alias MergedExposition =
     , doi : String
     , status : PublicationStatus
     , author : Author
-    , authorProfile : String
     , authorId : Int
     , copyright : String
     , license : String
     , thumb : String
     , coauthors : List Author
+    , link : String
     }
 
 
@@ -531,12 +527,12 @@ merge lst (ExpositionMeta meta) =
                 , doi = research.doi |> Maybe.withDefault "null"
                 , status = research.publicationStatus
                 , author = research.author
-                , authorProfile = research.author.id |> authorProfile
                 , authorId = research.author.id
                 , copyright = research.copyright
                 , license = research.license
                 , thumb = meta.enclosure.url
                 , coauthors = research.coauthors
+                , link = meta.link
                 }
             )
 
@@ -574,12 +570,12 @@ encodeMerged mexp =
                 , ( "doi", E.string mexp.doi )
                 , ( "status", E.string (mexp.status |> RCJson.statusToString) )
                 , ( "author", encodeAuthor mexp.author )
-                , ( "authorProfile", E.string mexp.authorProfile )
                 , ( "coauthors", E.list encodeAuthor mexp.coauthors)
                 , ( "authorId", E.int mexp.authorId )
                 , ( "copyright", E.string mexp.copyright )
                 , ( "license", E.string mexp.license )
                 , ( "thumb", E.string mexp.thumb )
+                , ( "link" , E.string mexp.link)
                 ]
           )
         ]
@@ -589,6 +585,7 @@ encodeAuthor author =
     E.object [
         ("name", E.string author.name)
         ,("id", E.int author.id)
+        ,("profileUrl" , E.string author.profileUrl)
     ]
 
 encoder : List MergedExposition -> E.Value

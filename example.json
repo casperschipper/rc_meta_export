@@ -10,12 +10,17 @@
             "pubDate": "Mon, 08 Nov 2021 23:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Gao Menglin",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=773530",
+            "author": {
+                "name": "Gao Menglin",
+                "id": 773530,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=773530"
+            },
+            "coauthors": [],
             "authorId": 773530,
             "copyright": "Gao Menglin",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/1018419/1018420"
         }
     },
     {
@@ -37,12 +42,17 @@
             "pubDate": "Mon, 08 Nov 2021 23:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Ursula Skaug",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=708535",
+            "author": {
+                "name": "Ursula Skaug",
+                "id": 708535,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=708535"
+            },
+            "coauthors": [],
             "authorId": 708535,
             "copyright": "Ursula Skaug",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/1177617/1177618"
         }
     },
     {
@@ -56,12 +66,17 @@
             "pubDate": "Mon, 08 Nov 2021 23:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Marlina Deasy Hartanto",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=532887",
+            "author": {
+                "name": "Marlina Deasy Hartanto",
+                "id": 532887,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=532887"
+            },
+            "coauthors": [],
             "authorId": 532887,
             "copyright": "Marlina Deasy Hartanto",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/969662/1183012"
         }
     },
     {
@@ -85,12 +100,17 @@
             "pubDate": "Mon, 08 Nov 2021 23:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Borut Rampih",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=711343",
+            "author": {
+                "name": "Borut Rampih",
+                "id": 711343,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=711343"
+            },
+            "coauthors": [],
             "authorId": 711343,
             "copyright": "Borut Rampih",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/1059912/1059913"
         }
     },
     {
@@ -109,12 +129,17 @@
             "pubDate": "Mon, 08 Nov 2021 23:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Remy Dielemans",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=708463",
+            "author": {
+                "name": "Remy Dielemans",
+                "id": 708463,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=708463"
+            },
+            "coauthors": [],
             "authorId": 708463,
             "copyright": "Remy Dielemans",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/1053899/1059088"
         }
     },
     {
@@ -134,12 +159,17 @@
             "pubDate": "Tue, 26 Oct 2021 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Renee Jonker",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=107195",
+            "author": {
+                "name": "Renee Jonker",
+                "id": 107195,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=107195"
+            },
+            "coauthors": [],
             "authorId": 107195,
             "copyright": "Renee Jonker",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/86/07/85/b4/860785b47333004469808717c7dd2bf6.png?t=45db75cd96c52dabbc0678bf836123c1&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/86/07/85/b4/860785b47333004469808717c7dd2bf6.png?t=45db75cd96c52dabbc0678bf836123c1&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/1251747/1251746"
         }
     },
     {
@@ -159,12 +189,17 @@
             "pubDate": "Mon, 11 Oct 2021 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Irma Kort",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=685586",
+            "author": {
+                "name": "Irma Kort",
+                "id": 685586,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=685586"
+            },
+            "coauthors": [],
             "authorId": 685586,
             "copyright": "Irma Kort",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/1304958/1304727"
         }
     },
     {
@@ -183,12 +218,17 @@
             "pubDate": "Sun, 29 Aug 2021 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Joel Gester Suarez",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=719567",
+            "author": {
+                "name": "Joel Gester Suarez",
+                "id": 719567,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=719567"
+            },
+            "coauthors": [],
             "authorId": 719567,
             "copyright": "Joel Gester Suarez",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/1111411/1177582"
         }
     },
     {
@@ -208,12 +248,17 @@
             "pubDate": "Mon, 12 Jul 2021 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Alessandra Di Gennaro",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=725621",
+            "author": {
+                "name": "Alessandra Di Gennaro",
+                "id": 725621,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=725621"
+            },
+            "coauthors": [],
             "authorId": 725621,
             "copyright": "Alessandra Di Gennaro",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/1183802/1183803"
         }
     },
     {
@@ -232,12 +277,17 @@
             "pubDate": "Wed, 07 Jul 2021 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Marlon Valk",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=702441",
+            "author": {
+                "name": "Marlon Valk",
+                "id": 702441,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=702441"
+            },
+            "coauthors": [],
             "authorId": 702441,
             "copyright": "Marlon Valk",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/41/69/01/a7/416901a7fce6f857e4fd46e66adeac40.png?t=6ff8c31d30771c7de91ecf4b1058bcf5&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/41/69/01/a7/416901a7fce6f857e4fd46e66adeac40.png?t=6ff8c31d30771c7de91ecf4b1058bcf5&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/703190/703191"
         }
     },
     {
@@ -260,12 +310,17 @@
             "pubDate": "Thu, 01 Jul 2021 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Maud Haering",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=732896",
+            "author": {
+                "name": "Maud Haering",
+                "id": 732896,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=732896"
+            },
+            "coauthors": [],
             "authorId": 732896,
             "copyright": "Maud Haering",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/771208/1042197"
         }
     },
     {
@@ -284,12 +339,17 @@
             "pubDate": "Thu, 24 Jun 2021 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Pietro Battistoni",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=710401",
+            "author": {
+                "name": "Pietro Battistoni",
+                "id": 710401,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=710401"
+            },
+            "coauthors": [],
             "authorId": 710401,
             "copyright": "Pietro Battistoni",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/30/db/5f/39/30db5f393da557be91add036ee7b8854.png?t=e14dcb76b103c8a7df7a8ee1f8687e75&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/30/db/5f/39/30db5f393da557be91add036ee7b8854.png?t=e14dcb76b103c8a7df7a8ee1f8687e75&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/1037667/1037668"
         }
     },
     {
@@ -307,12 +367,17 @@
             "pubDate": "Sun, 20 Jun 2021 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Théo Couillez",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=711338",
+            "author": {
+                "name": "Théo Couillez",
+                "id": 711338,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=711338"
+            },
+            "coauthors": [],
             "authorId": 711338,
             "copyright": "Théo Couillez",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/1015375/1056199"
         }
     },
     {
@@ -331,12 +396,17 @@
             "pubDate": "Thu, 17 Jun 2021 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Kitty Lai",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=702434",
+            "author": {
+                "name": "Kitty Lai",
+                "id": 702434,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=702434"
+            },
+            "coauthors": [],
             "authorId": 702434,
             "copyright": "Kitty Lai",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/bc/0e/02/06/bc0e0206580bb825e39ce5ab81c0ee46.png?t=4a9b898132bdedebab235011049678ef&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/bc/0e/02/06/bc0e0206580bb825e39ce5ab81c0ee46.png?t=4a9b898132bdedebab235011049678ef&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/1167751/1167752"
         }
     },
     {
@@ -357,12 +427,17 @@
             "pubDate": "Thu, 17 Jun 2021 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Asako Ueda",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=710530",
+            "author": {
+                "name": "Asako Ueda",
+                "id": 710530,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=710530"
+            },
+            "coauthors": [],
             "authorId": 710530,
             "copyright": "Asako Ueda",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/c2/c7/0d/dd/c2c70ddd7daee8ec265b38451e2b19c4.png?t=be6dd9ee0e4fde26960fbce2b3217eac&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/c2/c7/0d/dd/c2c70ddd7daee8ec265b38451e2b19c4.png?t=be6dd9ee0e4fde26960fbce2b3217eac&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/1038501/1038502"
         }
     },
     {
@@ -381,12 +456,17 @@
             "pubDate": "Tue, 15 Jun 2021 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "anna litvinenko",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=517081",
+            "author": {
+                "name": "anna litvinenko",
+                "id": 517081,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=517081"
+            },
+            "coauthors": [],
             "authorId": 517081,
             "copyright": "anna litvinenko",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/543055/727563"
         }
     },
     {
@@ -405,12 +485,17 @@
             "pubDate": "Mon, 14 Jun 2021 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Matthew Xie",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=708465",
+            "author": {
+                "name": "Matthew Xie",
+                "id": 708465,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=708465"
+            },
+            "coauthors": [],
             "authorId": 708465,
             "copyright": "Matthew Xie",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/ae/42/10/e1/ae4210e13c312bf9b162b3528d774337.png?t=eb897773a3aa2ab5118cd8a33d18db7c&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/ae/42/10/e1/ae4210e13c312bf9b162b3528d774337.png?t=eb897773a3aa2ab5118cd8a33d18db7c&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/720545/720546"
         }
     },
     {
@@ -429,12 +514,17 @@
             "pubDate": "Mon, 14 Jun 2021 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "David Perez Sanchez",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=708462",
+            "author": {
+                "name": "David Perez Sanchez",
+                "id": 708462,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=708462"
+            },
+            "coauthors": [],
             "authorId": 708462,
             "copyright": "David Perez Sanchez",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/778880/778881"
         }
     },
     {
@@ -455,12 +545,17 @@
             "pubDate": "Sun, 13 Jun 2021 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Noppakorn Auesirinucroch",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=708526",
+            "author": {
+                "name": "Noppakorn Auesirinucroch",
+                "id": 708526,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=708526"
+            },
+            "coauthors": [],
             "authorId": 708526,
             "copyright": "Noppakorn Auesirinucroch",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/9f/cc/07/f7/9fcc07f7baee2129d9e0b404500d4a45.png?t=b5bee7da35a57a132eaddf09aa5809ff&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/9f/cc/07/f7/9fcc07f7baee2129d9e0b404500d4a45.png?t=b5bee7da35a57a132eaddf09aa5809ff&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/709466/1167347"
         }
     },
     {
@@ -488,12 +583,17 @@
             "pubDate": "Mon, 07 Jun 2021 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Dimitris Koutantos",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=711340",
+            "author": {
+                "name": "Dimitris Koutantos",
+                "id": 711340,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=711340"
+            },
+            "coauthors": [],
             "authorId": 711340,
             "copyright": "Dimitris Koutantos",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/4c/c5/c8/e7/4cc5c8e76e2cdda3e950b593f07d4537.png?t=bf11b3654942eec4d1e383d661b5603e&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/4c/c5/c8/e7/4cc5c8e76e2cdda3e950b593f07d4537.png?t=bf11b3654942eec4d1e383d661b5603e&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/1157888/1163382"
         }
     },
     {
@@ -515,12 +615,17 @@
             "pubDate": "Sun, 06 Jun 2021 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Alberto García Pérez",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=747384",
+            "author": {
+                "name": "Alberto García Pérez",
+                "id": 747384,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=747384"
+            },
+            "coauthors": [],
             "authorId": 747384,
             "copyright": "Alberto García Pérez",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/1056528/1056529"
         }
     },
     {
@@ -538,12 +643,17 @@
             "pubDate": "Sun, 06 Jun 2021 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Weronika Zimnoch",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=545815",
+            "author": {
+                "name": "Weronika Zimnoch",
+                "id": 545815,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=545815"
+            },
+            "coauthors": [],
             "authorId": 545815,
             "copyright": "Weronika Zimnoch",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/1099648/1099649"
         }
     },
     {
@@ -557,12 +667,17 @@
             "pubDate": "Sun, 06 Jun 2021 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Andrea Dettori",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=517294",
+            "author": {
+                "name": "Andrea Dettori",
+                "id": 517294,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=517294"
+            },
+            "coauthors": [],
             "authorId": 517294,
             "copyright": "Andrea Dettori",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/1050350/1050351"
         }
     },
     {
@@ -581,12 +696,17 @@
             "pubDate": "Sun, 30 May 2021 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Andreas Hansson",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=702473",
+            "author": {
+                "name": "Andreas Hansson",
+                "id": 702473,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=702473"
+            },
+            "coauthors": [],
             "authorId": 702473,
             "copyright": "Andreas Hansson",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/1185138/1185150"
         }
     },
     {
@@ -605,12 +725,17 @@
             "pubDate": "Wed, 19 May 2021 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Alex Baker",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=708533",
+            "author": {
+                "name": "Alex Baker",
+                "id": 708533,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=708533"
+            },
+            "coauthors": [],
             "authorId": 708533,
             "copyright": "Alex Baker",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/c7/c3/3c/bf/c7c33cbf262a64298b65309a06629fc6.png?t=5798873fc32e89db177d0f46b0b2918b&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/c7/c3/3c/bf/c7c33cbf262a64298b65309a06629fc6.png?t=5798873fc32e89db177d0f46b0b2918b&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/1179217/1179218"
         }
     },
     {
@@ -629,12 +754,17 @@
             "pubDate": "Sun, 02 May 2021 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Jakub Pesek",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=702435",
+            "author": {
+                "name": "Jakub Pesek",
+                "id": 702435,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=702435"
+            },
+            "coauthors": [],
             "authorId": 702435,
             "copyright": "Jakub Pesek",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/6f/81/3d/44/6f813d448eb0e9473b2b93e80be69e0f.png?t=6180765bc27f5486c552f9161fdc944f&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/6f/81/3d/44/6f813d448eb0e9473b2b93e80be69e0f.png?t=6180765bc27f5486c552f9161fdc944f&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/1186099/1186100"
         }
     },
     {
@@ -653,12 +783,17 @@
             "pubDate": "Sun, 02 May 2021 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Heleen Bongenaar",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=702439",
+            "author": {
+                "name": "Heleen Bongenaar",
+                "id": 702439,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=702439"
+            },
+            "coauthors": [],
             "authorId": 702439,
             "copyright": "Heleen Bongenaar",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/96/a7/a6/7e/96a7a67ebe0a2ce04a8a06f4d9337ecb.png?t=ff865289b3dd6a5161424bc1090be1a8&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/96/a7/a6/7e/96a7a67ebe0a2ce04a8a06f4d9337ecb.png?t=ff865289b3dd6a5161424bc1090be1a8&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/1182189/1182190"
         }
     },
     {
@@ -677,12 +812,17 @@
             "pubDate": "Wed, 03 Feb 2021 23:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Nicolas Roudier",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=512968",
+            "author": {
+                "name": "Nicolas Roudier",
+                "id": 512968,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=512968"
+            },
+            "coauthors": [],
             "authorId": 512968,
             "copyright": "Nicolas Roudier",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/655633/655634"
         }
     },
     {
@@ -701,12 +841,17 @@
             "pubDate": "Wed, 13 Jan 2021 23:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Mauro Smorto",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=514828",
+            "author": {
+                "name": "Mauro Smorto",
+                "id": 514828,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=514828"
+            },
+            "coauthors": [],
             "authorId": 514828,
             "copyright": "Mauro Smorto",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/9d/2b/a5/66/9d2ba56626b951beda7593acb4e3157e.png?t=ba863a02ebc24f8516f15e0059e7854d&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/9d/2b/a5/66/9d2ba56626b951beda7593acb4e3157e.png?t=ba863a02ebc24f8516f15e0059e7854d&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/914033/914034"
         }
     },
     {
@@ -724,12 +869,17 @@
             "pubDate": "Tue, 15 Dec 2020 23:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Magdalena Morales Hidalgo",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=515490",
+            "author": {
+                "name": "Magdalena Morales Hidalgo",
+                "id": 515490,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=515490"
+            },
+            "coauthors": [],
             "authorId": 515490,
             "copyright": "Magdalena Morales Hidalgo",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/b3/77/09/96/b37709961f169a0cb95a6e584d12d392.png?t=be566599956c99d4a9713a135606ad02&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/b3/77/09/96/b37709961f169a0cb95a6e584d12d392.png?t=be566599956c99d4a9713a135606ad02&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/918458/918459"
         }
     },
     {
@@ -748,12 +898,17 @@
             "pubDate": "Tue, 29 Sep 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Il Hoon Son",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=102782",
+            "author": {
+                "name": "Il Hoon Son",
+                "id": 102782,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=102782"
+            },
+            "coauthors": [],
             "authorId": 102782,
             "copyright": "Il Hoon Son",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/0d/90/cd/91/0d90cd91d89389d6233630f228c555a2.png?t=0af022fb6494f0cc7a4260c939556033&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/0d/90/cd/91/0d90cd91d89389d6233630f228c555a2.png?t=0af022fb6494f0cc7a4260c939556033&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/104831/104833"
         }
     },
     {
@@ -773,12 +928,17 @@
             "pubDate": "Sat, 11 Jul 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Tony Overwater",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=342973",
+            "author": {
+                "name": "Tony Overwater",
+                "id": 342973,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=342973"
+            },
+            "coauthors": [],
             "authorId": 342973,
             "copyright": "Tony Overwater",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/e5/5b/b3/78/e55bb378d29b7ad6024e4ede354e3f92.png?t=e11d2e8031e36d16b63823f24b824efc&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/e5/5b/b3/78/e55bb378d29b7ad6024e4ede354e3f92.png?t=e11d2e8031e36d16b63823f24b824efc&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/513505/775091"
         }
     },
     {
@@ -797,12 +957,17 @@
             "pubDate": "Mon, 29 Jun 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Daniil Pilchen",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=512963",
+            "author": {
+                "name": "Daniil Pilchen",
+                "id": 512963,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=512963"
+            },
+            "coauthors": [],
             "authorId": 512963,
             "copyright": "Daniil Pilchen",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/814062/868046"
         }
     },
     {
@@ -825,12 +990,17 @@
             "pubDate": "Sun, 28 Jun 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Seamus Cater",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=540853",
+            "author": {
+                "name": "Seamus Cater",
+                "id": 540853,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=540853"
+            },
+            "coauthors": [],
             "authorId": 540853,
             "copyright": "Seamus Cater",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/18/90/71/5b/1890715b43551781baec09a04e9b72ea.png?t=5f7e68fc049826e7229cf2e3e6997689&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/18/90/71/5b/1890715b43551781baec09a04e9b72ea.png?t=5f7e68fc049826e7229cf2e3e6997689&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/942531/942532"
         }
     },
     {
@@ -846,12 +1016,17 @@
             "pubDate": "Mon, 22 Jun 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Elia Celegato",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=512993",
+            "author": {
+                "name": "Elia Celegato",
+                "id": 512993,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=512993"
+            },
+            "coauthors": [],
             "authorId": 512993,
             "copyright": "Elia Celegato",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/541546/541547"
         }
     },
     {
@@ -871,12 +1046,17 @@
             "pubDate": "Sun, 14 Jun 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "María Cadenas Rodríguez",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=512986",
+            "author": {
+                "name": "María Cadenas Rodríguez",
+                "id": 512986,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=512986"
+            },
+            "coauthors": [],
             "authorId": 512986,
             "copyright": "María Cadenas Rodríguez",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/729059/729060"
         }
     },
     {
@@ -896,12 +1076,17 @@
             "pubDate": "Sun, 14 Jun 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Sara Maganzini",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=401044",
+            "author": {
+                "name": "Sara Maganzini",
+                "id": 401044,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=401044"
+            },
+            "coauthors": [],
             "authorId": 401044,
             "copyright": "Sara Maganzini",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/409183/409184"
         }
     },
     {
@@ -921,12 +1106,17 @@
             "pubDate": "Sun, 14 Jun 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Blake Proehl",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=513117",
+            "author": {
+                "name": "Blake Proehl",
+                "id": 513117,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=513117"
+            },
+            "coauthors": [],
             "authorId": 513117,
             "copyright": "Blake Proehl",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/539727/539728"
         }
     },
     {
@@ -946,12 +1136,17 @@
             "pubDate": "Sun, 14 Jun 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Francisca Prestes Branco Gouveia",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=533902",
+            "author": {
+                "name": "Francisca Prestes Branco Gouveia",
+                "id": 533902,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=533902"
+            },
+            "coauthors": [],
             "authorId": 533902,
             "copyright": "Francisca Prestes Branco Gouveia",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/545103/804641"
         }
     },
     {
@@ -973,12 +1168,17 @@
             "pubDate": "Thu, 11 Jun 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Marit Eline van der Lei",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=527076",
+            "author": {
+                "name": "Marit Eline van der Lei",
+                "id": 527076,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=527076"
+            },
+            "coauthors": [],
             "authorId": 527076,
             "copyright": "Marit Eline van der Lei",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/527091/527092"
         }
     },
     {
@@ -997,12 +1197,17 @@
             "pubDate": "Thu, 04 Jun 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Aimée Hautvast",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=529030",
+            "author": {
+                "name": "Aimée Hautvast",
+                "id": 529030,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=529030"
+            },
+            "coauthors": [],
             "authorId": 529030,
             "copyright": "Aimée Hautvast",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/544323/544324"
         }
     },
     {
@@ -1023,12 +1228,17 @@
             "pubDate": "Thu, 04 Jun 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Bernat Gili Díaz",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=542932",
+            "author": {
+                "name": "Bernat Gili Díaz",
+                "id": 542932,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=542932"
+            },
+            "coauthors": [],
             "authorId": 542932,
             "copyright": "Bernat Gili Díaz",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/548099/548100"
         }
     },
     {
@@ -1049,12 +1259,17 @@
             "pubDate": "Thu, 04 Jun 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Imanol Casan",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=521235",
+            "author": {
+                "name": "Imanol Casan",
+                "id": 521235,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=521235"
+            },
+            "coauthors": [],
             "authorId": 521235,
             "copyright": "Imanol Casan",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/74/22/e2/4b/7422e24b2b86d029ea098bc85a806b94.png?t=281dfa4db15f8ae9c0569de031498366&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/74/22/e2/4b/7422e24b2b86d029ea098bc85a806b94.png?t=281dfa4db15f8ae9c0569de031498366&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/544625/615715"
         }
     },
     {
@@ -1070,12 +1285,17 @@
             "pubDate": "Wed, 03 Jun 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Carlos Negrín López",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=548061",
+            "author": {
+                "name": "Carlos Negrín López",
+                "id": 548061,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=548061"
+            },
+            "coauthors": [],
             "authorId": 548061,
             "copyright": "Carlos Negrín López",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/567371/810216"
         }
     },
     {
@@ -1091,12 +1311,17 @@
             "pubDate": "Wed, 03 Jun 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "angelica meza",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=512995",
+            "author": {
+                "name": "angelica meza",
+                "id": 512995,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=512995"
+            },
+            "coauthors": [],
             "authorId": 512995,
             "copyright": "angelica meza",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/733354/733355"
         }
     },
     {
@@ -1112,12 +1337,17 @@
             "pubDate": "Wed, 03 Jun 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Louis van der Mespel",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=518532",
+            "author": {
+                "name": "Louis van der Mespel",
+                "id": 518532,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=518532"
+            },
+            "coauthors": [],
             "authorId": 518532,
             "copyright": "Louis van der Mespel",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/518601/518602"
         }
     },
     {
@@ -1139,12 +1369,17 @@
             "pubDate": "Wed, 03 Jun 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Dorota Matejova",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=527073",
+            "author": {
+                "name": "Dorota Matejova",
+                "id": 527073,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=527073"
+            },
+            "coauthors": [],
             "authorId": 527073,
             "copyright": "Dorota Matejova",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/728937/728938"
         }
     },
     {
@@ -1167,12 +1402,17 @@
             "pubDate": "Mon, 01 Jun 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Carlotta Pupulin",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=529027",
+            "author": {
+                "name": "Carlotta Pupulin",
+                "id": 529027,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=529027"
+            },
+            "coauthors": [],
             "authorId": 529027,
             "copyright": "Carlotta Pupulin",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/545314/730004"
         }
     },
     {
@@ -1188,12 +1428,17 @@
             "pubDate": "Mon, 01 Jun 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Julia Casañas Cast",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=532860",
+            "author": {
+                "name": "Julia Casañas Cast",
+                "id": 532860,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=532860"
+            },
+            "coauthors": [],
             "authorId": 532860,
             "copyright": "Julia Casañas Cast",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/792184/792185"
         }
     },
     {
@@ -1209,12 +1454,17 @@
             "pubDate": "Mon, 01 Jun 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Annoes van der Zande",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=526171",
+            "author": {
+                "name": "Annoes van der Zande",
+                "id": 526171,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=526171"
+            },
+            "coauthors": [],
             "authorId": 526171,
             "copyright": "Annoes van der Zande",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/526208/728240"
         }
     },
     {
@@ -1235,12 +1485,17 @@
             "pubDate": "Wed, 27 May 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Blanca Maria Martínez Vilanova",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=514838",
+            "author": {
+                "name": "Blanca Maria Martínez Vilanova",
+                "id": 514838,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=514838"
+            },
+            "coauthors": [],
             "authorId": 514838,
             "copyright": "Blanca Maria Martínez Vilanova",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/ed/6c/fe/e9/ed6cfee97ed2c272e69cd71a272cd4b4.png?t=88c70a1e237cca11afb16b8f34809ce4&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/ed/6c/fe/e9/ed6cfee97ed2c272e69cd71a272cd4b4.png?t=88c70a1e237cca11afb16b8f34809ce4&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/540084/540085"
         }
     },
     {
@@ -1256,12 +1511,17 @@
             "pubDate": "Wed, 27 May 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Anna Lachegyi",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=532866",
+            "author": {
+                "name": "Anna Lachegyi",
+                "id": 532866,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=532866"
+            },
+            "coauthors": [],
             "authorId": 532866,
             "copyright": "Anna Lachegyi",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/532869/532870"
         }
     },
     {
@@ -1282,12 +1542,17 @@
             "pubDate": "Wed, 27 May 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Laura Ginström",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=512955",
+            "author": {
+                "name": "Laura Ginström",
+                "id": 512955,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=512955"
+            },
+            "coauthors": [],
             "authorId": 512955,
             "copyright": "Laura Ginström",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/541558/725967"
         }
     },
     {
@@ -1305,12 +1570,17 @@
             "pubDate": "Sun, 24 May 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Iddo van der Giessen",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=529029",
+            "author": {
+                "name": "Iddo van der Giessen",
+                "id": 529029,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=529029"
+            },
+            "coauthors": [],
             "authorId": 529029,
             "copyright": "Iddo van der Giessen",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/529056/804825"
         }
     },
     {
@@ -1330,12 +1600,17 @@
             "pubDate": "Sun, 24 May 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Christina Kwon",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=532864",
+            "author": {
+                "name": "Christina Kwon",
+                "id": 532864,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=532864"
+            },
+            "coauthors": [],
             "authorId": 532864,
             "copyright": "Christina Kwon",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/7c/d3/35/39/7cd33539f5f7d16ad13f8ec7bda5b8cd.png?t=ebde83aa49dbeac3c6ec3c546e8413e5&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/7c/d3/35/39/7cd33539f5f7d16ad13f8ec7bda5b8cd.png?t=ebde83aa49dbeac3c6ec3c546e8413e5&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/532888/753136"
         }
     },
     {
@@ -1354,12 +1629,17 @@
             "pubDate": "Sun, 24 May 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Phoebe Kirrage",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=529032",
+            "author": {
+                "name": "Phoebe Kirrage",
+                "id": 529032,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=529032"
+            },
+            "coauthors": [],
             "authorId": 529032,
             "copyright": "Phoebe Kirrage",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/708929/723313"
         }
     },
     {
@@ -1385,12 +1665,17 @@
             "pubDate": "Sun, 24 May 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Elisa De Toffol",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=532863",
+            "author": {
+                "name": "Elisa De Toffol",
+                "id": 532863,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=532863"
+            },
+            "coauthors": [],
             "authorId": 532863,
             "copyright": "Elisa De Toffol",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/807464/807465"
         }
     },
     {
@@ -1408,12 +1693,23 @@
             "pubDate": "Wed, 01 Apr 2020 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Marko Uzunovski",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=424739",
+            "author": {
+                "name": "Marko Uzunovski",
+                "id": 424739,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=424739"
+            },
+            "coauthors": [
+                {
+                    "name": "Arne Bock",
+                    "id": 652921,
+                    "profileUrl": "https://www.researchcatalogue.net/profile/?person=652921"
+                }
+            ],
             "authorId": 424739,
             "copyright": "Marko Uzunovski",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/ae/b3/f5/2c/aeb3f52c7261d7f55df1394b345bcefd.png?t=9f1a387e134e49bb888f6e08f86d35e7&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/ae/b3/f5/2c/aeb3f52c7261d7f55df1394b345bcefd.png?t=9f1a387e134e49bb888f6e08f86d35e7&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/657462/657463"
         }
     },
     {
@@ -1439,12 +1735,17 @@
             "pubDate": "Sun, 12 Jan 2020 23:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Janet Krause",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=216500",
+            "author": {
+                "name": "Janet Krause",
+                "id": 216500,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=216500"
+            },
+            "coauthors": [],
             "authorId": 216500,
             "copyright": "Janet Krause",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/235825/360914"
         }
     },
     {
@@ -1465,12 +1766,17 @@
             "pubDate": "Mon, 09 Dec 2019 23:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Cynthie van Eijden",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=103640",
+            "author": {
+                "name": "Cynthie van Eijden",
+                "id": 103640,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=103640"
+            },
+            "coauthors": [],
             "authorId": 103640,
             "copyright": "Cynthie van Eijden",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/300929/300930"
         }
     },
     {
@@ -1489,12 +1795,17 @@
             "pubDate": "Mon, 09 Dec 2019 23:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Bert Mooiman",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=33390",
+            "author": {
+                "name": "Bert Mooiman",
+                "id": 33390,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=33390"
+            },
+            "coauthors": [],
             "authorId": 33390,
             "copyright": "Bert Mooiman",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/102206/755106"
         }
     },
     {
@@ -1514,12 +1825,17 @@
             "pubDate": "Thu, 24 Oct 2019 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Joseph Puglia",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=478266",
+            "author": {
+                "name": "Joseph Puglia",
+                "id": 478266,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=478266"
+            },
+            "coauthors": [],
             "authorId": 478266,
             "copyright": "Joseph Puglia",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/558624/558625"
         }
     },
     {
@@ -1539,12 +1855,17 @@
             "pubDate": "Sun, 20 Oct 2019 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Paul Deneer",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=87573",
+            "author": {
+                "name": "Paul Deneer",
+                "id": 87573,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=87573"
+            },
+            "coauthors": [],
             "authorId": 87573,
             "copyright": "Paul Deneer",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/604274/616470"
         }
     },
     {
@@ -1562,12 +1883,17 @@
             "pubDate": "Mon, 30 Sep 2019 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Hao Wang",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=394214",
+            "author": {
+                "name": "Hao Wang",
+                "id": 394214,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=394214"
+            },
+            "coauthors": [],
             "authorId": 394214,
             "copyright": "Hao Wang",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/fa/92/ab/26/fa92ab26951469aac0ed07ecb6349a40.png?t=719e8a76a5c6f3cf8c814510e4887ce0&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/fa/92/ab/26/fa92ab26951469aac0ed07ecb6349a40.png?t=719e8a76a5c6f3cf8c814510e4887ce0&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/414253/414254"
         }
     },
     {
@@ -1592,12 +1918,17 @@
             "pubDate": "Mon, 02 Sep 2019 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Robbrecht Van Cauwenberghe",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=397456",
+            "author": {
+                "name": "Robbrecht Van Cauwenberghe",
+                "id": 397456,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=397456"
+            },
+            "coauthors": [],
             "authorId": 397456,
             "copyright": "Robbrecht Van Cauwenberghe",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/b7/96/c4/bc/b796c4bcdbee36e37e1b10f53e710474.png?t=1040277959ec9fd8dd8d58f8f8929d4f&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/b7/96/c4/bc/b796c4bcdbee36e37e1b10f53e710474.png?t=1040277959ec9fd8dd8d58f8f8929d4f&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/531256/531257"
         }
     },
     {
@@ -1615,12 +1946,17 @@
             "pubDate": "Mon, 02 Sep 2019 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Julián Turiel Lobo",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=296487",
+            "author": {
+                "name": "Julián Turiel Lobo",
+                "id": 296487,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=296487"
+            },
+            "coauthors": [],
             "authorId": 296487,
             "copyright": "Julián Turiel Lobo",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/cc/27/c9/40/cc27c9403578ef5bb5ea627b63c660b8.png?t=d62b2f9341df8ad890bc564242f6114e&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/cc/27/c9/40/cc27c9403578ef5bb5ea627b63c660b8.png?t=d62b2f9341df8ad890bc564242f6114e&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/414888/414889"
         }
     },
     {
@@ -1639,12 +1975,17 @@
             "pubDate": "Mon, 02 Sep 2019 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Boukje van Gelder",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=395602",
+            "author": {
+                "name": "Boukje van Gelder",
+                "id": 395602,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=395602"
+            },
+            "coauthors": [],
             "authorId": 395602,
             "copyright": "Boukje van Gelder",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/529798/529799"
         }
     },
     {
@@ -1665,12 +2006,23 @@
             "pubDate": "Mon, 02 Sep 2019 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Laura Lunansky",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=414894",
+            "author": {
+                "name": "Laura Lunansky",
+                "id": 414894,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=414894"
+            },
+            "coauthors": [
+                {
+                    "name": "Coraline Groen",
+                    "id": 395927,
+                    "profileUrl": "https://www.researchcatalogue.net/profile/?person=395927"
+                }
+            ],
             "authorId": 414894,
             "copyright": "Laura Lunansky",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/530387/530388"
         }
     },
     {
@@ -1689,12 +2041,17 @@
             "pubDate": "Mon, 02 Sep 2019 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Judith Sepulchre",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=401064",
+            "author": {
+                "name": "Judith Sepulchre",
+                "id": 401064,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=401064"
+            },
+            "coauthors": [],
             "authorId": 401064,
             "copyright": "Judith Sepulchre",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/530540/530541"
         }
     },
     {
@@ -1716,12 +2073,17 @@
             "pubDate": "Sun, 25 Aug 2019 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Bastiaan van der Waals",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=407882",
+            "author": {
+                "name": "Bastiaan van der Waals",
+                "id": 407882,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=407882"
+            },
+            "coauthors": [],
             "authorId": 407882,
             "copyright": "Bastiaan van der Waals",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/fd/08/1b/3f/fd081b3f233a14e310d4b8e2cde7ebee.png?t=afc6ed8d355925ed24af7e884cdba619&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/fd/08/1b/3f/fd081b3f233a14e310d4b8e2cde7ebee.png?t=afc6ed8d355925ed24af7e884cdba619&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/407946/407947"
         }
     },
     {
@@ -1750,12 +2112,17 @@
             "pubDate": "Wed, 14 Aug 2019 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Diego Ruenes Rubiales",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=394894",
+            "author": {
+                "name": "Diego Ruenes Rubiales",
+                "id": 394894,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=394894"
+            },
+            "coauthors": [],
             "authorId": 394894,
             "copyright": "Diego Ruenes Rubiales",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/409098/409099"
         }
     },
     {
@@ -1782,12 +2149,17 @@
             "pubDate": "Wed, 24 Jul 2019 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Hue Blanes",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=393547",
+            "author": {
+                "name": "Hue Blanes",
+                "id": 393547,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=393547"
+            },
+            "coauthors": [],
             "authorId": 393547,
             "copyright": "Hue Blanes",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/38/64/45/85/38644585fe488fed8a95aa2a08512693.png?t=1818921a3e77d6dc7ca16a8999d07227&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/38/64/45/85/38644585fe488fed8a95aa2a08512693.png?t=1818921a3e77d6dc7ca16a8999d07227&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/393791/588232"
         }
     },
     {
@@ -1806,12 +2178,17 @@
             "pubDate": "Wed, 24 Jul 2019 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Chloe Prendergast",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=394208",
+            "author": {
+                "name": "Chloe Prendergast",
+                "id": 394208,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=394208"
+            },
+            "coauthors": [],
             "authorId": 394208,
             "copyright": "Chloe Prendergast",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/394280/573216"
         }
     },
     {
@@ -1830,12 +2207,17 @@
             "pubDate": "Sun, 02 Jun 2019 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Anders Muskens",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=394892",
+            "author": {
+                "name": "Anders Muskens",
+                "id": 394892,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=394892"
+            },
+            "coauthors": [],
             "authorId": 394892,
             "copyright": "Anders Muskens",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/f4/83/04/cb/f48304cbc0f9f13fe5dba6570daa1efc.png?t=ff7909f5225f1a733a3eab15a098a408&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/f4/83/04/cb/f48304cbc0f9f13fe5dba6570daa1efc.png?t=ff7909f5225f1a733a3eab15a098a408&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/413161/413162"
         }
     },
     {
@@ -1854,12 +2236,17 @@
             "pubDate": "Sun, 02 Jun 2019 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Niels Pfeffer",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=396992",
+            "author": {
+                "name": "Niels Pfeffer",
+                "id": 396992,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=396992"
+            },
+            "coauthors": [],
             "authorId": 396992,
             "copyright": "Niels Pfeffer",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/fd/88/7c/d2/fd887cd29653145e187c6e10f3c9ce6b.png?t=5fce973573dbfbabb57aadf3ac9be0ed&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/fd/88/7c/d2/fd887cd29653145e187c6e10f3c9ce6b.png?t=5fce973573dbfbabb57aadf3ac9be0ed&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/411011/411012"
         }
     },
     {
@@ -1879,12 +2266,17 @@
             "pubDate": "Wed, 08 May 2019 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Pim Witvrouw",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=394888",
+            "author": {
+                "name": "Pim Witvrouw",
+                "id": 394888,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=394888"
+            },
+            "coauthors": [],
             "authorId": 394888,
             "copyright": "Pim Witvrouw",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/529638/529644"
         }
     },
     {
@@ -1909,12 +2301,17 @@
             "pubDate": "Thu, 07 Feb 2019 23:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Sarah Albu",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=298985",
+            "author": {
+                "name": "Sarah Albu",
+                "id": 298985,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=298985"
+            },
+            "coauthors": [],
             "authorId": 298985,
             "copyright": "Sarah Albu",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/299025/299026"
         }
     },
     {
@@ -1935,12 +2332,17 @@
             "pubDate": "Sun, 18 Nov 2018 23:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Federico Forla",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=100046",
+            "author": {
+                "name": "Federico Forla",
+                "id": 100046,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=100046"
+            },
+            "coauthors": [],
             "authorId": 100046,
             "copyright": "Federico Forla",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/29/d3/87/ea/29d387ea81023557ed175a30522cabb8.png?t=f69542d0f8c60db2688b31c391d3123b&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/29/d3/87/ea/29d387ea81023557ed175a30522cabb8.png?t=f69542d0f8c60db2688b31c391d3123b&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/115543/115544"
         }
     },
     {
@@ -1958,12 +2360,17 @@
             "pubDate": "Thu, 01 Nov 2018 23:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Anabela Marcos",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=300749",
+            "author": {
+                "name": "Anabela Marcos",
+                "id": 300749,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=300749"
+            },
+            "coauthors": [],
             "authorId": 300749,
             "copyright": "Anabela Marcos",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/c9/88/66/99/c9886699da25b4565de2db5a800ed67f.png?t=4ebaa2d51fcbb05d7e3ab04bc58c1908&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/c9/88/66/99/c9886699da25b4565de2db5a800ed67f.png?t=4ebaa2d51fcbb05d7e3ab04bc58c1908&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/301178/464987"
         }
     },
     {
@@ -1984,12 +2391,17 @@
             "pubDate": "Mon, 01 Oct 2018 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Talitha\tWitmer",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=298178",
+            "author": {
+                "name": "Talitha\tWitmer",
+                "id": 298178,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=298178"
+            },
+            "coauthors": [],
             "authorId": 298178,
             "copyright": "Talitha\tWitmer",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/298192/507048"
         }
     },
     {
@@ -2011,12 +2423,17 @@
             "pubDate": "Mon, 01 Oct 2018 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Jacob Gramit",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=299816",
+            "author": {
+                "name": "Jacob Gramit",
+                "id": 299816,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=299816"
+            },
+            "coauthors": [],
             "authorId": 299816,
             "copyright": "Jacob Gramit",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/299991/418763"
         }
     },
     {
@@ -2038,12 +2455,17 @@
             "pubDate": "Sun, 23 Sep 2018 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Renata Silva Oliveira",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=297322",
+            "author": {
+                "name": "Renata Silva Oliveira",
+                "id": 297322,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=297322"
+            },
+            "coauthors": [],
             "authorId": 297322,
             "copyright": "Renata Silva Oliveira",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/297479/443142"
         }
     },
     {
@@ -2063,12 +2485,17 @@
             "pubDate": "Sun, 23 Sep 2018 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Alexandra Lopez Arca",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=298973",
+            "author": {
+                "name": "Alexandra Lopez Arca",
+                "id": 298973,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=298973"
+            },
+            "coauthors": [],
             "authorId": 298973,
             "copyright": "Alexandra Lopez Arca",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/299029/299030"
         }
     },
     {
@@ -2087,12 +2514,17 @@
             "pubDate": "Sun, 23 Sep 2018 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Sandra\tPerez Romero",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=298154",
+            "author": {
+                "name": "Sandra\tPerez Romero",
+                "id": 298154,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=298154"
+            },
+            "coauthors": [],
             "authorId": 298154,
             "copyright": "Sandra\tPerez Romero",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/298200/298201"
         }
     },
     {
@@ -2111,12 +2543,17 @@
             "pubDate": "Sun, 23 Sep 2018 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Rachel\tMills",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=299846",
+            "author": {
+                "name": "Rachel\tMills",
+                "id": 299846,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=299846"
+            },
+            "coauthors": [],
             "authorId": 299846,
             "copyright": "Rachel\tMills",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/299978/299979"
         }
     },
     {
@@ -2136,12 +2573,17 @@
             "pubDate": "Sun, 23 Sep 2018 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "May Kristin\t Hegvold",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=298281",
+            "author": {
+                "name": "May Kristin\t Hegvold",
+                "id": 298281,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=298281"
+            },
+            "coauthors": [],
             "authorId": 298281,
             "copyright": "May Kristin\t Hegvold",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/299015/299016"
         }
     },
     {
@@ -2161,12 +2603,17 @@
             "pubDate": "Sun, 23 Sep 2018 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Benjamin Falces Vaquero",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=299810",
+            "author": {
+                "name": "Benjamin Falces Vaquero",
+                "id": 299810,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=299810"
+            },
+            "coauthors": [],
             "authorId": 299810,
             "copyright": "Benjamin Falces Vaquero",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/299993/299994"
         }
     },
     {
@@ -2185,12 +2632,17 @@
             "pubDate": "Sun, 23 Sep 2018 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Eva Euwe",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=308461",
+            "author": {
+                "name": "Eva Euwe",
+                "id": 308461,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=308461"
+            },
+            "coauthors": [],
             "authorId": 308461,
             "copyright": "Eva Euwe",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/308467/404690"
         }
     },
     {
@@ -2209,12 +2661,17 @@
             "pubDate": "Sun, 23 Sep 2018 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Martje van damme",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=301660",
+            "author": {
+                "name": "Martje van damme",
+                "id": 301660,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=301660"
+            },
+            "coauthors": [],
             "authorId": 301660,
             "copyright": "Martje van damme",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/301722/301723"
         }
     },
     {
@@ -2236,12 +2693,17 @@
             "pubDate": "Sun, 23 Sep 2018 22:00:00 +0000",
             "doi": "https://doi.org/10.22501/rc.299033",
             "status": "published",
-            "author": "Tim\tBrackman",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=298961",
+            "author": {
+                "name": "Tim\tBrackman",
+                "id": 298961,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=298961"
+            },
+            "coauthors": [],
             "authorId": 298961,
             "copyright": "Tim\tBrackman",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/299033/299034"
         }
     },
     {
@@ -2260,12 +2722,17 @@
             "pubDate": "Sun, 23 Sep 2018 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Miguel Espinoza Chavez",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=316181",
+            "author": {
+                "name": "Miguel Espinoza Chavez",
+                "id": 316181,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=316181"
+            },
+            "coauthors": [],
             "authorId": 316181,
             "copyright": "Miguel Espinoza Chavez",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/317171/317172"
         }
     },
     {
@@ -2289,12 +2756,17 @@
             "pubDate": "Sat, 22 Sep 2018 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Natasza Kurek",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=300785",
+            "author": {
+                "name": "Natasza Kurek",
+                "id": 300785,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=300785"
+            },
+            "coauthors": [],
             "authorId": 300785,
             "copyright": "Natasza Kurek",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/29/87/4d/76/29874d76a1159a454db2cb59b022e660.png?t=0e01c4ccc2a8b2adc6d06d757285fd84&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/29/87/4d/76/29874d76a1159a454db2cb59b022e660.png?t=0e01c4ccc2a8b2adc6d06d757285fd84&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/300915/467882"
         }
     },
     {
@@ -2313,12 +2785,17 @@
             "pubDate": "Wed, 19 Sep 2018 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Ellen Corver",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=292931",
+            "author": {
+                "name": "Ellen Corver",
+                "id": 292931,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=292931"
+            },
+            "coauthors": [],
             "authorId": 292931,
             "copyright": "Ellen Corver",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/300903/300904"
         }
     },
     {
@@ -2338,12 +2815,17 @@
             "pubDate": "Wed, 19 Sep 2018 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Georgi Sztojanov",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=314341",
+            "author": {
+                "name": "Georgi Sztojanov",
+                "id": 314341,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=314341"
+            },
+            "coauthors": [],
             "authorId": 314341,
             "copyright": "Georgi Sztojanov",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/314475/441215"
         }
     },
     {
@@ -2362,12 +2844,17 @@
             "pubDate": "Thu, 30 Aug 2018 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Samuel\tTirado Villaescusa",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=298172",
+            "author": {
+                "name": "Samuel\tTirado Villaescusa",
+                "id": 298172,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=298172"
+            },
+            "coauthors": [],
             "authorId": 298172,
             "copyright": "Samuel\tTirado Villaescusa",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/393093/408190"
         }
     },
     {
@@ -2386,12 +2873,17 @@
             "pubDate": "Wed, 08 Aug 2018 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Petra Ruth Alexandry",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=314335",
+            "author": {
+                "name": "Petra Ruth Alexandry",
+                "id": 314335,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=314335"
+            },
+            "coauthors": [],
             "authorId": 314335,
             "copyright": "Petra Ruth Alexandry",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/11/7f/80/e2/117f80e21b966aebd9a7fb4864e1d6e4.png?t=944e093159613fdc198a6186db08aeb3&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/11/7f/80/e2/117f80e21b966aebd9a7fb4864e1d6e4.png?t=944e093159613fdc198a6186db08aeb3&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/323282/323283"
         }
     },
     {
@@ -2411,12 +2903,17 @@
             "pubDate": "Wed, 25 Apr 2018 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Adrianna van Leeuwen-Steghaus",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=298080",
+            "author": {
+                "name": "Adrianna van Leeuwen-Steghaus",
+                "id": 298080,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=298080"
+            },
+            "coauthors": [],
             "authorId": 298080,
             "copyright": "Adrianna van Leeuwen-Steghaus",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/8f/8c/8d/36/8f8c8d361a4e72ac640212cbbbc98263.png?t=93c3ead33cc2c79f348c79400276a0ec&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/8f/8c/8d/36/8f8c8d361a4e72ac640212cbbbc98263.png?t=93c3ead33cc2c79f348c79400276a0ec&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/298138/298139"
         }
     },
     {
@@ -2437,12 +2934,17 @@
             "pubDate": "Sun, 17 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Klaske de Haan",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=222432",
+            "author": {
+                "name": "Klaske de Haan",
+                "id": 222432,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=222432"
+            },
+            "coauthors": [],
             "authorId": 222432,
             "copyright": "Klaske de Haan",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/222446/222447"
         }
     },
     {
@@ -2465,12 +2967,17 @@
             "pubDate": "Sun, 10 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Patricia Wisse",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=214929",
+            "author": {
+                "name": "Patricia Wisse",
+                "id": 214929,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=214929"
+            },
+            "coauthors": [],
             "authorId": 214929,
             "copyright": "Patricia Wisse",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/216254/216255"
         }
     },
     {
@@ -2490,12 +2997,17 @@
             "pubDate": "Sun, 10 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Anne-Linde Visser",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=297334",
+            "author": {
+                "name": "Anne-Linde Visser",
+                "id": 297334,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=297334"
+            },
+            "coauthors": [],
             "authorId": 297334,
             "copyright": "Anne-Linde Visser",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/345237/345238"
         }
     },
     {
@@ -2515,12 +3027,17 @@
             "pubDate": "Sun, 10 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Danny Teong",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=214959",
+            "author": {
+                "name": "Danny Teong",
+                "id": 214959,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=214959"
+            },
+            "coauthors": [],
             "authorId": 214959,
             "copyright": "Danny Teong",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/216256/307166"
         }
     },
     {
@@ -2540,12 +3057,17 @@
             "pubDate": "Sun, 10 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Marios Spyrou",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=214917",
+            "author": {
+                "name": "Marios Spyrou",
+                "id": 214917,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=214917"
+            },
+            "coauthors": [],
             "authorId": 214917,
             "copyright": "Marios Spyrou",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/306978/306979"
         }
     },
     {
@@ -2568,12 +3090,17 @@
             "pubDate": "Sun, 10 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Hannah Rose (Kit) Spencer",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=215013",
+            "author": {
+                "name": "Hannah Rose (Kit) Spencer",
+                "id": 215013,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=215013"
+            },
+            "coauthors": [],
             "authorId": 215013,
             "copyright": "Hannah Rose (Kit) Spencer",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/fc/13/33/c7/fc1333c74a9c9f8c3544d5e273410cd3.png?t=89f4add5f70302554fa039def865deac&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/fc/13/33/c7/fc1333c74a9c9f8c3544d5e273410cd3.png?t=89f4add5f70302554fa039def865deac&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/307501/346541"
         }
     },
     {
@@ -2592,12 +3119,17 @@
             "pubDate": "Sun, 10 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Johan Smeulders",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=216836",
+            "author": {
+                "name": "Johan Smeulders",
+                "id": 216836,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=216836"
+            },
+            "coauthors": [],
             "authorId": 216836,
             "copyright": "Johan Smeulders",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/236871/236872"
         }
     },
     {
@@ -2617,12 +3149,17 @@
             "pubDate": "Sun, 10 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Enrico Ruggieri",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=214776",
+            "author": {
+                "name": "Enrico Ruggieri",
+                "id": 214776,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=214776"
+            },
+            "coauthors": [],
             "authorId": 214776,
             "copyright": "Enrico Ruggieri",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/216636/216637"
         }
     },
     {
@@ -2645,12 +3182,17 @@
             "pubDate": "Sun, 10 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Claudio jr de Rosa",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=215061",
+            "author": {
+                "name": "Claudio jr de Rosa",
+                "id": 215061,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=215061"
+            },
+            "coauthors": [],
             "authorId": 215061,
             "copyright": "Claudio jr de Rosa",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/4f/4f/ca/29/4f4fca295f0598bee33b219fd8f1769c.png?t=6258c631706e50f74af31d29e6d6e409&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/4f/4f/ca/29/4f4fca295f0598bee33b219fd8f1769c.png?t=6258c631706e50f74af31d29e6d6e409&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/235470/235471"
         }
     },
     {
@@ -2671,12 +3213,17 @@
             "pubDate": "Sun, 10 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Hugo Rodriguez Arteaga",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=215109",
+            "author": {
+                "name": "Hugo Rodriguez Arteaga",
+                "id": 215109,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=215109"
+            },
+            "coauthors": [],
             "authorId": 215109,
             "copyright": "Hugo Rodriguez Arteaga",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/236269/343124"
         }
     },
     {
@@ -2694,12 +3241,17 @@
             "pubDate": "Sun, 10 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Nick Prince",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=214770",
+            "author": {
+                "name": "Nick Prince",
+                "id": 214770,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=214770"
+            },
+            "coauthors": [],
             "authorId": 214770,
             "copyright": "Nick Prince",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/216139/216140"
         }
     },
     {
@@ -2718,12 +3270,17 @@
             "pubDate": "Sun, 10 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Pieter Koster",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=63201",
+            "author": {
+                "name": "Pieter Koster",
+                "id": 63201,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=63201"
+            },
+            "coauthors": [],
             "authorId": 63201,
             "copyright": "Pieter Koster",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/3f/f8/7c/76/3ff87c760eb2f79569c9422d105789e8.png?t=dc6b21cbc4acad7228b0f66eb7440e08&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/3f/f8/7c/76/3ff87c760eb2f79569c9422d105789e8.png?t=dc6b21cbc4acad7228b0f66eb7440e08&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/63714/63715"
         }
     },
     {
@@ -2741,12 +3298,17 @@
             "pubDate": "Sun, 10 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Emma Jones",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=214878",
+            "author": {
+                "name": "Emma Jones",
+                "id": 214878,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=214878"
+            },
+            "coauthors": [],
             "authorId": 214878,
             "copyright": "Emma Jones",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/216638/216815"
         }
     },
     {
@@ -2765,12 +3327,17 @@
             "pubDate": "Sun, 10 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Maria Florencia Gomez",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=214866",
+            "author": {
+                "name": "Maria Florencia Gomez",
+                "id": 214866,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=214866"
+            },
+            "coauthors": [],
             "authorId": 214866,
             "copyright": "Maria Florencia Gomez",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/ee/1b/1e/53/ee1b1e53fb733864375ae4c3ccb70173.png?t=c5f0d5f2688702fc856c8f2e7117650b&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/ee/1b/1e/53/ee1b1e53fb733864375ae4c3ccb70173.png?t=c5f0d5f2688702fc856c8f2e7117650b&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/247823/247824"
         }
     },
     {
@@ -2790,12 +3357,17 @@
             "pubDate": "Sun, 10 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Yotam Gaton",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=214806",
+            "author": {
+                "name": "Yotam Gaton",
+                "id": 214806,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=214806"
+            },
+            "coauthors": [],
             "authorId": 214806,
             "copyright": "Yotam Gaton",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/235482/345595"
         }
     },
     {
@@ -2817,12 +3389,17 @@
             "pubDate": "Sun, 10 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Raquel Garzás Garcia-Pliego",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=214989",
+            "author": {
+                "name": "Raquel Garzás Garcia-Pliego",
+                "id": 214989,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=214989"
+            },
+            "coauthors": [],
             "authorId": 214989,
             "copyright": "Raquel Garzás Garcia-Pliego",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/215245/341248/1"
         }
     },
     {
@@ -2850,12 +3427,17 @@
             "pubDate": "Sun, 10 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Maryse Legault",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=206630",
+            "author": {
+                "name": "Maryse Legault",
+                "id": 206630,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=206630"
+            },
+            "coauthors": [],
             "authorId": 206630,
             "copyright": "Maryse Legault",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/217322/217323"
         }
     },
     {
@@ -2876,12 +3458,17 @@
             "pubDate": "Sun, 10 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Jean-Loup Gagnon",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=214860",
+            "author": {
+                "name": "Jean-Loup Gagnon",
+                "id": 214860,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=214860"
+            },
+            "coauthors": [],
             "authorId": 214860,
             "copyright": "Jean-Loup Gagnon",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/8c/1e/63/bd/8c1e63bdc085a400df16c48ed3ca046d.png?t=07bc9fb6bdbd01a52e334af6c5ee5c03&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/8c/1e/63/bd/8c1e63bdc085a400df16c48ed3ca046d.png?t=07bc9fb6bdbd01a52e334af6c5ee5c03&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/215257/215258"
         }
     },
     {
@@ -2899,12 +3486,17 @@
             "pubDate": "Sun, 10 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Vasileios Filippou",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=214947",
+            "author": {
+                "name": "Vasileios Filippou",
+                "id": 214947,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=214947"
+            },
+            "coauthors": [],
             "authorId": 214947,
             "copyright": "Vasileios Filippou",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/215743/215921"
         }
     },
     {
@@ -2923,12 +3515,17 @@
             "pubDate": "Sun, 10 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Gregor Desman",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=214872",
+            "author": {
+                "name": "Gregor Desman",
+                "id": 214872,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=214872"
+            },
+            "coauthors": [],
             "authorId": 214872,
             "copyright": "Gregor Desman",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/3b/fd/90/b4/3bfd90b42d5888b67dce4b894707e2b9.png?t=ac7c7f31f39d418b70356c7905897591&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/3b/fd/90/b4/3bfd90b42d5888b67dce4b894707e2b9.png?t=ac7c7f31f39d418b70356c7905897591&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/235730/235731"
         }
     },
     {
@@ -2945,12 +3542,17 @@
             "pubDate": "Sun, 10 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Babylon Quartet",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=243558",
+            "author": {
+                "name": "Babylon Quartet",
+                "id": 243558,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=243558"
+            },
+            "coauthors": [],
             "authorId": 243558,
             "copyright": "Babylon Quartet",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/345691/345692"
         }
     },
     {
@@ -2970,12 +3572,17 @@
             "pubDate": "Sun, 10 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Gorka Catediano Andrade",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=214794",
+            "author": {
+                "name": "Gorka Catediano Andrade",
+                "id": 214794,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=214794"
+            },
+            "coauthors": [],
             "authorId": 214794,
             "copyright": "Gorka Catediano Andrade",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/215251/215252"
         }
     },
     {
@@ -2996,12 +3603,17 @@
             "pubDate": "Sun, 10 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Eirik Brandal",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=214953",
+            "author": {
+                "name": "Eirik Brandal",
+                "id": 214953,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=214953"
+            },
+            "coauthors": [],
             "authorId": 214953,
             "copyright": "Eirik Brandal",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/e8/c6/1e/10/e8c61e10cfcdd4d55fee8fa41af3654c.png?t=a5443cc2140d43c41ac136866f937f89&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/e8/c6/1e/10/e8c61e10cfcdd4d55fee8fa41af3654c.png?t=a5443cc2140d43c41ac136866f937f89&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/359669/359670"
         }
     },
     {
@@ -3028,12 +3640,17 @@
             "pubDate": "Sun, 10 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Jonathan Bonny",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=215091",
+            "author": {
+                "name": "Jonathan Bonny",
+                "id": 215091,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=215091"
+            },
+            "coauthors": [],
             "authorId": 215091,
             "copyright": "Jonathan Bonny",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/215749/215750"
         }
     },
     {
@@ -3051,12 +3668,17 @@
             "pubDate": "Sun, 10 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "João Lucas",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=216248",
+            "author": {
+                "name": "João Lucas",
+                "id": 216248,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=216248"
+            },
+            "coauthors": [],
             "authorId": 216248,
             "copyright": "João Lucas",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/216258/346189"
         }
     },
     {
@@ -3080,12 +3702,17 @@
             "pubDate": "Sun, 03 Sep 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Liesbeth Ackermans",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=130609",
+            "author": {
+                "name": "Liesbeth Ackermans",
+                "id": 130609,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=130609"
+            },
+            "coauthors": [],
             "authorId": 130609,
             "copyright": "Liesbeth Ackermans",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/1d/b4/19/75/1db41975cf18f0b68cb64e66973c5ddc.png?t=a1fcb7a6e066d4077d85b72a27b91ee9&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/1d/b4/19/75/1db41975cf18f0b68cb64e66973c5ddc.png?t=a1fcb7a6e066d4077d85b72a27b91ee9&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/235432/235433"
         }
     },
     {
@@ -3106,12 +3733,17 @@
             "pubDate": "Tue, 18 Jul 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Wouter Verschuren",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=33418",
+            "author": {
+                "name": "Wouter Verschuren",
+                "id": 33418,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=33418"
+            },
+            "coauthors": [],
             "authorId": 33418,
             "copyright": "Wouter Verschuren",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/d8/9a/94/45/d89a94456733d3d1d4a5f18f54ee7942.png?t=c6686345a54ce9894ae38131d8d611a3&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/d8/9a/94/45/d89a94456733d3d1d4a5f18f54ee7942.png?t=c6686345a54ce9894ae38131d8d611a3&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/63493/315901"
         }
     },
     {
@@ -3131,12 +3763,17 @@
             "pubDate": "Tue, 18 Jul 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Jan Willem Nelleke",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=215187",
+            "author": {
+                "name": "Jan Willem Nelleke",
+                "id": 215187,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=215187"
+            },
+            "coauthors": [],
             "authorId": 215187,
             "copyright": "Jan Willem Nelleke",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/6e/f2/31/6a/6ef2316ace00bf1427e38c62aed6d092.png?t=b369234625cb7d27cfea23007ea7568a&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/6e/f2/31/6a/6ef2316ace00bf1427e38c62aed6d092.png?t=b369234625cb7d27cfea23007ea7568a&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/216645/318141"
         }
     },
     {
@@ -3150,12 +3787,17 @@
             "pubDate": "Tue, 18 Jul 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Johan van Kreij",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=54122",
+            "author": {
+                "name": "Johan van Kreij",
+                "id": 54122,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=54122"
+            },
+            "coauthors": [],
             "authorId": 54122,
             "copyright": "Johan van Kreij",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/351986/351987"
         }
     },
     {
@@ -3176,12 +3818,17 @@
             "pubDate": "Tue, 18 Jul 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Ida Vujović",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=87158",
+            "author": {
+                "name": "Ida Vujović",
+                "id": 87158,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=87158"
+            },
+            "coauthors": [],
             "authorId": 87158,
             "copyright": "Ida Vujović",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/231816/231817"
         }
     },
     {
@@ -3202,12 +3849,17 @@
             "pubDate": "Tue, 18 Jul 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Timothy Dowling (KC)",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=215139",
+            "author": {
+                "name": "Timothy Dowling (KC)",
+                "id": 215139,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=215139"
+            },
+            "coauthors": [],
             "authorId": 215139,
             "copyright": "Timothy Dowling (KC)",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/8c/cd/17/2b/8ccd172b2ebecc3e8741f0c6eee83693.png?t=3545f9b7ea16acc6a3e1629ba37cac16&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/8c/cd/17/2b/8ccd172b2ebecc3e8741f0c6eee83693.png?t=3545f9b7ea16acc6a3e1629ba37cac16&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/360420/360421"
         }
     },
     {
@@ -3228,12 +3880,17 @@
             "pubDate": "Tue, 18 Jul 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Lex van den Broek",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=215127",
+            "author": {
+                "name": "Lex van den Broek",
+                "id": 215127,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=215127"
+            },
+            "coauthors": [],
             "authorId": 215127,
             "copyright": "Lex van den Broek",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/cf/c9/5b/96/cfc95b9640072d150460183a0ecd9e4d.png?t=b4de71159b7054cadeac2613fd9b92d9&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/cf/c9/5b/96/cfc95b9640072d150460183a0ecd9e4d.png?t=b4de71159b7054cadeac2613fd9b92d9&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/353107/353108"
         }
     },
     {
@@ -3254,12 +3911,17 @@
             "pubDate": "Wed, 05 Jul 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Koosje van Haeringen",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=215157",
+            "author": {
+                "name": "Koosje van Haeringen",
+                "id": 215157,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=215157"
+            },
+            "coauthors": [],
             "authorId": 215157,
             "copyright": "Koosje van Haeringen",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/234820/360622"
         }
     },
     {
@@ -3281,12 +3943,17 @@
             "pubDate": "Thu, 30 Mar 2017 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Bart van Oort",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=32242",
+            "author": {
+                "name": "Bart van Oort",
+                "id": 32242,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=32242"
+            },
+            "coauthors": [],
             "authorId": 32242,
             "copyright": "Bart van Oort",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/351451/351452"
         }
     },
     {
@@ -3305,12 +3972,17 @@
             "pubDate": "Thu, 01 Dec 2016 23:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Mieke van Dael",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=134825",
+            "author": {
+                "name": "Mieke van Dael",
+                "id": 134825,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=134825"
+            },
+            "coauthors": [],
             "authorId": 134825,
             "copyright": "Mieke van Dael",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/135074/278685"
         }
     },
     {
@@ -3329,12 +4001,17 @@
             "pubDate": "Tue, 15 Nov 2016 23:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Elisa van Kesteren",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=99923",
+            "author": {
+                "name": "Elisa van Kesteren",
+                "id": 99923,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=99923"
+            },
+            "coauthors": [],
             "authorId": 99923,
             "copyright": "Elisa van Kesteren",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/129864/251920"
         }
     },
     {
@@ -3352,12 +4029,17 @@
             "pubDate": "Thu, 10 Nov 2016 23:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Marielle Heidekamp",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=135055",
+            "author": {
+                "name": "Marielle Heidekamp",
+                "id": 135055,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=135055"
+            },
+            "coauthors": [],
             "authorId": 135055,
             "copyright": "Marielle Heidekamp",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/138208/242284"
         }
     },
     {
@@ -3377,12 +4059,17 @@
             "pubDate": "Mon, 24 Oct 2016 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Ryuko Reid",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=99867",
+            "author": {
+                "name": "Ryuko Reid",
+                "id": 99867,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=99867"
+            },
+            "coauthors": [],
             "authorId": 99867,
             "copyright": "Ryuko Reid",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/256810/256811"
         }
     },
     {
@@ -3402,12 +4089,17 @@
             "pubDate": "Wed, 12 Oct 2016 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Nikos Kokolakis",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=99826",
+            "author": {
+                "name": "Nikos Kokolakis",
+                "id": 99826,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=99826"
+            },
+            "coauthors": [],
             "authorId": 99826,
             "copyright": "Nikos Kokolakis",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/102482/102483"
         }
     },
     {
@@ -3426,12 +4118,17 @@
             "pubDate": "Wed, 12 Oct 2016 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Yvonne Freckmann",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=99854",
+            "author": {
+                "name": "Yvonne Freckmann",
+                "id": 99854,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=99854"
+            },
+            "coauthors": [],
             "authorId": 99854,
             "copyright": "Yvonne Freckmann",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/f3/90/a5/a0/f390a5a070791b7e23885f99a4e991c4.png?t=a8cc3aac76962116409181d30997a52f&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/f3/90/a5/a0/f390a5a070791b7e23885f99a4e991c4.png?t=a8cc3aac76962116409181d30997a52f&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/124540/124541"
         }
     },
     {
@@ -3458,12 +4155,17 @@
             "pubDate": "Wed, 12 Oct 2016 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Andrius Arutiunian",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=100042",
+            "author": {
+                "name": "Andrius Arutiunian",
+                "id": 100042,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=100042"
+            },
+            "coauthors": [],
             "authorId": 100042,
             "copyright": "Andrius Arutiunian",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/279312/279313"
         }
     },
     {
@@ -3485,12 +4187,17 @@
             "pubDate": "Sun, 04 Sep 2016 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Ewan Gibson",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=62118",
+            "author": {
+                "name": "Ewan Gibson",
+                "id": 62118,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=62118"
+            },
+            "coauthors": [],
             "authorId": 62118,
             "copyright": "Ewan Gibson",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/64050/64051"
         }
     },
     {
@@ -3508,12 +4215,17 @@
             "pubDate": "Sun, 04 Sep 2016 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Wiesje van Eersel",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=222413",
+            "author": {
+                "name": "Wiesje van Eersel",
+                "id": 222413,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=222413"
+            },
+            "coauthors": [],
             "authorId": 222413,
             "copyright": "Wiesje van Eersel",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/222456/222457/40/40"
         }
     },
     {
@@ -3535,12 +4247,17 @@
             "pubDate": "Sun, 28 Aug 2016 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Patrick van Deurzen",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=33382",
+            "author": {
+                "name": "Patrick van Deurzen",
+                "id": 33382,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=33382"
+            },
+            "coauthors": [],
             "authorId": 33382,
             "copyright": "Patrick van Deurzen",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/cd/15/eb/60/cd15eb60a1467d94a59f5ece59fe2d6b.png?t=8c1d5e1d308d4ef2702a7ed6bd23cb31&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/cd/15/eb/60/cd15eb60a1467d94a59f5ece59fe2d6b.png?t=8c1d5e1d308d4ef2702a7ed6bd23cb31&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/63288/153119"
         }
     },
     {
@@ -3559,12 +4276,17 @@
             "pubDate": "Mon, 22 Aug 2016 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Koske Nozaki",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=99986",
+            "author": {
+                "name": "Koske Nozaki",
+                "id": 99986,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=99986"
+            },
+            "coauthors": [],
             "authorId": 99986,
             "copyright": "Koske Nozaki",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/bb/cb/72/ed/bbcb72edade9a1abdbc2c4c7cea3395d.png?t=e51299f1e6785f352e92f11fc6c669b9&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/bb/cb/72/ed/bbcb72edade9a1abdbc2c4c7cea3395d.png?t=e51299f1e6785f352e92f11fc6c669b9&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/103913/103914"
         }
     },
     {
@@ -3584,12 +4306,17 @@
             "pubDate": "Mon, 13 Jun 2016 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Mikel Ibanez",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=100018",
+            "author": {
+                "name": "Mikel Ibanez",
+                "id": 100018,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=100018"
+            },
+            "coauthors": [],
             "authorId": 100018,
             "copyright": "Mikel Ibanez",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/226590/226591"
         }
     },
     {
@@ -3609,12 +4336,17 @@
             "pubDate": "Mon, 13 Jun 2016 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Aurore Montaulieu",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=99706",
+            "author": {
+                "name": "Aurore Montaulieu",
+                "id": 99706,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=99706"
+            },
+            "coauthors": [],
             "authorId": 99706,
             "copyright": "Aurore Montaulieu",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/115562/115563"
         }
     },
     {
@@ -3632,12 +4364,17 @@
             "pubDate": "Mon, 13 Jun 2016 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Juan Manuel Cisneros Garcia",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=99954",
+            "author": {
+                "name": "Juan Manuel Cisneros Garcia",
+                "id": 99954,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=99954"
+            },
+            "coauthors": [],
             "authorId": 99954,
             "copyright": "Juan Manuel Cisneros Garcia",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/204981/204982"
         }
     },
     {
@@ -3656,12 +4393,17 @@
             "pubDate": "Mon, 13 Jun 2016 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Cody Takacs",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=99710",
+            "author": {
+                "name": "Cody Takacs",
+                "id": 99710,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=99710"
+            },
+            "coauthors": [],
             "authorId": 99710,
             "copyright": "Cody Takacs",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/104841/104842"
         }
     },
     {
@@ -3680,12 +4422,17 @@
             "pubDate": "Mon, 13 Jun 2016 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Bethany Shepherd",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=100034",
+            "author": {
+                "name": "Bethany Shepherd",
+                "id": 100034,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=100034"
+            },
+            "coauthors": [],
             "authorId": 100034,
             "copyright": "Bethany Shepherd",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/114056/129227"
         }
     },
     {
@@ -3705,12 +4452,17 @@
             "pubDate": "Mon, 13 Jun 2016 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Agnieszka Papierska",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=99974",
+            "author": {
+                "name": "Agnieszka Papierska",
+                "id": 99974,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=99974"
+            },
+            "coauthors": [],
             "authorId": 99974,
             "copyright": "Agnieszka Papierska",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/106476/106477"
         }
     },
     {
@@ -3729,12 +4481,17 @@
             "pubDate": "Mon, 13 Jun 2016 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Isabella Mercuri",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=99798",
+            "author": {
+                "name": "Isabella Mercuri",
+                "id": 99798,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=99798"
+            },
+            "coauthors": [],
             "authorId": 99798,
             "copyright": "Isabella Mercuri",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/103693/103694"
         }
     },
     {
@@ -3752,12 +4509,17 @@
             "pubDate": "Mon, 13 Jun 2016 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Pieter van Loenen",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=129788",
+            "author": {
+                "name": "Pieter van Loenen",
+                "id": 129788,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=129788"
+            },
+            "coauthors": [],
             "authorId": 129788,
             "copyright": "Pieter van Loenen",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/129899/129900"
         }
     },
     {
@@ -3776,12 +4538,17 @@
             "pubDate": "Sun, 12 Jun 2016 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Charlotte Houberg",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=100010",
+            "author": {
+                "name": "Charlotte Houberg",
+                "id": 100010,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=100010"
+            },
+            "coauthors": [],
             "authorId": 100010,
             "copyright": "Charlotte Houberg",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/104326/248642"
         }
     },
     {
@@ -3800,12 +4567,17 @@
             "pubDate": "Sun, 12 Jun 2016 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Mariko Goto",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=99809",
+            "author": {
+                "name": "Mariko Goto",
+                "id": 99809,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=99809"
+            },
+            "coauthors": [],
             "authorId": 99809,
             "copyright": "Mariko Goto",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/e2/8d/29/53/e28d2953048830035dabbceb2f2efc0c.png?t=c124ef5414201dd1a2e6a782feffbbb8&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/e2/8d/29/53/e28d2953048830035dabbceb2f2efc0c.png?t=c124ef5414201dd1a2e6a782feffbbb8&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/115545/258053"
         }
     },
     {
@@ -3824,12 +4596,17 @@
             "pubDate": "Sun, 12 Jun 2016 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Isa Goldschmeding",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=99836",
+            "author": {
+                "name": "Isa Goldschmeding",
+                "id": 99836,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=99836"
+            },
+            "coauthors": [],
             "authorId": 99836,
             "copyright": "Isa Goldschmeding",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/258374/258375"
         }
     },
     {
@@ -3847,12 +4624,17 @@
             "pubDate": "Sun, 12 Jun 2016 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Peter Primus Frosch",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=99895",
+            "author": {
+                "name": "Peter Primus Frosch",
+                "id": 99895,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=99895"
+            },
+            "coauthors": [],
             "authorId": 99895,
             "copyright": "Peter Primus Frosch",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/225908/225909"
         }
     },
     {
@@ -3871,12 +4653,17 @@
             "pubDate": "Sun, 12 Jun 2016 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Feng Zhou",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=99950",
+            "author": {
+                "name": "Feng Zhou",
+                "id": 99950,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=99950"
+            },
+            "coauthors": [],
             "authorId": 99950,
             "copyright": "Feng Zhou",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/226826/226827"
         }
     },
     {
@@ -3894,12 +4681,17 @@
             "pubDate": "Sun, 12 Jun 2016 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Evan Buttar",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=99850",
+            "author": {
+                "name": "Evan Buttar",
+                "id": 99850,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=99850"
+            },
+            "coauthors": [],
             "authorId": 99850,
             "copyright": "Evan Buttar",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/104046/104047"
         }
     },
     {
@@ -3917,12 +4709,17 @@
             "pubDate": "Sun, 12 Jun 2016 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Alexis Bove",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=99726",
+            "author": {
+                "name": "Alexis Bove",
+                "id": 99726,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=99726"
+            },
+            "coauthors": [],
             "authorId": 99726,
             "copyright": "Alexis Bove",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/259314/259315"
         }
     },
     {
@@ -3942,12 +4739,17 @@
             "pubDate": "Mon, 13 Jul 2015 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Maggie Urquhart",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=62110",
+            "author": {
+                "name": "Maggie Urquhart",
+                "id": 62110,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=62110"
+            },
+            "coauthors": [],
             "authorId": 62110,
             "copyright": "Maggie Urquhart",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/9a/49/61/3f/9a49613f654c48103672753a173404cb.png?t=840168fa73b0b651df039be641c5239d&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/9a/49/61/3f/9a49613f654c48103672753a173404cb.png?t=840168fa73b0b651df039be641c5239d&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/157885/157886"
         }
     },
     {
@@ -3965,12 +4767,17 @@
             "pubDate": "Mon, 13 Jul 2015 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Karst de Jong",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=33386",
+            "author": {
+                "name": "Karst de Jong",
+                "id": 33386,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=33386"
+            },
+            "coauthors": [],
             "authorId": 33386,
             "copyright": "Karst de Jong",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/3c/0f/9f/ca/3c0f9fca85cbb0a0bfbcd15297ab9374.png?t=05ab3ca786c5f1bede30a16a89425330&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/3c/0f/9f/ca/3c0f9fca85cbb0a0bfbcd15297ab9374.png?t=05ab3ca786c5f1bede30a16a89425330&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/131067/131068"
         }
     },
     {
@@ -3991,12 +4798,17 @@
             "pubDate": "Mon, 13 Jul 2015 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Daniel Salbert",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=62106",
+            "author": {
+                "name": "Daniel Salbert",
+                "id": 62106,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=62106"
+            },
+            "coauthors": [],
             "authorId": 62106,
             "copyright": "Daniel Salbert",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/154479/155691"
         }
     },
     {
@@ -4015,12 +4827,17 @@
             "pubDate": "Mon, 01 Jun 2015 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Inês Serrano Diogo",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=61786",
+            "author": {
+                "name": "Inês Serrano Diogo",
+                "id": 61786,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=61786"
+            },
+            "coauthors": [],
             "authorId": 61786,
             "copyright": "Inês Serrano Diogo",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/135920/135921"
         }
     },
     {
@@ -4040,12 +4857,17 @@
             "pubDate": "Thu, 28 May 2015 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Georgios Kachrimanis",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=61662",
+            "author": {
+                "name": "Georgios Kachrimanis",
+                "id": 61662,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=61662"
+            },
+            "coauthors": [],
             "authorId": 61662,
             "copyright": "Georgios Kachrimanis",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/61893/61894"
         }
     },
     {
@@ -4063,12 +4885,17 @@
             "pubDate": "Wed, 27 May 2015 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "David Reschofsky",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=61758",
+            "author": {
+                "name": "David Reschofsky",
+                "id": 61758,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=61758"
+            },
+            "coauthors": [],
             "authorId": 61758,
             "copyright": "David Reschofsky",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/72/da/5f/32/72da5f324144742a94a676d447e3e97a.png?t=51d172abb6c0a10a87f52f2b24ec9d86&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/72/da/5f/32/72da5f324144742a94a676d447e3e97a.png?t=51d172abb6c0a10a87f52f2b24ec9d86&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/136873/136874"
         }
     },
     {
@@ -4086,12 +4913,17 @@
             "pubDate": "Wed, 27 May 2015 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Paulina Ptak",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=61746",
+            "author": {
+                "name": "Paulina Ptak",
+                "id": 61746,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=61746"
+            },
+            "coauthors": [],
             "authorId": 61746,
             "copyright": "Paulina Ptak",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/108734/108735"
         }
     },
     {
@@ -4110,12 +4942,17 @@
             "pubDate": "Wed, 27 May 2015 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Pauls Pokratnieks",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=61742",
+            "author": {
+                "name": "Pauls Pokratnieks",
+                "id": 61742,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=61742"
+            },
+            "coauthors": [],
             "authorId": 61742,
             "copyright": "Pauls Pokratnieks",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/22/a5/e0/19/22a5e019d76ec873b10b73894c9bf18e.png?t=aacebab1aacc8060be1cc7dbe46eb2d5&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/22/a5/e0/19/22a5e019d76ec873b10b73894c9bf18e.png?t=aacebab1aacc8060be1cc7dbe46eb2d5&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/65884/65885"
         }
     },
     {
@@ -4134,12 +4971,17 @@
             "pubDate": "Wed, 27 May 2015 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Priscilla Nokoe",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=61730",
+            "author": {
+                "name": "Priscilla Nokoe",
+                "id": 61730,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=61730"
+            },
+            "coauthors": [],
             "authorId": 61730,
             "copyright": "Priscilla Nokoe",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/132641/132642"
         }
     },
     {
@@ -4158,12 +5000,17 @@
             "pubDate": "Wed, 27 May 2015 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Oonagh Lee",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=61690",
+            "author": {
+                "name": "Oonagh Lee",
+                "id": 61690,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=61690"
+            },
+            "coauthors": [],
             "authorId": 61690,
             "copyright": "Oonagh Lee",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/78331/137060"
         }
     },
     {
@@ -4182,12 +5029,17 @@
             "pubDate": "Wed, 27 May 2015 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Thomas  Heimstad",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=61634",
+            "author": {
+                "name": "Thomas  Heimstad",
+                "id": 61634,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=61634"
+            },
+            "coauthors": [],
             "authorId": 61634,
             "copyright": "Thomas  Heimstad",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/63452/63453"
         }
     },
     {
@@ -4205,12 +5057,17 @@
             "pubDate": "Wed, 27 May 2015 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Leonie Freudenberger",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=61532",
+            "author": {
+                "name": "Leonie Freudenberger",
+                "id": 61532,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=61532"
+            },
+            "coauthors": [],
             "authorId": 61532,
             "copyright": "Leonie Freudenberger",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/62908/62909"
         }
     },
     {
@@ -4231,12 +5088,17 @@
             "pubDate": "Wed, 27 May 2015 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Raissa Fahlman",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=61508",
+            "author": {
+                "name": "Raissa Fahlman",
+                "id": 61508,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=61508"
+            },
+            "coauthors": [],
             "authorId": 61508,
             "copyright": "Raissa Fahlman",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/81312/81313"
         }
     },
     {
@@ -4257,12 +5119,17 @@
             "pubDate": "Wed, 27 May 2015 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Barbara\tBekhof",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=61455",
+            "author": {
+                "name": "Barbara\tBekhof",
+                "id": 61455,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=61455"
+            },
+            "coauthors": [],
             "authorId": 61455,
             "copyright": "Barbara\tBekhof",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/e7/8b/8b/78/e78b8b786122087e1ebf6d9d7da87db4.png?t=07e693e24613a7c3c7c9ef4ee3456aa5&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/e7/8b/8b/78/e78b8b786122087e1ebf6d9d7da87db4.png?t=07e693e24613a7c3c7c9ef4ee3456aa5&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/137139/137140"
         }
     },
     {
@@ -4284,12 +5151,17 @@
             "pubDate": "Wed, 27 May 2015 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Mariana Andrade Pimenta",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=61443",
+            "author": {
+                "name": "Mariana Andrade Pimenta",
+                "id": 61443,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=61443"
+            },
+            "coauthors": [],
             "authorId": 61443,
             "copyright": "Mariana Andrade Pimenta",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/0c/85/f0/c9/0c85f0c9be19ac3e1dfb5dbf82e28365.png?t=08cd32f975e6db044b2304241f270b49&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/0c/85/f0/c9/0c85f0c9be19ac3e1dfb5dbf82e28365.png?t=08cd32f975e6db044b2304241f270b49&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/62778/62779"
         }
     },
     {
@@ -4308,12 +5180,17 @@
             "pubDate": "Tue, 26 May 2015 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Shanti Nachtergaele",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=99911",
+            "author": {
+                "name": "Shanti Nachtergaele",
+                "id": 99911,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=99911"
+            },
+            "coauthors": [],
             "authorId": 99911,
             "copyright": "Shanti Nachtergaele",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/103988/135390"
         }
     },
     {
@@ -4332,12 +5209,17 @@
             "pubDate": "Tue, 26 May 2015 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Alistair Sung",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=61798",
+            "author": {
+                "name": "Alistair Sung",
+                "id": 61798,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=61798"
+            },
+            "coauthors": [],
             "authorId": 61798,
             "copyright": "Alistair Sung",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/33/a3/ac/94/33a3ac9454de63bcf464f05e39f4dc0d.png?t=5ed6c4d8121e39a636958412bbd202aa&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/33/a3/ac/94/33a3ac9454de63bcf464f05e39f4dc0d.png?t=5ed6c4d8121e39a636958412bbd202aa&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/81827/81828"
         }
     },
     {
@@ -4356,12 +5238,17 @@
             "pubDate": "Mon, 18 May 2015 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Giuditta Isoldi",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=61646",
+            "author": {
+                "name": "Giuditta Isoldi",
+                "id": 61646,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=61646"
+            },
+            "coauthors": [],
             "authorId": 61646,
             "copyright": "Giuditta Isoldi",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/103741/103742"
         }
     },
     {
@@ -4380,12 +5267,17 @@
             "pubDate": "Mon, 18 May 2015 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Giovanni Bermudez Cardenas",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=61460",
+            "author": {
+                "name": "Giovanni Bermudez Cardenas",
+                "id": 61460,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=61460"
+            },
+            "coauthors": [],
             "authorId": 61460,
             "copyright": "Giovanni Bermudez Cardenas",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/63720/137157"
         }
     },
     {
@@ -4408,12 +5300,17 @@
             "pubDate": "Sat, 17 Jan 2015 23:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Claudia Hansen",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=61888",
+            "author": {
+                "name": "Claudia Hansen",
+                "id": 61888,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=61888"
+            },
+            "coauthors": [],
             "authorId": 61888,
             "copyright": "Claudia Hansen",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/1c/ac/d8/2c/1cacd82c3f305e1011876540d5fb4b98.png?t=5baa4d230b84e4675b72242d8912ad84&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/1c/ac/d8/2c/1cacd82c3f305e1011876540d5fb4b98.png?t=5baa4d230b84e4675b72242d8912ad84&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/63419/63420"
         }
     },
     {
@@ -4434,12 +5331,17 @@
             "pubDate": "Mon, 08 Sep 2014 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Henrique Gomide",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=28088",
+            "author": {
+                "name": "Henrique Gomide",
+                "id": 28088,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=28088"
+            },
+            "coauthors": [],
             "authorId": 28088,
             "copyright": "Henrique Gomide",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/41/0e/73/d5/410e73d58fe67fa59771a70811e49f72.png?t=8cc5fca556f2b4f6b38c9a602a31c7db&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/41/0e/73/d5/410e73d58fe67fa59771a70811e49f72.png?t=8cc5fca556f2b4f6b38c9a602a31c7db&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/29553/29554"
         }
     },
     {
@@ -4457,12 +5359,17 @@
             "pubDate": "Sun, 07 Sep 2014 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Joao Carlos Ferreira de Miranda Santos",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=28068",
+            "author": {
+                "name": "Joao Carlos Ferreira de Miranda Santos",
+                "id": 28068,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=28068"
+            },
+            "coauthors": [],
             "authorId": 28068,
             "copyright": "Joao Carlos Ferreira de Miranda Santos",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/95488/95489"
         }
     },
     {
@@ -4480,12 +5387,17 @@
             "pubDate": "Thu, 04 Sep 2014 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Anna Walker",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=27339",
+            "author": {
+                "name": "Anna Walker",
+                "id": 27339,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=27339"
+            },
+            "coauthors": [],
             "authorId": 27339,
             "copyright": "Anna Walker",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/29459/29460"
         }
     },
     {
@@ -4505,12 +5417,17 @@
             "pubDate": "Thu, 04 Sep 2014 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "João Diogo Rosas Leitão",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=27189",
+            "author": {
+                "name": "João Diogo Rosas Leitão",
+                "id": 27189,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=27189"
+            },
+            "coauthors": [],
             "authorId": 27189,
             "copyright": "João Diogo Rosas Leitão",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/29586/29587"
         }
     },
     {
@@ -4530,12 +5447,17 @@
             "pubDate": "Thu, 04 Sep 2014 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Mikaela Oberg",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=34994",
+            "author": {
+                "name": "Mikaela Oberg",
+                "id": 34994,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=34994"
+            },
+            "coauthors": [],
             "authorId": 34994,
             "copyright": "Mikaela Oberg",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/35010/35011"
         }
     },
     {
@@ -4555,12 +5477,17 @@
             "pubDate": "Thu, 04 Sep 2014 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Andrea Vasi",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=27307",
+            "author": {
+                "name": "Andrea Vasi",
+                "id": 27307,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=27307"
+            },
+            "coauthors": [],
             "authorId": 27307,
             "copyright": "Andrea Vasi",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/44582/44583"
         }
     },
     {
@@ -4580,12 +5507,17 @@
             "pubDate": "Thu, 04 Sep 2014 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Jannelieke Schmidt",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=27145",
+            "author": {
+                "name": "Jannelieke Schmidt",
+                "id": 27145,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=27145"
+            },
+            "coauthors": [],
             "authorId": 27145,
             "copyright": "Jannelieke Schmidt",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/64886/64887"
         }
     },
     {
@@ -4604,12 +5536,17 @@
             "pubDate": "Thu, 04 Sep 2014 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Steven Zwanink",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=27133",
+            "author": {
+                "name": "Steven Zwanink",
+                "id": 27133,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=27133"
+            },
+            "coauthors": [],
             "authorId": 27133,
             "copyright": "Steven Zwanink",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/a3/7c/1b/bb/a37c1bbba2995e2226c966096750ed0a.png?t=135d508cf16240707edc37ea1d81bfa3&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/a3/7c/1b/bb/a37c1bbba2995e2226c966096750ed0a.png?t=135d508cf16240707edc37ea1d81bfa3&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/81918/81919"
         }
     },
     {
@@ -4623,12 +5560,17 @@
             "pubDate": "Thu, 04 Sep 2014 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "João Guimarães Rival",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=28568",
+            "author": {
+                "name": "João Guimarães Rival",
+                "id": 28568,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=28568"
+            },
+            "coauthors": [],
             "authorId": 28568,
             "copyright": "João Guimarães Rival",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/97172/97173"
         }
     },
     {
@@ -4647,12 +5589,17 @@
             "pubDate": "Thu, 04 Sep 2014 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Eva Lymenstull",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=27221",
+            "author": {
+                "name": "Eva Lymenstull",
+                "id": 27221,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=27221"
+            },
+            "coauthors": [],
             "authorId": 27221,
             "copyright": "Eva Lymenstull",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/28508/28509"
         }
     },
     {
@@ -4672,12 +5619,17 @@
             "pubDate": "Thu, 04 Sep 2014 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Michaela Kouřilová",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=27319",
+            "author": {
+                "name": "Michaela Kouřilová",
+                "id": 27319,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=27319"
+            },
+            "coauthors": [],
             "authorId": 27319,
             "copyright": "Michaela Kouřilová",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/31546/31547"
         }
     },
     {
@@ -4696,12 +5648,17 @@
             "pubDate": "Thu, 04 Sep 2014 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Vera Marijt",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=27335",
+            "author": {
+                "name": "Vera Marijt",
+                "id": 27335,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=27335"
+            },
+            "coauthors": [],
             "authorId": 27335,
             "copyright": "Vera Marijt",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/31695/31696"
         }
     },
     {
@@ -4720,12 +5677,17 @@
             "pubDate": "Thu, 04 Sep 2014 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Carlos Leal Cardín",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=37669",
+            "author": {
+                "name": "Carlos Leal Cardín",
+                "id": 37669,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=37669"
+            },
+            "coauthors": [],
             "authorId": 37669,
             "copyright": "Carlos Leal Cardín",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/37717/65610"
         }
     },
     {
@@ -4745,12 +5707,17 @@
             "pubDate": "Thu, 04 Sep 2014 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Radka Kubinova",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=28072",
+            "author": {
+                "name": "Radka Kubinova",
+                "id": 28072,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=28072"
+            },
+            "coauthors": [],
             "authorId": 28072,
             "copyright": "Radka Kubinova",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/06/ed/59/35/06ed59354379cce5a3b2bcf0522e2bb6.png?t=79e9a676d68f1e2e3942e14a6069d2ec&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/06/ed/59/35/06ed59354379cce5a3b2bcf0522e2bb6.png?t=79e9a676d68f1e2e3942e14a6069d2ec&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/90107/90108"
         }
     },
     {
@@ -4769,12 +5736,17 @@
             "pubDate": "Thu, 04 Sep 2014 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Mario Garcia Cortizo",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=27197",
+            "author": {
+                "name": "Mario Garcia Cortizo",
+                "id": 27197,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=27197"
+            },
+            "coauthors": [],
             "authorId": 27197,
             "copyright": "Mario Garcia Cortizo",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/63/c6/f1/34/63c6f1346938ced16dd1e12988e7dcd8.png?t=9204d9ff1531b24ab16ac701157d91dc&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/63/c6/f1/34/63c6f1346938ced16dd1e12988e7dcd8.png?t=9204d9ff1531b24ab16ac701157d91dc&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/29799/29800"
         }
     },
     {
@@ -4793,12 +5765,17 @@
             "pubDate": "Thu, 04 Sep 2014 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Kristen Huebner",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=27149",
+            "author": {
+                "name": "Kristen Huebner",
+                "id": 27149,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=27149"
+            },
+            "coauthors": [],
             "authorId": 27149,
             "copyright": "Kristen Huebner",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/8d/cb/a6/bb/8dcba6bb2efcd7ca78a3ac127e1c2ca0.png?t=aa099fa2fa2ef181f3124b623365d770&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/8d/cb/a6/bb/8dcba6bb2efcd7ca78a3ac127e1c2ca0.png?t=aa099fa2fa2ef181f3124b623365d770&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/64860/64861"
         }
     },
     {
@@ -4817,12 +5794,17 @@
             "pubDate": "Thu, 04 Sep 2014 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Martin van Hees",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=27299",
+            "author": {
+                "name": "Martin van Hees",
+                "id": 27299,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=27299"
+            },
+            "coauthors": [],
             "authorId": 27299,
             "copyright": "Martin van Hees",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/61/2d/fc/32/612dfc32d01fbfa6453098dfcef058c7.png?t=ac53eae6213ad4bec1568b3ef847711e&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/61/2d/fc/32/612dfc32d01fbfa6453098dfcef058c7.png?t=ac53eae6213ad4bec1568b3ef847711e&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/64917/64918"
         }
     },
     {
@@ -4841,12 +5823,17 @@
             "pubDate": "Wed, 03 Sep 2014 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Nuno Atalia",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=27971",
+            "author": {
+                "name": "Nuno Atalia",
+                "id": 27971,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=27971"
+            },
+            "coauthors": [],
             "authorId": 27971,
             "copyright": "Nuno Atalia",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/88835/88836"
         }
     },
     {
@@ -4865,12 +5852,17 @@
             "pubDate": "Wed, 06 Aug 2014 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Enno Voorhorst",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=33402",
+            "author": {
+                "name": "Enno Voorhorst",
+                "id": 33402,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=33402"
+            },
+            "coauthors": [],
             "authorId": 33402,
             "copyright": "Enno Voorhorst",
             "license": "All rights reserved",
-            "thumb": "https://media.researchcatalogue.net/rc/cache/60/03/23/cb/600323cb363908ba49fb6850bbc424d2.png?t=38627ecf4ed97022fe5df6178a105202&e=1647969300"
+            "thumb": "https://media.researchcatalogue.net/rc/cache/60/03/23/cb/600323cb363908ba49fb6850bbc424d2.png?t=38627ecf4ed97022fe5df6178a105202&e=1647969300",
+            "link": "https://www.researchcatalogue.net/view/62023/62024"
         }
     },
     {
@@ -4891,12 +5883,17 @@
             "pubDate": "Wed, 06 Aug 2014 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Suzanne Konings",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=62098",
+            "author": {
+                "name": "Suzanne Konings",
+                "id": 62098,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=62098"
+            },
+            "coauthors": [],
             "authorId": 62098,
             "copyright": "Suzanne Konings",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/63971/85539"
         }
     },
     {
@@ -4916,12 +5913,17 @@
             "pubDate": "Wed, 06 Aug 2014 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Donna Agrell",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=46138",
+            "author": {
+                "name": "Donna Agrell",
+                "id": 46138,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=46138"
+            },
+            "coauthors": [],
             "authorId": 46138,
             "copyright": "Donna Agrell",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/87114/87115"
         }
     },
     {
@@ -4941,12 +5943,17 @@
             "pubDate": "Wed, 06 Aug 2014 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Adri de Vugt",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=87150",
+            "author": {
+                "name": "Adri de Vugt",
+                "id": 87150,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=87150"
+            },
+            "coauthors": [],
             "authorId": 87150,
             "copyright": "Adri de Vugt",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/87154/87155"
         }
     },
     {
@@ -4965,12 +5972,23 @@
             "pubDate": "Wed, 06 Aug 2014 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Paul Deneer",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=87573",
+            "author": {
+                "name": "Paul Deneer",
+                "id": 87573,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=87573"
+            },
+            "coauthors": [
+                {
+                    "name": "Gerda van Zelm",
+                    "id": 41066,
+                    "profileUrl": "https://www.researchcatalogue.net/profile/?person=41066"
+                }
+            ],
             "authorId": 87573,
             "copyright": "Paul Deneer",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/87580/87581"
         }
     },
     {
@@ -4990,12 +6008,17 @@
             "pubDate": "Wed, 06 Aug 2014 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Ida Vujović",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=87158",
+            "author": {
+                "name": "Ida Vujović",
+                "id": 87158,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=87158"
+            },
+            "coauthors": [],
             "authorId": 87158,
             "copyright": "Ida Vujović",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/87162/87163"
         }
     },
     {
@@ -5015,12 +6038,23 @@
             "pubDate": "Wed, 06 Aug 2014 22:00:00 +0000",
             "doi": "null",
             "status": "published",
-            "author": "Wieke Karsten (older account)",
-            "authorProfile": "https://www.researchcatalogue.net/profile/?person=87844",
+            "author": {
+                "name": "Wieke Karsten (older account)",
+                "id": 87844,
+                "profileUrl": "https://www.researchcatalogue.net/profile/?person=87844"
+            },
+            "coauthors": [
+                {
+                    "name": "Susan Williams",
+                    "id": 33422,
+                    "profileUrl": "https://www.researchcatalogue.net/profile/?person=33422"
+                }
+            ],
             "authorId": 87844,
             "copyright": "Wieke Karsten (older account)",
             "license": "All rights reserved",
-            "thumb": "null"
+            "thumb": "null",
+            "link": "https://www.researchcatalogue.net/view/87849/87850"
         }
     }
 ]

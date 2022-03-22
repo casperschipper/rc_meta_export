@@ -1,11 +1,12 @@
-module RCJson exposing (PublicationStatus, Research, decodeResearch, statusToString)
+module RCJson exposing (PublicationStatus, Research, decodeResearch, statusToString, Author)
 
 import Json.Decode exposing (Decoder, field, int, maybe, string, list)
 import Json.Decode.Extra as JDE
 
 type alias Author =
     { name : String
-    , id : Int }
+    , id : Int 
+    , profileUrl : String }
 
 type alias Research =
     { id : Int
@@ -65,11 +66,16 @@ calcStatus research =
                 Nothing ->
                     Published
 
+authorProfile : Int -> String
+authorProfile id =
+    "https://www.researchcatalogue.net/profile/?person=" ++ String.fromInt id
+
 author : Decoder Author
 author =
-    Json.Decode.map2 Author 
+    Json.Decode.map3 Author 
         (field "name" string)
         (field "id" int)
+        (field "id" int |> Json.Decode.map authorProfile)
         
 
 entry : Decoder Research
