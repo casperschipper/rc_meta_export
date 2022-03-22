@@ -1,13 +1,19 @@
-# Data fetcher RC
+# Exposition MetaData fetcher RC
 
-First fetch a fresh rss feed, using wget for example:
+If you just want the data without the images, use example.json.
 
-    `wget -O rss.xml "https://www.researchcatalogue.net/feed?portal=6"`
+However, the image links in example.json be invalid (because of the timeout).
+You can create a "fresh" export by:
 
-Then server this folder locally, for example using [http-server](https://www.npmjs.com/package/http-server).
+1. Download the KC portal xml feed, for example using wget:
 
-Open index.html:
+    wget -O rss.xml "https://www.researchcatalogue.net/feed?portal=6"
 
-http://127.0.0.1:8080/index.html
+Save it as rss.xml in the same folder as index.html.
 
-The json should load directly.
+2. Then serve index.html locally, I used [http-server](https://www.npmjs.com/package/http-server).
+    Open index.html in a browser:
+    http://127.0.0.1:8080/index.html
+
+It will show then (merged) JSON, there is also a button to download it.
+
