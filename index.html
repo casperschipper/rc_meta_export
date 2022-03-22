@@ -7794,9 +7794,6 @@ var $author$project$Main$encodeMerged = function (mexp) {
 							'coauthors',
 							A2($elm$json$Json$Encode$list, $author$project$Main$encodeAuthor, mexp.coauthors)),
 							_Utils_Tuple2(
-							'authorId',
-							$elm$json$Json$Encode$int(mexp.authorId)),
-							_Utils_Tuple2(
 							'copyright',
 							$elm$json$Json$Encode$string(mexp.copyright)),
 							_Utils_Tuple2(
@@ -9481,7 +9478,6 @@ var $author$project$Main$merge = F2(
 			function (research) {
 				return {
 					author: research.author,
-					authorId: research.author.id,
 					coauthors: research.coauthors,
 					copyright: research.copyright,
 					description: meta.description,

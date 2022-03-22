@@ -483,7 +483,6 @@ type alias MergedExposition =
     , doi : String
     , status : PublicationStatus
     , author : Author
-    , authorId : Int
     , copyright : String
     , license : String
     , thumb : String
@@ -527,7 +526,6 @@ merge lst (ExpositionMeta meta) =
                 , doi = research.doi |> Maybe.withDefault "null"
                 , status = research.publicationStatus
                 , author = research.author
-                , authorId = research.author.id
                 , copyright = research.copyright
                 , license = research.license
                 , thumb = meta.enclosure.url
@@ -571,7 +569,6 @@ encodeMerged mexp =
                 , ( "status", E.string (mexp.status |> RCJson.statusToString) )
                 , ( "author", encodeAuthor mexp.author )
                 , ( "coauthors", E.list encodeAuthor mexp.coauthors)
-                , ( "authorId", E.int mexp.authorId )
                 , ( "copyright", E.string mexp.copyright )
                 , ( "license", E.string mexp.license )
                 , ( "thumb", E.string mexp.thumb )
