@@ -1,7 +1,9 @@
 module Main exposing (..)
 
 import Browser
-import Html exposing (Html, pre, text)
+import File.Download as Download
+import Html exposing (Html, button, div, pre, text)
+import Html.Events exposing (onClick)
 import Http
 import Imf.DateTime
 import Json.Encode as E
@@ -54,6 +56,7 @@ init _ =
 type Msg
     = GotText (Result Http.Error String)
     | GotJson (Result Http.Error (List Research))
+    | Download
 
 
 update : Msg -> Model -> ( Model, Cmd Msg )
@@ -148,6 +151,14 @@ update msg model =
                             in
                             ( Failure, Cmd.none )
 
+        Download ->
+            case model of
+                Finished json ->
+                    ( model, Download.string "export.json" "text/json" json )
+
+                _ ->
+                    ( model, Cmd.none )
+
 
 
 -- SUBSCRIPTIONS
@@ -190,7 +201,10 @@ view model =
             pre [] [ text string ]
 
         Finished mergedJson ->
-            pre [] [ text mergedJson ]
+            div []
+                [ button [ onClick Download ] [ text "download" ]
+                , pre [] [ text mergedJson ]
+                ]
 
 
 type Status
@@ -521,6 +535,24 @@ merge lst (ExpositionMeta meta) =
                 }
             )
 
+clean : String -> String
+clean str =
+    let 
+        f c =
+            case (c |> Char.toCode) of
+                0xE2 -> '\n' 
+                
+                0x80 -> '\n'
+                
+                0xA9 -> '\n'
+
+                0x2028 -> '\n'
+
+                0xA0 -> '\n'
+
+                other -> Char.fromCode other
+    in
+    str |> String.map f  |> String.replace "\r\n" "\\n" |> String.replace "\n" "\\n"
 
 encodeMerged : MergedExposition -> E.Value
 encodeMerged mexp =
@@ -530,10 +562,10 @@ encodeMerged mexp =
                 [ ( "id", E.int mexp.id )
                 , ( "title", E.string mexp.title )
                 , ( "keywords", E.list E.string mexp.keywords )
-                , ( "description", E.string mexp.description )
+                , ( "description", E.string (mexp.description |> clean) )
                 , ( "metaPage", E.string mexp.metaPage )
                 , ( "issue", E.string mexp.issue )
-                , ( "pubDatePosix", E.int (mexp.pubDate |> Time.posixToMillis |> (\millis -> millis // 1000)) )
+                , ( "pubDate", E.string (mexp.pubDate |> Imf.DateTime.fromPosix Time.utc) )
                 , ( "doi", E.string mexp.doi )
                 , ( "status", E.string (mexp.status |> RCJson.statusToString) )
                 , ( "author", E.string mexp.author )
