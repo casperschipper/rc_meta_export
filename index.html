@@ -6497,10 +6497,10 @@ var $author$project$RCJson$Research = function (id) {
 						return function (publicationStatus) {
 							return function (publication) {
 								return function (doi) {
-									return function (authorId) {
-										return function (license) {
-											return function (copyright) {
-												return {author: author, authorId: authorId, copyright: copyright, created: created, doi: doi, id: id, issueId: issueId, keywords: keywords, license: license, publication: publication, publicationStatus: publicationStatus, title: title};
+									return function (license) {
+										return function (copyright) {
+											return function (coauthors) {
+												return {author: author, coauthors: coauthors, copyright: copyright, created: created, doi: doi, id: id, issueId: issueId, keywords: keywords, license: license, publication: publication, publicationStatus: publicationStatus, title: title};
 											};
 										};
 									};
@@ -6515,6 +6515,18 @@ var $author$project$RCJson$Research = function (id) {
 };
 var $author$project$RCJson$Undecided = {$: 'Undecided'};
 var $elm_community$json_extra$Json$Decode$Extra$andMap = $elm$json$Json$Decode$map2($elm$core$Basics$apR);
+var $author$project$RCJson$Author = F2(
+	function (name, id) {
+		return {id: id, name: name};
+	});
+var $elm$json$Json$Decode$field = _Json_decodeField;
+var $elm$json$Json$Decode$int = _Json_decodeInt;
+var $elm$json$Json$Decode$string = _Json_decodeString;
+var $author$project$RCJson$author = A3(
+	$elm$json$Json$Decode$map2,
+	$author$project$RCJson$Author,
+	A2($elm$json$Json$Decode$field, 'name', $elm$json$Json$Decode$string),
+	A2($elm$json$Json$Decode$field, 'id', $elm$json$Json$Decode$int));
 var $author$project$RCJson$calcStatus = function (research) {
 	var _v0 = research.publicationStatus;
 	if (_v0.$ === 'InProgress') {
@@ -6528,8 +6540,6 @@ var $author$project$RCJson$calcStatus = function (research) {
 		}
 	}
 };
-var $elm$json$Json$Decode$field = _Json_decodeField;
-var $elm$json$Json$Decode$int = _Json_decodeInt;
 var $elm$json$Json$Decode$list = _Json_decodeList;
 var $elm$json$Json$Decode$oneOf = _Json_oneOf;
 var $elm$json$Json$Decode$maybe = function (decoder) {
@@ -6540,7 +6550,6 @@ var $elm$json$Json$Decode$maybe = function (decoder) {
 				$elm$json$Json$Decode$succeed($elm$core$Maybe$Nothing)
 			]));
 };
-var $elm$json$Json$Decode$string = _Json_decodeString;
 var $author$project$RCJson$entry = function () {
 	var statusFromString = function (statusString) {
 		switch (statusString) {
@@ -6566,17 +6575,17 @@ var $author$project$RCJson$entry = function () {
 			$elm_community$json_extra$Json$Decode$Extra$andMap,
 			A2(
 				$elm$json$Json$Decode$field,
-				'author',
-				A2($elm$json$Json$Decode$field, 'name', $elm$json$Json$Decode$string)),
+				'coauthors',
+				$elm$json$Json$Decode$list($author$project$RCJson$author)),
 			A2(
 				$elm_community$json_extra$Json$Decode$Extra$andMap,
-				$elm$json$Json$Decode$succeed('All rights reserved'),
+				A2(
+					$elm$json$Json$Decode$field,
+					'author',
+					A2($elm$json$Json$Decode$field, 'name', $elm$json$Json$Decode$string)),
 				A2(
 					$elm_community$json_extra$Json$Decode$Extra$andMap,
-					A2(
-						$elm$json$Json$Decode$field,
-						'author',
-						A2($elm$json$Json$Decode$field, 'id', $elm$json$Json$Decode$int)),
+					$elm$json$Json$Decode$succeed('All rights reserved'),
 					A2(
 						$elm_community$json_extra$Json$Decode$Extra$andMap,
 						A2(
@@ -6603,10 +6612,7 @@ var $author$project$RCJson$entry = function () {
 											A2($elm$json$Json$Decode$field, 'id', $elm$json$Json$Decode$int))),
 									A2(
 										$elm_community$json_extra$Json$Decode$Extra$andMap,
-										A2(
-											$elm$json$Json$Decode$field,
-											'author',
-											A2($elm$json$Json$Decode$field, 'name', $elm$json$Json$Decode$string)),
+										A2($elm$json$Json$Decode$field, 'author', $author$project$RCJson$author),
 										A2(
 											$elm_community$json_extra$Json$Decode$Extra$andMap,
 											A2($elm$json$Json$Decode$field, 'created', $elm$json$Json$Decode$string),
@@ -6662,6 +6668,33 @@ var $author$project$Main$clean = function (str) {
 			'\r\n',
 			'\\n',
 			A2($elm$core$String$map, f, str)));
+};
+var $elm$json$Json$Encode$int = _Json_wrap;
+var $elm$json$Json$Encode$object = function (pairs) {
+	return _Json_wrap(
+		A3(
+			$elm$core$List$foldl,
+			F2(
+				function (_v0, obj) {
+					var k = _v0.a;
+					var v = _v0.b;
+					return A3(_Json_addField, k, v, obj);
+				}),
+			_Json_emptyObject(_Utils_Tuple0),
+			pairs));
+};
+var $elm$json$Json$Encode$string = _Json_wrap;
+var $author$project$Main$encodeAuthor = function (author) {
+	return $elm$json$Json$Encode$object(
+		_List_fromArray(
+			[
+				_Utils_Tuple2(
+				'name',
+				$elm$json$Json$Encode$string(author.name)),
+				_Utils_Tuple2(
+				'id',
+				$elm$json$Json$Encode$int(author.id))
+			]));
 };
 var $ryannhg$date_format$DateFormat$DayOfMonthFixed = {$: 'DayOfMonthFixed'};
 var $ryannhg$date_format$DateFormat$dayOfMonthFixed = $ryannhg$date_format$DateFormat$DayOfMonthFixed;
@@ -7678,7 +7711,6 @@ var $dmy$elm_imf_date_time$Imf$DateTime$fromPosix = F2(
 			tz,
 			posix);
 	});
-var $elm$json$Json$Encode$int = _Json_wrap;
 var $elm$json$Json$Encode$list = F2(
 	function (func, entries) {
 		return _Json_wrap(
@@ -7688,19 +7720,6 @@ var $elm$json$Json$Encode$list = F2(
 				_Json_emptyArray(_Utils_Tuple0),
 				entries));
 	});
-var $elm$json$Json$Encode$object = function (pairs) {
-	return _Json_wrap(
-		A3(
-			$elm$core$List$foldl,
-			F2(
-				function (_v0, obj) {
-					var k = _v0.a;
-					var v = _v0.b;
-					return A3(_Json_addField, k, v, obj);
-				}),
-			_Json_emptyObject(_Utils_Tuple0),
-			pairs));
-};
 var $author$project$RCJson$statusToString = function (status) {
 	switch (status.$) {
 		case 'InProgress':
@@ -7713,7 +7732,6 @@ var $author$project$RCJson$statusToString = function (status) {
 			return 'unkown';
 	}
 };
-var $elm$json$Json$Encode$string = _Json_wrap;
 var $elm$time$Time$Zone = F2(
 	function (a, b) {
 		return {$: 'Zone', a: a, b: b};
@@ -7760,10 +7778,13 @@ var $author$project$Main$encodeMerged = function (mexp) {
 								$author$project$RCJson$statusToString(mexp.status))),
 							_Utils_Tuple2(
 							'author',
-							$elm$json$Json$Encode$string(mexp.author)),
+							$author$project$Main$encodeAuthor(mexp.author)),
 							_Utils_Tuple2(
 							'authorProfile',
 							$elm$json$Json$Encode$string(mexp.authorProfile)),
+							_Utils_Tuple2(
+							'coauthors',
+							A2($elm$json$Json$Encode$list, $author$project$Main$encodeAuthor, mexp.coauthors)),
 							_Utils_Tuple2(
 							'authorId',
 							$elm$json$Json$Encode$int(mexp.authorId)),
@@ -9452,8 +9473,9 @@ var $author$project$Main$merge = F2(
 			function (research) {
 				return {
 					author: research.author,
-					authorId: research.authorId,
-					authorProfile: $author$project$Main$authorProfile(research.authorId),
+					authorId: research.author.id,
+					authorProfile: $author$project$Main$authorProfile(research.author.id),
+					coauthors: research.coauthors,
 					copyright: research.copyright,
 					description: meta.description,
 					doi: A2($elm$core$Maybe$withDefault, 'null', research.doi),

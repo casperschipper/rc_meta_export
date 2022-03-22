@@ -472,6 +472,9 @@ fromXml xml =
         |> Result.map Result.Extra.partition
         |> Result.map Tuple.first
 
+type alias Author =
+    { name : String
+    , id : Int }
 
 type alias MergedExposition =
     { id : Int
@@ -483,12 +486,13 @@ type alias MergedExposition =
     , pubDate : Posix
     , doi : String
     , status : PublicationStatus
-    , author : String
+    , author : Author
     , authorProfile : String
     , authorId : Int
     , copyright : String
     , license : String
     , thumb : String
+    , coauthors : List Author
     }
 
 
@@ -527,11 +531,12 @@ merge lst (ExpositionMeta meta) =
                 , doi = research.doi |> Maybe.withDefault "null"
                 , status = research.publicationStatus
                 , author = research.author
-                , authorProfile = research.authorId |> authorProfile
-                , authorId = research.authorId
+                , authorProfile = research.author.id |> authorProfile
+                , authorId = research.author.id
                 , copyright = research.copyright
                 , license = research.license
                 , thumb = meta.enclosure.url
+                , coauthors = research.coauthors
                 }
             )
 
@@ -568,8 +573,9 @@ encodeMerged mexp =
                 , ( "pubDate", E.string (mexp.pubDate |> Imf.DateTime.fromPosix Time.utc) )
                 , ( "doi", E.string mexp.doi )
                 , ( "status", E.string (mexp.status |> RCJson.statusToString) )
-                , ( "author", E.string mexp.author )
+                , ( "author", encodeAuthor mexp.author )
                 , ( "authorProfile", E.string mexp.authorProfile )
+                , ( "coauthors", E.list encodeAuthor mexp.coauthors)
                 , ( "authorId", E.int mexp.authorId )
                 , ( "copyright", E.string mexp.copyright )
                 , ( "license", E.string mexp.license )
@@ -578,6 +584,12 @@ encodeMerged mexp =
           )
         ]
 
+encodeAuthor : Author -> E.Value
+encodeAuthor author =
+    E.object [
+        ("name", E.string author.name)
+        ,("id", E.int author.id)
+    ]
 
 encoder : List MergedExposition -> E.Value
 encoder lst =

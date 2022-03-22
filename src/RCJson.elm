@@ -1,22 +1,25 @@
 module RCJson exposing (PublicationStatus, Research, decodeResearch, statusToString)
 
-import Json.Decode exposing (Decoder, field, int, maybe, string)
+import Json.Decode exposing (Decoder, field, int, maybe, string, list)
 import Json.Decode.Extra as JDE
 
+type alias Author =
+    { name : String
+    , id : Int }
 
 type alias Research =
     { id : Int
     , title : String
     , keywords : List String
     , created : String
-    , author : String
+    , author : Author
     , issueId : Maybe Int
     , publicationStatus : PublicationStatus -- should be string?
     , publication : Maybe String
     , doi : Maybe String
-    , authorId : Int
     , license : String
     , copyright : String
+    , coauthors : List Author
     }
 
 
@@ -62,6 +65,12 @@ calcStatus research =
                 Nothing ->
                     Published
 
+author : Decoder Author
+author =
+    Json.Decode.map2 Author 
+        (field "name" string)
+        (field "id" int)
+        
 
 entry : Decoder Research
 entry =
@@ -89,12 +98,12 @@ entry =
             |> JDE.andMap (field "title" string)
             |> JDE.andMap (field "keywords" (Json.Decode.list string))
             |> JDE.andMap (field "created" string)
-            |> JDE.andMap (field "author" <| field "name" string)
+            |> JDE.andMap (field "author" author)
             |> JDE.andMap (maybe (field "issue" <| field "id" int))
             |> JDE.andMap (Json.Decode.map statusFromString (field "status" string))
             |> JDE.andMap (maybe (field "published" string))
             |> JDE.andMap (field "doi" <| maybe (field "url" string))
-            |> JDE.andMap (field "author" <| field "id" int)
             |> JDE.andMap (Json.Decode.succeed "All rights reserved")
             |> JDE.andMap (field "author" (field "name" string))
+            |> JDE.andMap (field "coauthors" (list author))
         )
