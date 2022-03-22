@@ -15,7 +15,7 @@ Save the feed as rss.xml in the same folder as index.html.
     Open index.html in a browser:
     http://127.0.0.1:8080/index.html
 
-It will show then (merged) JSON, there is also a button to download it. I think the image links will be valid
+It will show the (freshly merged) JSON, click button to download. 
 
 # Format details:
 
